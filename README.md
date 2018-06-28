@@ -28,3 +28,6 @@ Optional filters:
 
 
 __Privacy Policy:__ https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html
+
+Big thanks to Ander Méndez for creating the awesome logo!
+GitHub: https://github.com/mendezand 
