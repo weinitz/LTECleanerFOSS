@@ -13,7 +13,7 @@ cleaners clearing them is completely false.
 
 The only thing they can clean: log files, temporary files, and empty folders. All three LTE Cleaner wipes.
 
-__LTE Cleaner is %100 free, open source, ad free, and deletes everything it claims too.
+__LTE Cleaner is %100 free, open source, ad free, and deletes everything it claims too.__
 
 Optional filters:
 - .apk files
