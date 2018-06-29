@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public final void settings(View view) {
 
-        Intent randomIntent = new Intent(this, SettingsActivity.class);
-        startActivity(randomIntent);
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 
     /**
