@@ -117,7 +117,7 @@
         fancy:fb_iconPosition="left"
         fancy:fb_radius="30dp"
         fancy:fb_text="@string/Save"
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="@color/buttonText" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/backButton"
@@ -138,7 +138,7 @@
         fancy:fb_focusColor="@color/colorAccent"
         fancy:fb_radius="30dp"
         fancy:fb_text=""
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="@color/buttonText" />
 
     <ListView
         android:id="@+id/whitelistView"
@@ -190,7 +190,7 @@
         fancy:fb_focusColor="@color/colorAccent"
         fancy:fb_radius="30dp"
         fancy:fb_text="@string/privacy_policy"
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="@color/buttonText" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/addWhiteList"
@@ -212,7 +212,7 @@
         fancy:fb_radius="30dp"
         fancy:fb_fontIconResource="&#xf067;"
         fancy:fb_text=""
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="@color/buttonText" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/resetWhiteList"
@@ -234,7 +234,7 @@
         fancy:fb_radius="30dp"
         fancy:fb_fontIconResource="&#xf0e2;"
         fancy:fb_text=""
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="@color/buttonText" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/issueButton"
@@ -257,6 +257,6 @@
         fancy:fb_focusColor="@color/colorAccent"
         fancy:fb_radius="30dp"
         fancy:fb_text="@string/report_issue"
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="@color/buttonText" />
 
 </android.support.constraint.ConstraintLayout>

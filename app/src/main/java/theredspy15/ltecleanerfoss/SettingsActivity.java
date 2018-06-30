@@ -138,7 +138,7 @@ public class SettingsActivity extends AppCompatActivity {
     public final void reportIssue(View view) {
 
         IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
-                .theme(R.style.AppTheme)
+                .theme(R.style.CustomIssueReportTheme)
                 .minDescriptionLength(20)
                 .homeAsUpEnabled(true)
                 .launch(this);

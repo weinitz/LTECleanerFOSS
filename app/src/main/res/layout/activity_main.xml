@@ -72,7 +72,7 @@
         fancy:fb_fontIconResource="&#xf013;"
         fancy:fb_radius="30dp"
         fancy:fb_text=""
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="@color/buttonText" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/cleanButton"
@@ -95,6 +95,6 @@
         fancy:fb_focusColor="@color/colorAccent"
         fancy:fb_radius="30dp"
         fancy:fb_text="Clean"
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="@color/buttonText" />
 
 </android.support.constraint.ConstraintLayout>
