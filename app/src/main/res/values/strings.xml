@@ -26,4 +26,5 @@
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
     <string name="enter_file_name">Enter file/folder name to whitelist</string>
+    <string name="report_issue">Report Issue</string>
 </resources>

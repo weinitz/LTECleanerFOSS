@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.fxn.stash.Stash;
+import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
 import com.sdsmdg.tastytoast.TastyToast;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -132,5 +133,14 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         MainActivity.setUpWhiteListAndFilter(false); // false so we don't end up with the same thing we just reset
+    }
+
+    public final void reportIssue(View view) {
+
+        IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
+                .theme(R.style.AppTheme)
+                .minDescriptionLength(20)
+                .homeAsUpEnabled(true)
+                .launch(this);
     }
 }
