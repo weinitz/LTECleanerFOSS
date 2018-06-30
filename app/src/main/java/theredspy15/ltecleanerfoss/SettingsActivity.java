@@ -135,6 +135,10 @@ public class SettingsActivity extends AppCompatActivity {
         MainActivity.setUpWhiteListAndFilter(false); // false so we don't end up with the same thing we just reset
     }
 
+    /**
+     * Creates a menu that allows the user to create an issue on github
+     * @param view the view that is clicked
+     */
     public final void reportIssue(View view) {
 
         IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
