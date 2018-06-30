@@ -18,6 +18,17 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="foregroundClipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="foregroundClipartAsset">
                                         <value>
                                           <PersistentState>
@@ -47,7 +58,7 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="cbcbcb" />
-                                      <entry key="foregroundImage" value="C:\Users\Hunter\Pictures\App artwork\LTE Cleaner-20180628T205650Z-001\LTE Cleaner\1024px-Logo.png" />
+                                      <entry key="foregroundImage" value="C:\Users\Hunter\AndroidStudioProjects\LTECleanerFOSS\Screenshots\logo.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
