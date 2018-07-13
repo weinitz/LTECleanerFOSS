@@ -143,6 +143,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
                 .theme(R.style.CustomIssueReportTheme)
+                .guestEmailRequired(false)
+                .guestToken("5b88864377fb229774278868687f9c113eee8430")
                 .minDescriptionLength(20)
                 .homeAsUpEnabled(true)
                 .launch(this);
