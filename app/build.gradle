@@ -11,13 +11,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     defaultConfig {
         applicationId "theredspy15.ltecleanerfoss"
         minSdkVersion 21
-        targetSdkVersion 26
-        versionCode 8
-        versionName "2.1"
+        targetSdkVersion 28
+        versionCode 9
+        versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

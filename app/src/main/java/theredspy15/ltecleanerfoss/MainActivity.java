@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Stash.init(getApplicationContext());
+        SafeLooper.install();
 
         typeWriterView = findViewById(R.id.typeWriterView);
         fileListView = findViewById(R.id.fileListView);
