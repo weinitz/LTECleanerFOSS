@@ -217,16 +217,16 @@ public class MainActivity extends AppCompatActivity {
         // white list
         if (whiteList.size() == 0) {
 
-            whiteList.add("/storage/emulated/0/Music");
-            whiteList.add("/storage/emulated/0/Podcasts");
-            whiteList.add("/storage/emulated/0/Ringtones");
-            whiteList.add("/storage/emulated/0/Alarms");
-            whiteList.add("/storage/emulated/0/Notifications");
-            whiteList.add("/storage/emulated/0/Pictures");
-            whiteList.add("/storage/emulated/0/Movies");
-            whiteList.add("/storage/emulated/0/Download");
-            whiteList.add("/storage/emulated/0/DCIM");
-            whiteList.add("/storage/emulated/0/Documents");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Music");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Podcasts");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Ringtones");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Alarms");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Notifications");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Pictures");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Movies");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Download");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/DCIM");
+            whiteList.add(Environment.getExternalStorageDirectory().toString() + "/Documents");
         }
 
         // filter
