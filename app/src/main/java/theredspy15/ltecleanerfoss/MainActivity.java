@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fxn.stash.Stash;
+import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -124,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
 
             filesRemoved = 0;
         }
+
+        TastyToast.makeText(this,"Finished",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();
 
         Looper.loop();
     }
