@@ -83,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.clean, (dialog, whichButton) -> {
                     delete = true;
                     reset();
-                    new Thread(this::searchAndDeleteFiles).start();
+                    new Thread(this::scan).start();
                 })
                 .setNegativeButton(R.string.analyze, (dialog, whichButton) -> {
                     delete = false;
                     reset();
-                    new Thread(this::searchAndDeleteFiles).start();
+                    new Thread(this::scan).start();
                 }).show();
     }
 
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
      * out files for deletion. Repeats the process as long as it keeps finding files to clean,
      * unless nothing is found to begin with
      */
-    private void searchAndDeleteFiles() {
+    private void scan() {
 
         Looper.prepare();
 
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         File[] files = parentDirectory.listFiles();
 
         for (File file : files)
-            if (!isWhiteListed(file)) // won't touch if whitelisted
+            if (!isWhiteListed(file) || inFiles.contains(file)) // won't touch if whitelisted or already added
                 if (file.isDirectory()) { // folder if statements
 
                     if (isDirectoryEmpty(file) && Stash.getBoolean("deleteEmpty",true)) deleteFile(file); // delete if empty
