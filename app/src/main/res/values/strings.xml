@@ -31,4 +31,6 @@
     <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
     <string name="clean">Clean</string>
     <string name="analyze">Analyze</string>
+    <string name="cache_experimental">Cache folders (EXPERIMENTAL)</string>
+    <string name="the_settings_menu_is_very_wip">The settings menu is very WIP!</string>
 </resources>

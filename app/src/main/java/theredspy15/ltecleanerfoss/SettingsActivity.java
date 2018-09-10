@@ -34,6 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox emptyCheckBox;
     CheckBox logCheckBox;
     CheckBox cacheCheckBox;
+    CheckBox cacheCheckBoxExperimental;
     ListView listView;
 
     BaseAdapter adapter;
@@ -51,6 +52,7 @@ public class SettingsActivity extends AppCompatActivity {
         emptyCheckBox = findViewById(R.id.emptyFolderBox);
         logCheckBox = findViewById(R.id.logBox);
         cacheCheckBox = findViewById(R.id.cacheBox);
+        cacheCheckBoxExperimental = findViewById(R.id.cacheBoxExperimental);
         listView = findViewById(R.id.whitelistView);
 
         // whitelist view
@@ -62,7 +64,8 @@ public class SettingsActivity extends AppCompatActivity {
         tmpCheckBox.setChecked(Stash.getBoolean("deleteTmp",true));
         emptyCheckBox.setChecked(Stash.getBoolean("deleteEmpty",true));
         logCheckBox.setChecked(Stash.getBoolean("deleteLog",true));
-        cacheCheckBox.setChecked(Stash.getBoolean("deleteCache",true));
+        cacheCheckBox.setChecked(Stash.getBoolean("deleteDotCache",true));
+        cacheCheckBoxExperimental.setChecked(Stash.getBoolean("deleteCache",false));
     }
 
     /**
@@ -75,8 +78,9 @@ public class SettingsActivity extends AppCompatActivity {
         Stash.put("deleteAPKs",apkCheckBox.isChecked());
         Stash.put("deleteEmpty",emptyCheckBox.isChecked());
         Stash.put("deleteLog",logCheckBox.isChecked());
-        Stash.put("deleteCache",cacheCheckBox.isChecked());
+        Stash.put("deleteDotCache",cacheCheckBox.isChecked());
         Stash.put("deleteTmp",tmpCheckBox.isChecked());
+        Stash.put("whiteList", cacheCheckBoxExperimental.isChecked());
         Stash.put("whiteList",MainActivity.whiteList);
 
         TastyToast.makeText(this,"Saved",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();
