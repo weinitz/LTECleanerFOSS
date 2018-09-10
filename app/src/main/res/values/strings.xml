@@ -10,7 +10,7 @@
 
 <resources>
     <string name="app_name">LTE Cleaner (FOSS)</string>
-    <string name="clean">Clean</string>
+    <string name="run">Run</string>
     <string name="lte_cleaner">LTE Cleaner! Logs, Temporary and Empty Cleaner</string>
     <string name="no_files_found">No files found</string>
     <string name="delete_empty_folders">Delete empty folders</string>
@@ -27,4 +27,8 @@
     <string name="cancel">Cancel</string>
     <string name="enter_file_name">Enter file/folder name to whitelist</string>
     <string name="report_issue">Report Issue</string>
+    <string name="select_task">Select a task</string>
+    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
+    <string name="clean">Clean</string>
+    <string name="analyze">Analyze</string>
 </resources>

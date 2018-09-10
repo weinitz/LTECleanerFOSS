@@ -110,7 +110,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         final EditText input = new EditText(SettingsActivity.this);
 
-        new AlertDialog.Builder(SettingsActivity.this)
+        new AlertDialog.Builder(SettingsActivity.this,R.style.MyAlertDialogTheme)
                 .setTitle(R.string.add_to_whitelist)
                 .setMessage(R.string.enter_file_name)
                 .setView(input)

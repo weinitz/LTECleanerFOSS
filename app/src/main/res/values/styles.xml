@@ -24,4 +24,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Alert Dialog -->
+    <style name="MyAlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
 </resources>

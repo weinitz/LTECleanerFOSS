@@ -20,6 +20,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -28,7 +29,6 @@ import android.widget.TextView;
 import com.fxn.stash.Stash;
 
 import java.io.File;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,9 +37,10 @@ import in.codeshuffle.typewriterview.TypeWriterView;
 public class MainActivity extends AppCompatActivity {
 
     static List<String> whiteList = new ArrayList<>();
-    static ArrayDeque<String> extensionFilter = new ArrayDeque<>();
-    List<File> foundFiles;
+    static ArrayList<String> extensionFilter = new ArrayList<>();
+    List<File> foundFiles = new ArrayList<>();
     int filesRemoved = 0;
+    static boolean delete = false;
 
     TypeWriterView typeWriterView;
     LinearLayout fileListView;
@@ -75,7 +76,19 @@ public class MainActivity extends AppCompatActivity {
      */
     public final void clean(View view) {
 
-        new Thread(this::searchAndDeleteFiles).start();
+        new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
+                .setTitle(R.string.select_task)
+                .setMessage(R.string.do_you_want_to)
+                .setPositiveButton(R.string.clean, (dialog, whichButton) -> {
+                    delete = true;
+                    reset();
+                    new Thread(this::searchAndDeleteFiles).start();
+                })
+                .setNegativeButton(R.string.analyze, (dialog, whichButton) -> {
+                    delete = false;
+                    reset();
+                    new Thread(this::searchAndDeleteFiles).start();
+                }).show();
     }
 
     /**
@@ -97,8 +110,9 @@ public class MainActivity extends AppCompatActivity {
             // forward slash for whole device
             String path = Environment.getExternalStorageDirectory().toString() + "/";
             File directory = new File(path);
-            foundFiles = getListFiles(directory);
+            foundFiles = getListFiles(directory); // deletes empty here
 
+            // extension filter
             for (File file : foundFiles)
                 if (checkExtension(file))
                     deleteFile(file);
@@ -150,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Increments amount removed, then creates a text view to add to the scroll view.
-     * If there is any error while deleting, creates toast
+     * If there is any error while deleting, turns text view of path red
      * @param file file to delete
      */
     private void deleteFile(File file) {
@@ -165,7 +179,8 @@ public class MainActivity extends AppCompatActivity {
         runOnUiThread(() -> fileListView.addView(textView));
 
         // deletion & error effect
-        if (!file.delete()) textView.setTextColor(Color.RED);
+        if (delete)
+            if (!file.delete()) textView.setTextColor(Color.RED);
     }
 
     /**
@@ -179,6 +194,14 @@ public class MainActivity extends AppCompatActivity {
         for (String path : whiteList) if (path.equals(file.getAbsolutePath()) || path.equals(file.getName())) return true;
 
         return false;
+    }
+
+    private void reset() {
+
+        List<File> foundFiles = new ArrayList<>();
+        int filesRemoved = 0;
+
+        fileListView.removeAllViews();
     }
 
     /**
