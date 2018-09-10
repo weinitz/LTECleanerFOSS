@@ -199,6 +199,10 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Removes all view present in fileListView (linear view), and sets found and removed
+     * files to 0
+     */
     private void reset() {
 
         List<File> foundFiles = new ArrayList<>();
