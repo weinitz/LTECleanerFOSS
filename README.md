@@ -1,6 +1,8 @@
 # LTECleanerFOSS
 ![logo](https://imgur.com/ykSLpTS.png)
 
+[![Translate - with Stringlate](https://img.shields.io/badge/translate%20with-stringlate-green.svg)](https://lonamiwebs.github.io/stringlate/translate?git=https%3A%2F%2Fgithub.com%2FTheRedSpy15%2FLTECleanerFOSS)
+
 # An alternative to SD Maid, and one that is completely free and open source!
 
 Tired of the abundance of phone cleaners on the play store? Tired of 
