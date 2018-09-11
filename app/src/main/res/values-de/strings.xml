@@ -30,6 +30,6 @@
     <string name="do_you_want_to">Willst du alle gefundenen Dateien löschen oder sie nur anzeigen lassen?</string>
     <string name="clean">Säubern</string>
     <string name="analyze">Analysieren</string>
-    <string name="cache_experimental">Cache Ordner (EXPERIMENTELL)</string>
+    <string name="delete_exo_files">Lösche .exo Dateien</string>
     <string name="the_settings_menu_is_very_wip">Die Einstellungen stehen unter starker Bearbeitung</string>
 </resources>
