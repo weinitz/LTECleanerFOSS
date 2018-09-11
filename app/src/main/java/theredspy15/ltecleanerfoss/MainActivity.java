@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         // when nothing is being deleted. Stops duplicates from being found
 
         // removes the need to 'clean' multiple times to get everything
-        for (int i = 0; i < cycles; i++) {
+        for (byte i = 0; i < cycles; i++) {
 
             // forward slash for whole device
             String path = Environment.getExternalStorageDirectory().toString() + "/";
