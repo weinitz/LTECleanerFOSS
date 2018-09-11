@@ -81,13 +81,13 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle(R.string.select_task)
                 .setMessage(R.string.do_you_want_to)
                 .setPositiveButton(R.string.clean, (dialog, whichButton) -> {
-                    delete = true;
                     reset();
+                    delete = true;
                     new Thread(this::scan).start();
                 })
                 .setNegativeButton(R.string.analyze, (dialog, whichButton) -> {
-                    delete = false;
                     reset();
+                    delete = false;
                     new Thread(this::scan).start();
                 }).show();
     }
@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
         Looper.prepare();
 
-        reset();
         byte cycles = 1;
         byte maxCycles = 10;
         if (!delete) maxCycles = 1; // prevent from scanning multiple times,

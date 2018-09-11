@@ -80,7 +80,7 @@ public class SettingsActivity extends AppCompatActivity {
         Stash.put("deleteLog",logCheckBox.isChecked());
         Stash.put("deleteDotCache",cacheCheckBox.isChecked());
         Stash.put("deleteTmp",tmpCheckBox.isChecked());
-        Stash.put("whiteList", cacheCheckBoxExperimental.isChecked());
+        Stash.put("deleteCache", cacheCheckBoxExperimental.isChecked());
         Stash.put("whiteList",MainActivity.whiteList);
 
         TastyToast.makeText(this,"Saved",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();
