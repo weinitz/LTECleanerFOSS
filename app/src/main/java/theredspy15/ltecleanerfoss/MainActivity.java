@@ -101,9 +101,11 @@ public class MainActivity extends AppCompatActivity {
 
         Looper.prepare();
 
-        filesRemoved = 0;
-        byte cycles = 2;
+        reset();
+        byte cycles = 1;
         byte maxCycles = 10;
+        if (!delete) maxCycles = 1; // prevent from scanning multiple times,
+        // when nothing is being deleted. Stops duplicates from being found
 
         // removes the need to 'clean' multiple times to get everything
         for (int i = 0; i < cycles; i++) {
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             // extension filter
             for (File file : foundFiles)
                 if (checkExtension(file))
-                    deleteFile(file);
+                    displayPath(file);
 
             // no (more) files found
             if (filesRemoved == 0) break;
@@ -142,10 +144,10 @@ public class MainActivity extends AppCompatActivity {
         File[] files = parentDirectory.listFiles();
 
         for (File file : files)
-            if (!isWhiteListed(file) || inFiles.contains(file)) // won't touch if whitelisted or already added
+            if (!isWhiteListed(file)) // won't touch if whitelisted
                 if (file.isDirectory()) { // folder if statements
 
-                    if (isDirectoryEmpty(file) && Stash.getBoolean("deleteEmpty",true)) deleteFile(file); // delete if empty
+                    if (isDirectoryEmpty(file) && Stash.getBoolean("deleteEmpty",true)) displayPath(file); // delete if empty
                     else inFiles.addAll(getListFiles(file)); // add contents to returned list
 
                 } else inFiles.add(file); // add file
@@ -170,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
      * If there is any error while deleting, turns text view of path red
      * @param file file to delete
      */
-    private void deleteFile(File file) {
+    private void displayPath(File file) {
 
         // creating and adding a text view to the scroll view with path to file
         ++filesRemoved;
@@ -200,13 +202,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Removes all view present in fileListView (linear view), and sets found and removed
+     * Removes all views present in fileListView (linear view), and sets found and removed
      * files to 0
      */
     private void reset() {
 
-        List<File> foundFiles = new ArrayList<>();
-        int filesRemoved = 0;
+        foundFiles = new ArrayList<>();
+        filesRemoved = 0;
 
         fileListView.removeAllViews();
     }
