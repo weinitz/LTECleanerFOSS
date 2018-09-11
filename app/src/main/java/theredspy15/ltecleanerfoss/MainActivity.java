@@ -263,9 +263,9 @@ public class MainActivity extends AppCompatActivity {
         // filter
         if (Stash.getBoolean("deleteTmp",true)) extensionFilter.add(".tmp");
         if (Stash.getBoolean("deleteLog",true)) extensionFilter.add(".log");
-        if (Stash.getBoolean("deleteDotCache",true)) extensionFilter.add(".cache");
+        if (Stash.getBoolean("deleteCache",true)) extensionFilter.add(".cache");
         if (Stash.getBoolean("deleteAPKs",false)) extensionFilter.add(".apk");
-        if (Stash.getBoolean("deleteCache",false)) extensionFilter.add("cache");
+        if (Stash.getBoolean("deleteExo",false)) extensionFilter.add(".exo");
     }
 
     /**
