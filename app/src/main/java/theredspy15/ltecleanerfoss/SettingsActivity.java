@@ -29,12 +29,9 @@ import com.sdsmdg.tastytoast.TastyToast;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    CheckBox apkCheckBox;
-    CheckBox tmpCheckBox;
+    CheckBox genericBox;
     CheckBox emptyCheckBox;
-    CheckBox logCheckBox;
     CheckBox aggressiveBox;
-    CheckBox exoCheckBox;
     ListView listView;
 
     BaseAdapter adapter;
@@ -47,12 +44,9 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         // linking to UI
-        apkCheckBox = findViewById(R.id.apkBox);
-        tmpCheckBox = findViewById(R.id.tmpBox);
-        emptyCheckBox = findViewById(R.id.emptyFolderBox);
-        logCheckBox = findViewById(R.id.logBox);
+        genericBox = findViewById(R.id.tmpBox);
         aggressiveBox = findViewById(R.id.aggressiveBox);
-        exoCheckBox = findViewById(R.id.exoBox);
+        emptyCheckBox = findViewById(R.id.emptyFolderBox);
         listView = findViewById(R.id.whitelistView);
 
         // whitelist view
@@ -60,12 +54,9 @@ public class SettingsActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         // checkboxes
-        apkCheckBox.setChecked(Stash.getBoolean("deleteAPKs",false));
-        tmpCheckBox.setChecked(Stash.getBoolean("deleteTmp",true));
-        emptyCheckBox.setChecked(Stash.getBoolean("deleteEmpty",true));
-        logCheckBox.setChecked(Stash.getBoolean("deleteLog",true));
+        genericBox.setChecked(Stash.getBoolean("genericFilter",true));
+        emptyCheckBox.setChecked(Stash.getBoolean("deleteEmpty",false));
         aggressiveBox.setChecked(Stash.getBoolean("aggressiveFilter",false));
-        exoCheckBox.setChecked(Stash.getBoolean("deleteExo",false));
     }
 
     /**
@@ -75,12 +66,9 @@ public class SettingsActivity extends AppCompatActivity {
     public final void save(View view) {
 
         // loading preferences from stash
-        Stash.put("deleteAPKs",apkCheckBox.isChecked());
         Stash.put("deleteEmpty",emptyCheckBox.isChecked());
-        Stash.put("deleteLog",logCheckBox.isChecked());
         Stash.put("aggressiveFilter",aggressiveBox.isChecked());
-        Stash.put("deleteTmp",tmpCheckBox.isChecked());
-        Stash.put("deleteExo",exoCheckBox.isChecked());
+        Stash.put("genericFilter", genericBox.isChecked());
         Stash.put("whiteList",MainActivity.whiteList);
 
         TastyToast.makeText(this,"Saved",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();

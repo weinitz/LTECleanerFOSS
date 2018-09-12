@@ -33,8 +33,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.codeshuffle.typewriterview.TypeWriterView;
-
 public class MainActivity extends AppCompatActivity {
 
     static List<String> whiteList = new ArrayList<>();
@@ -43,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     int filesRemoved = 0;
     static boolean delete = false;
 
-    TypeWriterView typeWriterView;
     LinearLayout fileListView;
 
     @Override
@@ -54,10 +51,8 @@ public class MainActivity extends AppCompatActivity {
         Stash.init(getApplicationContext());
         SafeLooper.install();
 
-        typeWriterView = findViewById(R.id.typeWriterView);
         fileListView = findViewById(R.id.fileListView);
 
-        setUpTypeWriter();
         setUpWhiteListAndFilter(true);
         requestWriteExternalPermission();
     }
@@ -212,17 +207,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets up the type writer style text view
-     */
-    private void setUpTypeWriter() {
-
-        String text = getResources().getString(R.string.lte_cleaner);
-        typeWriterView.setDelay(1);
-        typeWriterView.setWithMusic(false);
-        typeWriterView.animateText(text);
-    }
-
-    /**
      * Runs as for each loop through the extension filter, and checks if
      * the file name contains the extension
      * @param file file to check
@@ -260,11 +244,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // filter
-        if (Stash.getBoolean("deleteTmp",true)) extensionFilter.add(".tmp");
-        if (Stash.getBoolean("deleteLog",true)) extensionFilter.add(".log");
-        if (Stash.getBoolean("deleteAPKs",false)) extensionFilter.add(".apk");
-        if (Stash.getBoolean("deleteExo",false)) extensionFilter.add(".exo");
-        if (Stash.getBoolean("aggressiveFilter",false)) {
+        if (Stash.getBoolean("genericFilter",true)) { // generic
+            extensionFilter.add(".tmp");
+            extensionFilter.add(".log");
+        }
+        if (Stash.getBoolean("aggressiveFilter",false)) { // aggressive
             extensionFilter.add("UnityShaderCache");
             extensionFilter.add("UnityAdsCache");
             extensionFilter.add("supersonicads");
@@ -272,6 +256,7 @@ public class MainActivity extends AppCompatActivity {
             extensionFilter.add("cache");
             extensionFilter.add("analytics");
             extensionFilter.add("Analytics");
+            extensionFilter.add(".exo");
         }
     }
 
