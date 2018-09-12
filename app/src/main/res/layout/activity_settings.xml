@@ -73,6 +73,17 @@
                 android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="@+id/scrollView2"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+
+            <CheckBox
+                android:id="@+id/oneClickBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/one_click_clean"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/scrollView2"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
         </LinearLayout>
     </ScrollView>
 

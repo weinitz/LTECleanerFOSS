@@ -72,19 +72,25 @@ public class MainActivity extends AppCompatActivity {
      */
     public final void clean(View view) {
 
-        new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
-                .setTitle(R.string.select_task)
-                .setMessage(R.string.do_you_want_to)
-                .setPositiveButton(R.string.clean, (dialog, whichButton) -> {
-                    reset();
-                    delete = true;
-                    new Thread(this::scan).start();
-                })
-                .setNegativeButton(R.string.analyze, (dialog, whichButton) -> {
-                    reset();
-                    delete = false;
-                    new Thread(this::scan).start();
-                }).show();
+        if (!Stash.getBoolean("oneClick",false))
+            new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
+                    .setTitle(R.string.select_task)
+                    .setMessage(R.string.do_you_want_to)
+                    .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
+                        reset();
+                        delete = true;
+                        new Thread(this::scan).start();
+                    })
+                    .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
+                        reset();
+                        delete = false;
+                        new Thread(this::scan).start();
+                    }).show();
+        else {
+            reset();
+            delete = true;
+            new Thread(this::scan).start();
+        }
     }
 
     /**
