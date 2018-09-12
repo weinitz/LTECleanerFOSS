@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private boolean checkExtension(File file) {
 
-        for (String extension : extensionFilter) if (file.getName().contains(extension)) return true;
+        for (String extension : extensionFilter) if (file.getAbsolutePath().contains(extension)) return true;
 
         return false;
     }
@@ -263,9 +263,17 @@ public class MainActivity extends AppCompatActivity {
         // filter
         if (Stash.getBoolean("deleteTmp",true)) extensionFilter.add(".tmp");
         if (Stash.getBoolean("deleteLog",true)) extensionFilter.add(".log");
-        if (Stash.getBoolean("deleteCache",true)) extensionFilter.add(".cache");
         if (Stash.getBoolean("deleteAPKs",false)) extensionFilter.add(".apk");
         if (Stash.getBoolean("deleteExo",false)) extensionFilter.add(".exo");
+        if (Stash.getBoolean("aggressiveFilter",false)) {
+            extensionFilter.add("UnityShaderCache");
+            extensionFilter.add("UnityAdsCache");
+            extensionFilter.add("supersonicads");
+            extensionFilter.add("Cache");
+            extensionFilter.add("cache");
+            extensionFilter.add("analytics");
+            extensionFilter.add("Analytics");
+        }
     }
 
     /**

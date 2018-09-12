@@ -14,7 +14,7 @@
     <string name="lte_cleaner">LTE Cleaner! Registros, Limpiador Temporal y Vacío</string>
     <string name="no_files_found">No se encontraron archivos</string>
     <string name="delete_empty_folders">Eliminar carpetes vacías</string>
-    <string name="delete_cache_files">Eliminar archivos .cache</string>
+    <string name="aggressive_filter">Habilitar filtro agresivo</string>
     <string name="delete_tmp_files">Eliminar archivos .tmp</string>
     <string name="delete_log_files">Eliminar archivos .log</string>
     <string name="delete_apk_files">Eliminar archivos .apk</string>

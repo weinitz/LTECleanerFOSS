@@ -33,7 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox tmpCheckBox;
     CheckBox emptyCheckBox;
     CheckBox logCheckBox;
-    CheckBox cacheCheckBox;
+    CheckBox aggressiveBox;
     CheckBox exoCheckBox;
     ListView listView;
 
@@ -51,7 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
         tmpCheckBox = findViewById(R.id.tmpBox);
         emptyCheckBox = findViewById(R.id.emptyFolderBox);
         logCheckBox = findViewById(R.id.logBox);
-        cacheCheckBox = findViewById(R.id.cacheBox);
+        aggressiveBox = findViewById(R.id.aggressiveBox);
         exoCheckBox = findViewById(R.id.exoBox);
         listView = findViewById(R.id.whitelistView);
 
@@ -64,7 +64,7 @@ public class SettingsActivity extends AppCompatActivity {
         tmpCheckBox.setChecked(Stash.getBoolean("deleteTmp",true));
         emptyCheckBox.setChecked(Stash.getBoolean("deleteEmpty",true));
         logCheckBox.setChecked(Stash.getBoolean("deleteLog",true));
-        cacheCheckBox.setChecked(Stash.getBoolean("deleteCache",true));
+        aggressiveBox.setChecked(Stash.getBoolean("aggressiveFilter",false));
         exoCheckBox.setChecked(Stash.getBoolean("deleteExo",false));
     }
 
@@ -78,9 +78,9 @@ public class SettingsActivity extends AppCompatActivity {
         Stash.put("deleteAPKs",apkCheckBox.isChecked());
         Stash.put("deleteEmpty",emptyCheckBox.isChecked());
         Stash.put("deleteLog",logCheckBox.isChecked());
-        Stash.put("deleteCache",cacheCheckBox.isChecked());
+        Stash.put("aggressiveFilter",aggressiveBox.isChecked());
         Stash.put("deleteTmp",tmpCheckBox.isChecked());
-        Stash.put("deleteExo", exoCheckBox.isChecked());
+        Stash.put("deleteExo",exoCheckBox.isChecked());
         Stash.put("whiteList",MainActivity.whiteList);
 
         TastyToast.makeText(this,"Saved",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();
