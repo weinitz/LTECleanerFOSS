@@ -1,4 +1,3 @@
-<!-- File "app/src/main/res/values/strings.xml" -->
 <!--
   ~  Copyright 2018 TheRedSpy15
   ~
@@ -15,9 +14,6 @@
     <string name="no_files_found">No se encontraron archivos</string>
     <string name="delete_empty_folders">Eliminar carpetes vacías</string>
     <string name="aggressive_filter">Habilitar filtro agresivo</string>
-    <string name="delete_tmp_files">Eliminar archivos .tmp</string>
-    <string name="delete_log_files">Eliminar archivos .log</string>
-    <string name="delete_apk_files">Eliminar archivos .apk</string>
     <string name="Save">Salvar</string>
     <string name="filter">Filtrar</string>
     <string name="whitelist">Lista blanca</string>
@@ -32,5 +28,6 @@
     <string name="clean">Limpiar</string>
     <string name="analyze">Analizar</string>
     <string name="the_settings_menu_is_very_wip">¡El menú de configuraión es muy WIP!</string>
-    <string name="delete_exo_files">Eliminar archivos .exo</string>
+    <string name="enable_generic_filter">Habilitar filtro genérico</string>
+    <string name="one_click_clean">Un clic limpio</string>
 </resources>

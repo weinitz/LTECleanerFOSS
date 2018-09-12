@@ -14,9 +14,6 @@
     <string name="no_files_found">Keine Dateien/Ordner gefunden</string>
     <string name="delete_empty_folders">Lösche leere Ordner</string>
     <string name="aggressive_filter">Aktivieren Sie einen aggressiven Filter</string>
-    <string name="delete_tmp_files">Lösche .tmp Dateien</string>
-    <string name="delete_log_files">Lösche .log Dateien</string>
-    <string name="delete_apk_files">Lösche .apk Dateien</string>
     <string name="Save">Speichern</string>
     <string name="filter">Filter</string>
     <string name="whitelist">Whitelist</string>
@@ -30,6 +27,7 @@
     <string name="do_you_want_to">Willst du alle gefundenen Dateien löschen oder sie nur anzeigen lassen?</string>
     <string name="clean">Säubern</string>
     <string name="analyze">Analysieren</string>
-    <string name="delete_exo_files">Lösche .exo Dateien</string>
     <string name="the_settings_menu_is_very_wip">Die Einstellungen stehen unter starker Bearbeitung</string>
+    <string name="enable_generic_filter">Aktivieren Sie den generischen Filter</string>
+    <string name="one_click_clean">Ein Klick sauber</string>
 </resources>

@@ -84,6 +84,7 @@
                 android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="@+id/scrollView2"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+
         </LinearLayout>
     </ScrollView>
 

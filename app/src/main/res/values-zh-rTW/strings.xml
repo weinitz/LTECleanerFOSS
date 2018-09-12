@@ -14,9 +14,6 @@
     <string name="no_files_found">找不到檔案</string>
     <string name="delete_empty_folders">刪除空的資料夾</string>
     <string name="aggressive_filter">啟用積極過濾器</string>
-    <string name="delete_tmp_files">刪除 .tmp 檔案</string>
-    <string name="delete_log_files">刪除 .log 檔案</string>
-    <string name="delete_apk_files">刪除 .apk 檔案</string>
     <string name="Save">儲存</string>
     <string name="filter">過濾器</string>
     <string name="whitelist">白名單</string>
@@ -31,5 +28,6 @@
     <string name="clean">清理</string>
     <string name="analyze">分析</string>
     <string name="the_settings_menu_is_very_wip">設定選單為在製品！</string>
-    <string name="delete_exo_files">刪除 .exo 檔案</string>
+    <string name="enable_generic_filter">啟用通用過濾器</string>
+    <string name="one_click_clean">一鍵清潔</string>
 </resources>
