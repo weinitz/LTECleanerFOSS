@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
             // extension filter
             for (File file : foundFiles)
-                if (checkExtension(file))
+                if (filter(file))
                     displayPath(file);
 
             // no (more) files found
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
      * @param file file to check
      * @return true if the file's extension is in the filter, false otherwise
      */
-    private boolean checkExtension(File file) {
+    private boolean filter(File file) {
 
         for (String extension : extensionFilter) if (file.getAbsolutePath().contains(extension)) return true;
 
