@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
      * @param parentDirectory where to start searching from
      * @return List of all files on device (besides whitelisted ones)
      */
-    private List<File> getListFiles(File parentDirectory) {
+    private synchronized List<File> getListFiles(File parentDirectory) {
 
         ArrayList<File> inFiles = new ArrayList<>();
         File[] files = parentDirectory.listFiles();
@@ -160,10 +160,9 @@ public class MainActivity extends AppCompatActivity {
      * @param directory directory to test
      * @return true if empty, false if containing a file(s)
      */
-    private boolean isDirectoryEmpty(File directory) {
+    private synchronized boolean isDirectoryEmpty(File directory) {
 
-        String[] files = directory.list();
-        return files.length == 0;
+        return directory.listFiles().length == 0;
     }
 
     /**
@@ -171,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
      * If there is any error while deleting, turns text view of path red
      * @param file file to delete
      */
-    private void displayPath(File file) {
+    private synchronized void displayPath(File file) {
 
         // creating and adding a text view to the scroll view with path to file
         ++filesRemoved;
@@ -193,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
      * @param file file to check
      * @return true if is the file is in the white list, false if not
      */
-    private boolean isWhiteListed(File file) {
+    private synchronized boolean isWhiteListed(File file) {
 
         for (String path : whiteList) if (path.equals(file.getAbsolutePath()) || path.equals(file.getName())) return true;
 
