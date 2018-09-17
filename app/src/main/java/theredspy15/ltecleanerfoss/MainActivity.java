@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<String> extensionFilter = new ArrayList<>();
     List<File> foundFiles = new ArrayList<>();
     int filesRemoved = 0;
+    int filesTotalSize = 0;
     static boolean delete = false;
 
     LinearLayout fileListView;
@@ -128,7 +129,13 @@ public class MainActivity extends AppCompatActivity {
             filesRemoved = 0;
         }
 
-        TastyToast.makeText(this,"Finished",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();
+        // toast amount found
+        if (delete) // Clean
+            TastyToast.makeText(
+                    this,getString(R.string.freed) + filesTotalSize + getString(R.string.kb),TastyToast.LENGTH_LONG,TastyToast.SUCCESS).show();
+        else // Analyze
+            TastyToast.makeText(
+                    this,getString(R.string.found) + filesTotalSize + getString(R.string.kb),TastyToast.LENGTH_LONG,TastyToast.SUCCESS).show();
 
         Looper.loop();
     }
@@ -172,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
      * @param file file to delete
      */
     private synchronized void displayPath(File file) {
+
+        filesTotalSize += Integer.parseInt(String.valueOf(file.length()/1024));
 
         // creating and adding a text view to the scroll view with path to file
         ++filesRemoved;

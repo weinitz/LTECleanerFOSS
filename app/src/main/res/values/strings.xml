@@ -30,4 +30,7 @@
     <string name="the_settings_menu_is_very_wip">The settings menu is very WIP!</string>
     <string name="enable_generic_filter">Enable generic filter</string>
     <string name="one_click_clean">One click clean</string>
+    <string name="freed">Freed: </string>
+    <string name="kb">KB</string>
+    <string name="found">Found: </string>
 </resources>

@@ -30,4 +30,7 @@
     <string name="the_settings_menu_is_very_wip">Die Einstellungen stehen unter starker Bearbeitung</string>
     <string name="enable_generic_filter">Aktivieren Sie den generischen Filter</string>
     <string name="one_click_clean">Ein Klick sauber</string>
+    <string name="freed">Befreit: </string>
+    <string name="kb">KB</string>
+    <string name="found">Gefunden: </string>
 </resources>

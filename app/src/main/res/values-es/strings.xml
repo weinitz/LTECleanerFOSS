@@ -30,4 +30,7 @@
     <string name="the_settings_menu_is_very_wip">¡El menú de configuraión es muy WIP!</string>
     <string name="enable_generic_filter">Habilitar filtro genérico</string>
     <string name="one_click_clean">Un clic limpio</string>
+    <string name="freed">Liberado: </string>
+    <string name="kb">KB</string>
+    <string name="found">Encontró: </string>
 </resources>
