@@ -132,10 +132,10 @@ public class MainActivity extends AppCompatActivity {
         // toast amount found
         if (delete) // Clean
             TastyToast.makeText(
-                    this,getString(R.string.freed) + filesTotalSize + getString(R.string.kb),TastyToast.LENGTH_LONG,TastyToast.SUCCESS).show();
+                    this,getString(R.string.freed) + " " + filesTotalSize + getString(R.string.kb),TastyToast.LENGTH_LONG,TastyToast.SUCCESS).show();
         else // Analyze
             TastyToast.makeText(
-                    this,getString(R.string.found) + filesTotalSize + getString(R.string.kb),TastyToast.LENGTH_LONG,TastyToast.SUCCESS).show();
+                    this,getString(R.string.found) + " " + filesTotalSize + getString(R.string.kb),TastyToast.LENGTH_LONG,TastyToast.SUCCESS).show();
 
         Looper.loop();
     }
