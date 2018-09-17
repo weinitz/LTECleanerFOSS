@@ -5,6 +5,13 @@
 
 # An alternative to SD Maid, and one that is completely free and open source!
 
+[<img src="https://f-droid.org/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="90">](https://f-droid.org/packages/theredspy15.ltecleanerfoss/)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+    alt="Get it on Google Play"
+    height="90">](https://play.google.com/store/apps/details?id=theredspy15.ltecleanerfoss)
+
 Tired of the abundance of phone cleaners on the play store? Tired of 
 them being extremely shady? Tired of them doing nothing? Tired of ads? 
 Tired of having to pay? Me too.
@@ -25,9 +32,6 @@ Optional filters:
 - empty folders
 
 ![screenshot](https://github.com/TheRedSpy15/LTECleanerFOSS/blob/master/Screenshots/Screenshot_1529468353_framed.png)
-
-<a href='https://play.google.com/store/apps/details?id=theredspy15.ltecleanerfoss&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
-
 
 __Privacy Policy:__ https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html
 
