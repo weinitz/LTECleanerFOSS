@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<String> extensionFilter = new ArrayList<>();
     List<File> foundFiles = new ArrayList<>();
     int filesRemoved = 0;
-    int filesTotalSize = 0;
+    int kilobytesTotal = 0;
     static boolean delete = false;
 
     LinearLayout fileListView;
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public final void clean(View view) {
 
-        if (!Stash.getBoolean("oneClick",false))
+        if (!Stash.getBoolean("oneClick",false)) // one-click disabled
             new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
                     .setTitle(R.string.select_task)
                     .setMessage(R.string.do_you_want_to)
@@ -87,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
                         delete = false;
                         new Thread(this::scan).start();
                     }).show();
-        else {
+        else { // one-click enabled
             reset();
-            delete = true;
+            delete = true; // clean
             new Thread(this::scan).start();
         }
     }
@@ -105,37 +105,33 @@ public class MainActivity extends AppCompatActivity {
 
         byte cycles = 1;
         byte maxCycles = 10;
-        if (!delete) maxCycles = 1; // prevent from scanning multiple times,
-        // when nothing is being deleted. Stops duplicates from being found
+        if (!delete) maxCycles = 1; // when nothing is being deleted. Stops duplicates from being found
 
         // removes the need to 'clean' multiple times to get everything
         for (byte i = 0; i < cycles; i++) {
 
-            // forward slash for whole device
-            String path = Environment.getExternalStorageDirectory().toString() + "/";
+            // find files
+            String path = Environment.getExternalStorageDirectory().toString() + "/"; // forward slash for whole device
             File directory = new File(path);
             foundFiles = getListFiles(directory); // deletes empty here
 
-            // extension filter
+            // filter
             for (File file : foundFiles)
                 if (filter(file))
                     displayPath(file);
 
-            // no (more) files found
-            if (filesRemoved == 0) break;
-            else ++cycles;
-            if (cycles >= maxCycles) break; // prevent from running to many times
+            if (filesRemoved == 0) break; // nothing found this run
+            else ++cycles; // something found - increase cycle limit
+            if (cycles >= maxCycles) break; // cycle limit check
 
-            filesRemoved = 0;
+            filesRemoved = 0; // reset for next cycle
         }
 
-        // toast amount found
-        if (delete) // Clean
-            TastyToast.makeText(
-                    this,getString(R.string.freed) + " " + filesTotalSize + getString(R.string.kb),TastyToast.LENGTH_LONG,TastyToast.SUCCESS).show();
-        else // Analyze
-            TastyToast.makeText(
-                    this,getString(R.string.found) + " " + filesTotalSize + getString(R.string.kb),TastyToast.LENGTH_LONG,TastyToast.SUCCESS).show();
+        // toast view with amount found/freed
+        if (delete) TastyToast.makeText( // Clean toast
+                this, getString(R.string.freed) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
+        else TastyToast.makeText( // Analyze toast
+                this, getString(R.string.found) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
 
         Looper.loop();
     }
@@ -180,13 +176,11 @@ public class MainActivity extends AppCompatActivity {
      */
     private synchronized void displayPath(File file) {
 
-        filesTotalSize += Integer.parseInt(String.valueOf(file.length()/1024));
+        kilobytesTotal += Integer.parseInt(String.valueOf(file.length()/1024));
 
         // creating and adding a text view to the scroll view with path to file
         ++filesRemoved;
-        TextView textView = new TextView(MainActivity.this);
-        textView.setTextColor(Color.WHITE);
-        textView.setText(file.getAbsolutePath());
+        TextView textView = generateTextView(Color.WHITE, file.getAbsolutePath());
 
         // adding to scroll view
         runOnUiThread(() -> fileListView.addView(textView));
@@ -194,6 +188,21 @@ public class MainActivity extends AppCompatActivity {
         // deletion & error effect
         if (delete)
             if (!file.delete()) textView.setTextColor(Color.RED);
+    }
+
+    /**
+     * Convenience method to quickly create a textview
+     * @param color - color text color in textview
+     * @param text - text of textview
+     * @return - created textview
+     */
+    private TextView generateTextView(int color, String text) {
+
+        TextView textView = new TextView(MainActivity.this);
+        textView.setTextColor(color);
+        textView.setText(text);
+
+        return textView;
     }
 
     /**
@@ -217,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
 
         foundFiles = new ArrayList<>();
         filesRemoved = 0;
+        kilobytesTotal = 0;
 
         fileListView.removeAllViews();
     }
@@ -244,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
         if (loadStash) whiteList = Stash.getArrayList("whiteList",String.class);
 
         // white list
-        if (whiteList.size() == 0) {
+        if (whiteList.size() == 0) { // if whitelist was reset
 
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Music").getPath());
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Podcasts").getPath());
@@ -258,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Documents").getPath());
         }
 
-        // filter
+        // filters
         if (Stash.getBoolean("genericFilter",true)) { // generic
             extensionFilter.add(".tmp");
             extensionFilter.add(".log");
