@@ -255,8 +255,6 @@ public class MainActivity extends AppCompatActivity {
             extensionFilter.add(".log");
         }
         if (Stash.getBoolean("aggressiveFilter",false)) { // aggressive
-            extensionFilter.add("UnityShaderCache");
-            extensionFilter.add("UnityAdsCache");
             extensionFilter.add("supersonicads");
             extensionFilter.add("Cache");
             extensionFilter.add("cache");
