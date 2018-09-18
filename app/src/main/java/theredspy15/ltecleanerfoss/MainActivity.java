@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         for (byte i = 0; i < cycles; i++) {
 
             // find files
-            String path = Environment.getExternalStorageDirectory().toString() + "/"; // forward slash for whole device
+            String path = Environment.getExternalStorageDirectory().toString() + "/"; // just a forward slash for whole device
             File directory = new File(path);
             foundFiles = getListFiles(directory); // deletes empty here
 

@@ -22,7 +22,7 @@
     <string name="add">加入</string>
     <string name="cancel">取消</string>
     <string name="enter_file_name">輸入要加到白名單的檔案/資料夾名稱</string>
-    <string name="report_issue">回報問題</string>
+    <string name="make_suggestion">提供意見</string>
     <string name="select_task">選擇任務</string>
     <string name="do_you_want_to">你要刪除（清理）所有找到的檔案，或是只顯示（分析）它們？</string>
     <string name="clean">清理</string>

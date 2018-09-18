@@ -22,7 +22,7 @@
     <string name="add">Añadir</string>
     <string name="cancel">Cancelar</string>
     <string name="enter_file_name">Ingrese el nombre del archivo / carpeta a la lista blanca</string>
-    <string name="report_issue">Informe de problema</string>
+    <string name="make_suggestion">Hacer una sugerencia</string>
     <string name="select_task">Seleccione una tarea</string>
     <string name="do_you_want_to">¿Desea eliminar (Limpiar) todos los archivos encontrados o solo mostrarlos (Analizar)?</string>
     <string name="clean">Limpiar</string>

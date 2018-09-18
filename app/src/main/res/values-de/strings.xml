@@ -22,7 +22,7 @@
     <string name="add">Hinzufügen</string>
     <string name="cancel">Abbrechen</string>
     <string name="enter_file_name">Datei-/Ordnernamen zur Whitelist hinzufügen</string>
-    <string name="report_issue">Fehler einreichen</string>
+    <string name="make_suggestion">Vorschlag machen</string>
     <string name="select_task">Wähle eine Aufgabe aus</string>
     <string name="do_you_want_to">Willst du alle gefundenen Dateien löschen oder sie nur anzeigen lassen?</string>
     <string name="clean">Säubern</string>
