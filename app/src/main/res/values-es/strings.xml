@@ -10,27 +10,27 @@
 
 <resources>
     <string name="app_name">LTE Cleaner (FOSS)</string>
-    <string name="lte_cleaner">LTE Cleaner! Registros, Limpiador Temporal y Vacío</string>
+    <string name="lte_cleaner">LTE Cleaner! Limpiador de registros, archivos temporales y carpetas vacías</string>
     <string name="no_files_found">No se encontraron archivos</string>
-    <string name="delete_empty_folders">Eliminar carpetes vacías</string>
+    <string name="delete_empty_folders">Eliminar carpetas vacías</string>
     <string name="aggressive_filter">Habilitar filtro agresivo</string>
-    <string name="Save">Salvar</string>
+    <string name="Save">Guardar</string>
     <string name="filter">Filtrar</string>
     <string name="whitelist">Lista blanca</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="add_to_whitelist">Agregar a la lista blanca</string>
     <string name="add">Añadir</string>
     <string name="cancel">Cancelar</string>
-    <string name="enter_file_name">Ingrese el nombre del archivo / carpeta a la lista blanca</string>
+    <string name="enter_file_name">Ingrese el nombre del archivo/carpeta para agregar a la lista blanca</string>
     <string name="make_suggestion">Hacer una sugerencia</string>
     <string name="select_task">Seleccione una tarea</string>
     <string name="do_you_want_to">¿Desea eliminar (Limpiar) todos los archivos encontrados o solo mostrarlos (Analizar)?</string>
     <string name="clean">Limpiar</string>
     <string name="analyze">Analizar</string>
-    <string name="the_settings_menu_is_very_wip">¡El menú de configuraión es muy WIP!</string>
+    <string name="the_settings_menu_is_very_wip">¡Aún estamos trabajando en el menú de configuración!</string>
     <string name="enable_generic_filter">Habilitar filtro genérico</string>
-    <string name="one_click_clean">Un clic limpio</string>
-    <string name="freed">Liberado: </string>
+    <string name="one_click_clean">Limpiar en un clic</string>
+    <string name="freed">Liberado:</string>
     <string name="kb">KB</string>
-    <string name="found">Encontró: </string>
+    <string name="found">Encontrado:</string>
 </resources>
