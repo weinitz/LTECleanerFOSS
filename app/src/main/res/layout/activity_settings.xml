@@ -248,8 +248,7 @@
         fancy:fb_focusColor="@color/colorAccent"
         fancy:fb_radius="30dp"
         fancy:fb_text="@string/make_suggestion"
-        fancy:fb_textColor="@color/buttonText"
-        app:fb_text="@string/make_suggestion" />
+        fancy:fb_textColor="@color/buttonText" />
 
     <TextView
         android:id="@+id/textView3"

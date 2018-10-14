@@ -93,9 +93,7 @@ public class SettingsActivity extends AppCompatActivity {
      * @param view the view that is clicked
      */
     public final void back(View view) {
-
-        Intent randomIntent = new Intent(this, MainActivity.class);
-        startActivity(randomIntent);
+        super.onBackPressed();
     }
 
     /**
