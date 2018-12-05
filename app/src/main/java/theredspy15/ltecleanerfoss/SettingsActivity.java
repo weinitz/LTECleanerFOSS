@@ -45,7 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         // linking to UI
-        genericBox = findViewById(R.id.tmpBox);
+        genericBox = findViewById(R.id.genericBox);
         aggressiveBox = findViewById(R.id.aggressiveBox);
         emptyCheckBox = findViewById(R.id.emptyFolderBox);
         oneClickBox = findViewById(R.id.oneClickBox);

@@ -42,15 +42,14 @@
                 android:textStyle="bold" />
 
             <CheckBox
-                android:id="@+id/tmpBox"
+                android:id="@+id/genericBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/enable_generic_filter"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <CheckBox
                 android:id="@+id/aggressiveBox"
@@ -60,8 +59,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/aggressive_filter"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <CheckBox
                 android:id="@+id/emptyFolderBox"
@@ -71,8 +69,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/delete_empty_folders"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="@+id/scrollView2"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
 
             <CheckBox
                 android:id="@+id/oneClickBox"
@@ -82,8 +79,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/one_click_clean"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="@+id/scrollView2"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
 
         </LinearLayout>
     </ScrollView>
@@ -248,8 +244,7 @@
         fancy:fb_focusColor="@color/colorAccent"
         fancy:fb_radius="30dp"
         fancy:fb_text="@string/make_suggestion"
-        fancy:fb_textColor="@color/buttonText"
-        app:fb_text="@string/make_suggestion" />
+        fancy:fb_textColor="@color/buttonText" />
 
     <TextView
         android:id="@+id/textView3"
