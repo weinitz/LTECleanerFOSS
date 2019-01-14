@@ -280,6 +280,7 @@ public class MainActivity extends AppCompatActivity {
             extensionFilter.add("analytics");
             extensionFilter.add("Analytics");
             extensionFilter.add(".exo");
+            extensionFilter.add(".thumbnails");
         }
     }
 
