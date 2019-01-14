@@ -30,17 +30,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/filter"
-                android:textColor="@color/colorAccent"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
             <CheckBox
                 android:id="@+id/tmpBox"
                 android:layout_width="match_parent"
@@ -49,8 +38,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/enable_generic_filter"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <CheckBox
                 android:id="@+id/aggressiveBox"
@@ -60,8 +48,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/aggressive_filter"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <CheckBox
                 android:id="@+id/emptyFolderBox"
@@ -71,8 +58,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/delete_empty_folders"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="@+id/scrollView2"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
 
             <CheckBox
                 android:id="@+id/oneClickBox"
@@ -82,8 +68,17 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/one_click_clean"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="@+id/scrollView2"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
+
+            <CheckBox
+                android:id="@+id/autoWhiteBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/one_click_clean"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
 
         </LinearLayout>
     </ScrollView>

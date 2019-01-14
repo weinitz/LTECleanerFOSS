@@ -33,6 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox emptyCheckBox;
     CheckBox aggressiveBox;
     CheckBox oneClickBox;
+    CheckBox autoWhiteBox;
     ListView listView;
 
     BaseAdapter adapter;
@@ -50,6 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
         emptyCheckBox = findViewById(R.id.emptyFolderBox);
         oneClickBox = findViewById(R.id.oneClickBox);
         listView = findViewById(R.id.whitelistView);
+        autoWhiteBox = findViewById(R.id.autoWhiteBox);
 
         // whitelist view
         adapter = new ArrayAdapter<>(SettingsActivity.this,R.layout.custom_textview,MainActivity.whiteList);
@@ -60,6 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
         emptyCheckBox.setChecked(Stash.getBoolean("deleteEmpty",false));
         aggressiveBox.setChecked(Stash.getBoolean("aggressiveFilter",false));
         oneClickBox.setChecked(Stash.getBoolean("oneClick",false));
+        autoWhiteBox.setChecked(Stash.getBoolean("autoWhite", true));
     }
 
     /**
@@ -74,6 +77,7 @@ public class SettingsActivity extends AppCompatActivity {
         Stash.put("genericFilter",genericBox.isChecked());
         Stash.put("oneClick",oneClickBox.isChecked());
         Stash.put("whiteList",MainActivity.whiteList);
+        Stash.put("autoWhite", autoWhiteBox.isChecked());
 
         TastyToast.makeText(this,"Saved",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();
     }

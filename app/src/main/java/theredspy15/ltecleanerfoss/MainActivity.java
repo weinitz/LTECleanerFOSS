@@ -116,9 +116,11 @@ public class MainActivity extends AppCompatActivity {
             foundFiles = getListFiles(directory); // deletes empty here
 
             // filter
-            for (File file : foundFiles)
+            for (File file : foundFiles) {
+                autoWhiteList(file);
                 if (filter(file))
                     displayPath(file);
+            }
 
             if (filesRemoved == 0) break; // nothing found this run
             else ++cycles; // something found - increase cycle limit
@@ -216,6 +218,18 @@ public class MainActivity extends AppCompatActivity {
         for (String path : whiteList) if (path.equals(file.getAbsolutePath()) || path.equals(file.getName())) return true;
 
         return false;
+    }
+
+    private synchronized void autoWhiteList(File file) {
+
+        String protectedFileList[] = {
+                "BACKUP", "backup", "Backup", "backups",
+                "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
+                "important", "important"};
+
+        for (String path : protectedFileList) if (path.equals(file.getName()))
+            whiteList.add(file.getAbsolutePath());
+
     }
 
     /**
