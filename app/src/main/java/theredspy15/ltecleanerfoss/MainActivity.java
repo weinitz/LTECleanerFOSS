@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         reset();
                         delete = true;
                         new Thread(this::scan).start();
+                        new Thread(this::scan).start(); // EXPERIMENTAL!!!
                     })
                     .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                         reset();
