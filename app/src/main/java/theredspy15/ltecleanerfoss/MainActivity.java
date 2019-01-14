@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         Looper.prepare();
 
         byte cycles = 1;
-        byte maxCycles = 10;
+        byte maxCycles = 15;
         if (!delete) maxCycles = 1; // when nothing is being deleted. Stops duplicates from being found
 
         // removes the need to 'clean' multiple times to get everything
@@ -227,9 +227,8 @@ public class MainActivity extends AppCompatActivity {
                 "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
                 "important", "important"};
 
-        for (String path : protectedFileList) if (path.equals(file.getName()))
+        for (String protectedFile : protectedFileList) if (file.getName().contains(protectedFile))
             whiteList.add(file.getAbsolutePath());
-
     }
 
     /**

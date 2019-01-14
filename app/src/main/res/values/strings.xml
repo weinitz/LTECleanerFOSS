@@ -33,4 +33,5 @@
     <string name="freed">Freed: </string>
     <string name="kb">KB</string>
     <string name="found">Found: </string>
+    <string name="auto_whitelist">Auto Whitelist</string>
 </resources>

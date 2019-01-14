@@ -33,4 +33,5 @@
     <string name="freed">Libéré :</string>
     <string name="kb">KB</string>
     <string name="found">Trouvé :</string>
+    <string name="auto_whitelist">Auto Whitelist</string>
 </resources>

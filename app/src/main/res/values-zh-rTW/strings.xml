@@ -33,4 +33,5 @@
     <string name="freed">弗里德: </string>
     <string name="kb">KB</string>
     <string name="found">發現: </string>
+    <string name="auto_whitelist">Auto Whitelist</string>
 </resources>
