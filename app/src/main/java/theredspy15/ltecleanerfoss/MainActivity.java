@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
             // filter
             for (File file : foundFiles) {
-                autoWhiteList(file);
+                if (Stash.getBoolean("autoWhite")) autoWhiteList(file);
                 if (filter(file))
                     displayPath(file);
             }
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Runs a for each loop through the white list, and compares the path of the file
      * to each path in the list
-     * @param file file to check
+     * @param file file to check if in the whitelist
      * @return true if is the file is in the white list, false if not
      */
     private synchronized boolean isWhiteListed(File file) {
@@ -221,6 +221,11 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Runs before anything is filtered/cleaned. Automatically adds folders to the whitelist
+     * based on the name of the folder itself
+     * @param file file to check whether it should be added to the whitelist
+     */
     private synchronized void autoWhiteList(File file) {
 
         String protectedFileList[] = {
