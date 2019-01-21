@@ -157,4 +157,25 @@
         fancy:fb_text="Whitelist"
         fancy:fb_textColor="@color/buttonText" />
 
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="back"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="@color/colorPrimaryDark"
+        fancy:fb_focusColor="@color/colorAccent"
+        fancy:fb_fontIconResource="&#xf060;"
+        fancy:fb_radius="30dp"
+        fancy:fb_text=""
+        fancy:fb_textColor="@color/buttonText" />
+
 </android.support.constraint.ConstraintLayout>

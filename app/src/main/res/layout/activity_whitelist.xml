@@ -43,7 +43,7 @@
         android:layout_marginBottom="16dp"
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -89,4 +89,26 @@
         fancy:fb_radius="30dp"
         fancy:fb_text=""
         fancy:fb_textColor="@color/buttonText" />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="80dp"
+        android:onClick="back"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        fancy:fb_fontIconResource="&#xf060;"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="@color/colorPrimaryDark"
+        fancy:fb_focusColor="@color/colorAccent"
+        fancy:fb_radius="30dp"
+        fancy:fb_text=""
+        fancy:fb_textColor="@color/buttonText" />
+
 </android.support.constraint.ConstraintLayout>

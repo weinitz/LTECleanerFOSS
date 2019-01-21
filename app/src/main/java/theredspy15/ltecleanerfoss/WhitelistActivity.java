@@ -45,6 +45,14 @@ public class WhitelistActivity extends AppCompatActivity {
     }
 
     /**
+     * Starts the settings activity
+     * @param view the view that is clicked
+     */
+    public final void back(View view) {
+        super.onBackPressed();
+    }
+
+    /**
      * Creates a dialog asking for a file/folder name to add to the whitelist
      * @param view the view that is clicked
      */
