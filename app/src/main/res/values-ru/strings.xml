@@ -33,4 +33,7 @@
     <string name="kb">KB</string>
     <string name="found">Найдено: </string>
     <string name="auto_whitelist">Auto Whitelist</string>
+    <string name="reset_whitelist">Reset whitelist?</string>
+    <string name="are_you_reset_whitelist">Are you sure you want to reset the whitelist?</string>
+    <string name="reset">Reset</string>
 </resources>

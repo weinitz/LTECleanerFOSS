@@ -33,15 +33,21 @@ public class WhitelistActivity extends AppCompatActivity {
      */
     public final void resetWhitelist(View view) {
 
-        MainActivity.whiteList.clear();
+        new AlertDialog.Builder(WhitelistActivity.this,R.style.MyAlertDialogTheme)
+                .setTitle(R.string.reset_whitelist)
+                .setMessage(R.string.are_you_reset_whitelist)
+                .setPositiveButton(R.string.reset, (dialog, whichButton) -> {
+                    MainActivity.whiteList.clear();
 
-        runOnUiThread(() -> {
-            adapter.notifyDataSetChanged();
-            listView.invalidateViews();
-            listView.refreshDrawableState();
-        });
+                    runOnUiThread(() -> {
+                        adapter.notifyDataSetChanged();
+                        listView.invalidateViews();
+                        listView.refreshDrawableState();
+                    });
 
-        MainActivity.setUpWhiteListAndFilter(false); // false so we don't end up with the same thing we just reset
+                    MainActivity.setUpWhiteListAndFilter(false); // false so we don't end up with the same thing we just reset
+                })
+                .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
     }
 
     /**
