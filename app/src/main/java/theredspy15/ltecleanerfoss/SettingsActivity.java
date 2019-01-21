@@ -14,18 +14,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ListView;
 
 import com.fxn.stash.Stash;
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
-import com.sdsmdg.tastytoast.TastyToast;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -34,9 +28,6 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox aggressiveBox;
     CheckBox oneClickBox;
     CheckBox autoWhiteBox;
-    ListView listView;
-
-    BaseAdapter adapter;
 
     @SuppressLint("CommitPrefEdits")
     @Override
@@ -50,12 +41,7 @@ public class SettingsActivity extends AppCompatActivity {
         aggressiveBox = findViewById(R.id.aggressiveBox);
         emptyCheckBox = findViewById(R.id.emptyFolderBox);
         oneClickBox = findViewById(R.id.oneClickBox);
-        listView = findViewById(R.id.whitelistView);
         autoWhiteBox = findViewById(R.id.autoWhiteBox);
-
-        // whitelist view
-        adapter = new ArrayAdapter<>(SettingsActivity.this,R.layout.custom_textview,MainActivity.whiteList);
-        listView.setAdapter(adapter);
 
         // checkboxes
         genericBox.setChecked(Stash.getBoolean("genericFilter",true));
@@ -78,8 +64,16 @@ public class SettingsActivity extends AppCompatActivity {
         Stash.put("oneClick",oneClickBox.isChecked());
         Stash.put("whiteList",MainActivity.whiteList);
         Stash.put("autoWhite", autoWhiteBox.isChecked());
+    }
 
-        TastyToast.makeText(this,"Saved",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();
+    /**
+     * Starts the whitelist activity
+     * @param view the view that is clicked
+     */
+    public final void whitelists(View view) {
+
+        Intent intent = new Intent(this, WhitelistActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -98,39 +92,6 @@ public class SettingsActivity extends AppCompatActivity {
      */
     public final void back(View view) {
         super.onBackPressed();
-    }
-
-    /**
-     * Creates a dialog asking for a file/folder name to add to the whitelist
-     * @param view the view that is clicked
-     */
-    public final void addToWhitelist(View view) {
-
-        final EditText input = new EditText(SettingsActivity.this);
-
-        new AlertDialog.Builder(SettingsActivity.this,R.style.MyAlertDialogTheme)
-                .setTitle(R.string.add_to_whitelist)
-                .setMessage(R.string.enter_file_name)
-                .setView(input)
-                .setPositiveButton(R.string.add, (dialog, whichButton) -> MainActivity.whiteList.add(String.valueOf(input.getText())))
-                .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
-    }
-
-    /**
-     * Clears the whitelist, then sets it up again without loading saved one from stash
-     * @param view the view that is clicked
-     */
-    public final void resetWhitelist(View view) {
-
-        MainActivity.whiteList.clear();
-
-        runOnUiThread(() -> {
-            adapter.notifyDataSetChanged();
-            listView.invalidateViews();
-            listView.refreshDrawableState();
-        });
-
-        MainActivity.setUpWhiteListAndFilter(false); // false so we don't end up with the same thing we just reset
     }
 
     /**

@@ -27,7 +27,6 @@
     <string name="do_you_want_to">Czy chcesz usunąć (wyczyścić) wszystkie znalezione pliki, czy tylko wyświetlić (Przeanalizować)?</string>
     <string name="clean">Wyczyść</string>
     <string name="analyze">Analizuj</string>
-    <string name="the_settings_menu_is_very_wip">Menu ustawień jest wciąż rozwijane!</string>
     <string name="enable_generic_filter">Włącz filtr ogólny</string>
     <string name="one_click_clean">Czyszczenie jednym kliknięciem</string>
     <string name="freed">Zwolniono: </string>

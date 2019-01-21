@@ -27,7 +27,6 @@
     <string name="do_you_want_to">Вы хотите удалить (Очистка) все найденные файлы, или только отобразить (Анализ) их?</string>
     <string name="clean">Очистка</string>
     <string name="analyze">Анализ</string>
-    <string name="the_settings_menu_is_very_wip">Меню настроек ещё в разработке!</string>
     <string name="enable_generic_filter">Включить общий фильтр</string>
     <string name="one_click_clean">Очистка одним нажатием</string>
     <string name="freed">Освобождено: </string>

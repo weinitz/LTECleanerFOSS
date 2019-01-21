@@ -27,7 +27,6 @@
     <string name="do_you_want_to">¿Desea eliminar (Limpiar) todos los archivos encontrados o solo mostrarlos (Analizar)?</string>
     <string name="clean">Limpiar</string>
     <string name="analyze">Analizar</string>
-    <string name="the_settings_menu_is_very_wip">¡Aún estamos trabajando en el menú de configuración!</string>
     <string name="enable_generic_filter">Habilitar filtro genérico</string>
     <string name="one_click_clean">Limpiar en un clic</string>
     <string name="freed">Liberado:</string>

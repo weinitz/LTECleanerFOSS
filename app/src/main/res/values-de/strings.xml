@@ -27,7 +27,6 @@
     <string name="do_you_want_to">Sollen alle gefundenen Dateien gelöscht oder nur angezeigt werden?</string>
     <string name="clean">Säubern</string>
     <string name="analyze">Analysieren</string>
-    <string name="the_settings_menu_is_very_wip">Die Einstellungen sind noch in Arbeit</string>
     <string name="enable_generic_filter">Generischen Filter aktivieren</string>
     <string name="one_click_clean">Mit einem Klick säubern</string>
     <string name="freed">Freigeschafft: </string>

@@ -27,7 +27,6 @@
     <string name="do_you_want_to">你要刪除（清理）所有找到的檔案，或是只顯示（分析）它們？</string>
     <string name="clean">清理</string>
     <string name="analyze">分析</string>
-    <string name="the_settings_menu_is_very_wip">設定選單為在製品！</string>
     <string name="enable_generic_filter">啟用通用過濾器</string>
     <string name="one_click_clean">一鍵清潔</string>
     <string name="freed">弗里德: </string>

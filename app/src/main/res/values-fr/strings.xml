@@ -27,7 +27,6 @@
     <string name="do_you_want_to">Voulez-vous supprimer (Nettoyer) tous les fichiers trouvés, ou seulement les afficher (Analyser) ?</string>
     <string name="clean">nettoyer</string>
     <string name="analyze">Analyser</string>
-    <string name="the_settings_menu_is_very_wip">Le menu des paramètres est très WIP !</string>
     <string name="enable_generic_filter">Activer le filtre générique</string>
     <string name="one_click_clean">Nettoyage en un clic</string>
     <string name="freed">Libéré :</string>

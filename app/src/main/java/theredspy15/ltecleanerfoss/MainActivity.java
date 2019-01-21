@@ -119,8 +119,7 @@ public class MainActivity extends AppCompatActivity {
             // filter
             for (File file : foundFiles) {
                 if (Stash.getBoolean("autoWhite")) autoWhiteList(file);
-                if (filter(file))
-                    displayPath(file);
+                if (filter(file)) displayPath(file);
             }
 
             if (filesRemoved == 0) break; // nothing found this run
@@ -151,8 +150,9 @@ public class MainActivity extends AppCompatActivity {
 
         for (File file : files)
             if (!isWhiteListed(file)) // won't touch if whitelisted
-                if (file.isDirectory()) { // folder if statements
+                if (file.isDirectory()) { // folder
 
+                    if (Stash.getBoolean("autoWhite")) autoWhiteList(file); // auto whitelist
                     if (isDirectoryEmpty(file) && Stash.getBoolean("deleteEmpty",true)) displayPath(file); // delete if empty
                     else inFiles.addAll(getListFiles(file)); // add contents to returned list
 
