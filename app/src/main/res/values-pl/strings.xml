@@ -36,4 +36,6 @@
     <string name="reset_whitelist">Reset whitelist?</string>
     <string name="are_you_reset_whitelist">Are you sure you want to reset the whitelist?</string>
     <string name="reset">Reset</string>
+    <string name="delete_apk_files">Delete .apk files</string>
+    <string name="lte_threading">LTE Threading (Faster)</string>
 </resources>

@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         reset();
                         delete = true;
                         new Thread(this::scan).start();
-                        new Thread(this::scan).start(); // EXPERIMENTAL!!!
+                        if (Stash.getBoolean("lteThread",false)) new Thread(this::scan).start();
                     })
                     .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                         reset();
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
         // creating and adding a text view to the scroll view with path to file
         ++filesRemoved;
-        TextView textView = generateTextView(Color.WHITE, file.getAbsolutePath());
+        TextView textView = generateTextView(R.color.colorAccent, file.getAbsolutePath());
 
         // adding to scroll view
         runOnUiThread(() -> fileListView.addView(textView));
@@ -202,9 +202,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView generateTextView(int color, String text) {
 
         TextView textView = new TextView(MainActivity.this);
-        textView.setTextColor(color);
+        textView.setTextColor(getResources().getColor(color));
         textView.setText(text);
-
+        textView.setPadding(3,3,3,3);
         return textView;
     }
 
@@ -301,6 +301,7 @@ public class MainActivity extends AppCompatActivity {
             extensionFilter.add(".exo");
             extensionFilter.add(".thumbnails");
         }
+        if (Stash.getBoolean("deleteApk",false)) extensionFilter.add(".apk");
     }
 
     /**

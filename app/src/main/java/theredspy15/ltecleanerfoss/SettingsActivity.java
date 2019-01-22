@@ -28,6 +28,8 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox aggressiveBox;
     CheckBox oneClickBox;
     CheckBox autoWhiteBox;
+    CheckBox threadBox;
+    CheckBox apkBox;
 
     @SuppressLint("CommitPrefEdits")
     @Override
@@ -37,11 +39,13 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         // linking to UI
-        genericBox = findViewById(R.id.tmpBox);
+        genericBox = findViewById(R.id.genericBox);
         aggressiveBox = findViewById(R.id.aggressiveBox);
         emptyCheckBox = findViewById(R.id.emptyFolderBox);
         oneClickBox = findViewById(R.id.oneClickBox);
         autoWhiteBox = findViewById(R.id.autoWhiteBox);
+        threadBox = findViewById(R.id.threadBox);
+        apkBox = findViewById(R.id.apkBox);
 
         // checkboxes
         genericBox.setChecked(Stash.getBoolean("genericFilter",true));
@@ -49,6 +53,8 @@ public class SettingsActivity extends AppCompatActivity {
         aggressiveBox.setChecked(Stash.getBoolean("aggressiveFilter",false));
         oneClickBox.setChecked(Stash.getBoolean("oneClick",false));
         autoWhiteBox.setChecked(Stash.getBoolean("autoWhite", true));
+        threadBox.setChecked(Stash.getBoolean("lteThread", false));
+        apkBox.setChecked(Stash.getBoolean("deleteApk", false));
     }
 
     /**
@@ -58,12 +64,14 @@ public class SettingsActivity extends AppCompatActivity {
     public final void save(View view) {
 
         // loading preferences from stash
-        Stash.put("deleteEmpty",emptyCheckBox.isChecked());
-        Stash.put("aggressiveFilter",aggressiveBox.isChecked());
-        Stash.put("genericFilter",genericBox.isChecked());
-        Stash.put("oneClick",oneClickBox.isChecked());
-        Stash.put("whiteList",MainActivity.whiteList);
+        Stash.put("deleteEmpty", emptyCheckBox.isChecked());
+        Stash.put("aggressiveFilter", aggressiveBox.isChecked());
+        Stash.put("genericFilter", genericBox.isChecked());
+        Stash.put("oneClick", oneClickBox.isChecked());
+        Stash.put("whiteList", MainActivity.whiteList);
         Stash.put("autoWhite", autoWhiteBox.isChecked());
+        Stash.put("lteThread", threadBox.isChecked());
+        Stash.put("deleteApk", apkBox.isChecked());
     }
 
     /**
