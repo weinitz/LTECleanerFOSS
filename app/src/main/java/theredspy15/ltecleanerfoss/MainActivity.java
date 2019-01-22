@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     int filesRemoved = 0;
     int kilobytesTotal = 0;
     static boolean delete = false;
+    final byte cores = (byte) Runtime.getRuntime().availableProcessors();
+    byte lteThreads = 0;
 
     LinearLayout fileListView;
 
@@ -81,7 +83,10 @@ public class MainActivity extends AppCompatActivity {
                         reset();
                         delete = true;
                         new Thread(this::scan).start();
-                        if (Stash.getBoolean("lteThread",false)) new Thread(this::scan).start();
+                        if (Stash.getBoolean("lteThread",false)) while (lteThreads < cores) {
+                            new Thread(this::scan).start();
+                            ++lteThreads;
+                        }
                     })
                     .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                         reset();
@@ -246,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
         foundFiles = new ArrayList<>();
         filesRemoved = 0;
         kilobytesTotal = 0;
+        lteThreads = 0;
 
         fileListView.removeAllViews();
     }
