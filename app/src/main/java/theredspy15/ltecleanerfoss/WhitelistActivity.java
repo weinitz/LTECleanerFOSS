@@ -19,6 +19,8 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.fxn.stash.Stash;
+
 public class WhitelistActivity extends AppCompatActivity {
 
     ListView listView;
@@ -58,6 +60,7 @@ public class WhitelistActivity extends AppCompatActivity {
                     MainActivity.setUpWhiteListAndFilter(false); // false so we don't end up with the same thing we just reset
                 })
                 .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
+        Stash.put("whiteList", MainActivity.whiteList);
     }
 
     /**
@@ -82,5 +85,6 @@ public class WhitelistActivity extends AppCompatActivity {
                 .setView(input)
                 .setPositiveButton(R.string.add, (dialog, whichButton) -> MainActivity.whiteList.add(String.valueOf(input.getText())))
                 .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
+        Stash.put("whiteList", MainActivity.whiteList);
     }
 }

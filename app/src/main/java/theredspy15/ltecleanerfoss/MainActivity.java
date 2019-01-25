@@ -240,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (String protectedFile : protectedFileList) if (file.getName().contains(protectedFile))
             whiteList.add(file.getAbsolutePath());
+        Stash.put("whiteList", MainActivity.whiteList);
     }
 
     /**

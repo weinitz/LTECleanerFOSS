@@ -9,7 +9,7 @@
   -->
 
 <resources>
-    <string name="app_name">LTE Cleaner (FOSS)</string>
+    <string name="app_name">LTE Cleaner</string>
     <string name="lte_cleaner">LTE Cleaner! 記錄檔、暫存檔和空資料夾清理器</string>
     <string name="no_files_found">找不到檔案</string>
     <string name="delete_empty_folders">刪除空的資料夾</string>
