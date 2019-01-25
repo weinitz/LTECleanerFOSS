@@ -238,7 +238,8 @@ public class MainActivity extends AppCompatActivity {
                 "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
                 "important", "important"};
 
-        for (String protectedFile : protectedFileList) if (file.getName().contains(protectedFile))
+        for (String protectedFile : protectedFileList) if (file.getName().contains(protectedFile) && !
+                whiteList.contains(file.getAbsolutePath()))
             whiteList.add(file.getAbsolutePath());
         Stash.put("whiteList", MainActivity.whiteList);
     }
