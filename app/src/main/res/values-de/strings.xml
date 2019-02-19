@@ -1,5 +1,5 @@
 <!--
-  ~  Copyright 2018 TheRedSpy15
+  ~  Copyright 2019 TheRedSpy15
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
   ~
@@ -10,27 +10,32 @@
 
 <resources>
     <string name="app_name">LTE Cleaner (FOSS)</string>
-    <string name="lte_cleaner">LTE Cleaner! Logs, Temporäre Dateien und leere Ordner entfernen</string>
+    <string name="lte_cleaner">LTE Cleaner! Logs, temporäre Dateien und leere Ordner entfernen</string>
     <string name="no_files_found">Keine Dateien/Ordner gefunden</string>
-    <string name="delete_empty_folders">Lösche leere Ordner</string>
-    <string name="aggressive_filter">Aktivieren Sie einen aggressiven Filter</string>
+    <string name="delete_empty_folders">Leere Ordner löschen</string>
+    <string name="aggressive_filter">Aggressiven Filter aktivieren</string>
     <string name="Save">Speichern</string>
     <string name="filter">Filter</string>
-    <string name="whitelist">Weiße Liste</string>
+    <string name="whitelist">Whitelist</string>
     <string name="privacy_policy">Datenschutzbestimmungen</string>
     <string name="add_to_whitelist">Zur Whitelist hinzufügen</string>
     <string name="add">Hinzufügen</string>
     <string name="cancel">Abbrechen</string>
     <string name="enter_file_name">Datei-/Ordnernamen zur Whitelist hinzufügen</string>
     <string name="make_suggestion">Vorschlag machen</string>
-    <string name="select_task">Wähle eine Aufgabe aus</string>
-    <string name="do_you_want_to">Willst du alle gefundenen Dateien löschen oder sie nur anzeigen lassen?</string>
+    <string name="select_task">Aufgabe auswählen</string>
+    <string name="do_you_want_to">Sollen alle gefundenen Dateien gelöscht oder nur angezeigt werden?</string>
     <string name="clean">Säubern</string>
     <string name="analyze">Analysieren</string>
-    <string name="the_settings_menu_is_very_wip">Die Einstellungen stehen unter starker Bearbeitung</string>
-    <string name="enable_generic_filter">Aktivieren Sie den generischen Filter</string>
-    <string name="one_click_clean">Ein Klick sauber</string>
-    <string name="freed">Befreit: </string>
+    <string name="enable_generic_filter">Generischen Filter aktivieren</string>
+    <string name="one_click_clean">Mit einem Klick säubern</string>
+    <string name="freed">Freigeschafft: </string>
     <string name="kb">KB</string>
     <string name="found">Gefunden: </string>
+    <string name="auto_whitelist">Auto Whitelist</string>
+    <string name="reset_whitelist">Reset whitelist?</string>
+    <string name="are_you_reset_whitelist">Are you sure you want to reset the whitelist?</string>
+    <string name="reset">Reset</string>
+    <string name="delete_apk_files">Delete .apk files</string>
+    <string name="lte_threading">LTE Threading (Faster)</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Copyright 2018 TheRedSpy15
+  ~  Copyright 2019 TheRedSpy15
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
   ~
@@ -21,7 +21,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="217dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -30,19 +30,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/threadBox"
+                android:onClick="save"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/filter"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/lte_threading"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
 
             <CheckBox
                 android:id="@+id/genericBox"
+                android:onClick="save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -53,6 +54,7 @@
 
             <CheckBox
                 android:id="@+id/aggressiveBox"
+                android:onClick="save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -63,6 +65,7 @@
 
             <CheckBox
                 android:id="@+id/emptyFolderBox"
+                android:onClick="save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -72,7 +75,19 @@
                 app:layout_constraintStart_toStartOf="@+id/scrollView2" />
 
             <CheckBox
+                android:id="@+id/apkBox"
+                android:onClick="save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/delete_apk_files"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
+
+            <CheckBox
                 android:id="@+id/oneClickBox"
+                android:onClick="save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -81,80 +96,19 @@
                 android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="@+id/scrollView2" />
 
+            <CheckBox
+                android:id="@+id/autoWhiteBox"
+                android:onClick="save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/auto_whitelist"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
+
         </LinearLayout>
     </ScrollView>
-
-    <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="80dp"
-        android:onClick="save"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="@color/colorPrimaryDark"
-        fancy:fb_focusColor="@color/colorAccent"
-        fancy:fb_iconPosition="left"
-        fancy:fb_radius="30dp"
-        fancy:fb_text="@string/Save"
-        fancy:fb_textColor="@color/buttonText" />
-
-    <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="80dp"
-        android:onClick="back"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        fancy:fb_fontIconResource="&#xf060;"
-        fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="@color/colorPrimaryDark"
-        fancy:fb_focusColor="@color/colorAccent"
-        fancy:fb_radius="30dp"
-        fancy:fb_text=""
-        fancy:fb_textColor="@color/buttonText" />
-
-    <ListView
-        android:id="@+id/whitelistView"
-        android:layout_width="322dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/colorAccent"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/saveButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/whitelist"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/privacyPolicyButton"
@@ -180,57 +134,36 @@
         fancy:fb_textColor="@color/buttonText" />
 
     <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/addWhiteList"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_marginStart="8dp"
-        android:onClick="addToWhitelist"
-        android:paddingBottom="1dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0"
-        fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="@color/colorPrimaryDark"
-        fancy:fb_focusColor="@color/colorAccent"
-        fancy:fb_radius="30dp"
-        fancy:fb_fontIconResource="&#xf067;"
-        fancy:fb_text=""
-        fancy:fb_textColor="@color/buttonText" />
-
-    <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/resetWhiteList"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="resetWhitelist"
-        android:paddingBottom="1dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0"
-        fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="@color/colorPrimaryDark"
-        fancy:fb_focusColor="@color/colorAccent"
-        fancy:fb_radius="30dp"
-        fancy:fb_fontIconResource="&#xf0e2;"
-        fancy:fb_text=""
-        fancy:fb_textColor="@color/buttonText" />
-
-    <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/issueButton"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="reportIssue"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/scrollView2"
+        app:layout_constraintTop_toBottomOf="@+id/whitelistButton"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="@color/colorPrimaryDark"
+        fancy:fb_focusColor="@color/colorAccent"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="@string/make_suggestion"
+        fancy:fb_textColor="@color/buttonText" />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/whitelistButton"
         android:layout_width="0dp"
         android:layout_height="61dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="reportIssue"
+        android:onClick="whitelists"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -243,21 +176,28 @@
         fancy:fb_defaultColor="@color/colorPrimaryDark"
         fancy:fb_focusColor="@color/colorAccent"
         fancy:fb_radius="30dp"
-        fancy:fb_text="@string/make_suggestion"
+        fancy:fb_text="Whitelist"
         fancy:fb_textColor="@color/buttonText" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/the_settings_menu_is_very_wip"
-        android:textStyle="bold"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="@+id/issueButton"
-        app:layout_constraintStart_toStartOf="@+id/issueButton"
-        app:layout_constraintTop_toBottomOf="@+id/issueButton" />
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="back"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="@color/colorPrimaryDark"
+        fancy:fb_focusColor="@color/colorAccent"
+        fancy:fb_fontIconResource="&#xf060;"
+        fancy:fb_radius="30dp"
+        fancy:fb_text=""
+        fancy:fb_textColor="@color/buttonText" />
 
 </android.support.constraint.ConstraintLayout>

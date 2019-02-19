@@ -1,0 +1,41 @@
+<!--
+  ~  Copyright 2019 TheRedSpy15
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">LTE Cleaner (FOSS)</string>
+    <string name="lte_cleaner">LTE Cleaner! Dzienniki Cleaner, tymczasowe i puste pliki</string>
+    <string name="no_files_found">Nie znaleziono plików</string>
+    <string name="delete_empty_folders">Usuń puste foldery</string>
+    <string name="aggressive_filter">Włącz agresywny filtr</string>
+    <string name="Save">Zapisz</string>
+    <string name="filter">Filtr</string>
+    <string name="whitelist">Biała lista</string>
+    <string name="privacy_policy">Polityka prywatności</string>
+    <string name="add_to_whitelist">Dodaj do białej listy</string>
+    <string name="add">Dodaj</string>
+    <string name="cancel">Anuluj</string>
+    <string name="enter_file_name">Wpisz nazwę pliku/folderu, który chcesz umieścić na białej liście</string>
+    <string name="make_suggestion">Zrób sugestię</string>
+    <string name="select_task">Wybierz zadanie</string>
+    <string name="do_you_want_to">Czy chcesz usunąć (wyczyścić) wszystkie znalezione pliki, czy tylko wyświetlić (Przeanalizować)?</string>
+    <string name="clean">Wyczyść</string>
+    <string name="analyze">Analizuj</string>
+    <string name="enable_generic_filter">Włącz filtr ogólny</string>
+    <string name="one_click_clean">Czyszczenie jednym kliknięciem</string>
+    <string name="freed">Zwolniono: </string>
+    <string name="kb">KB</string>
+    <string name="found">Znaleziono: </string>
+    <string name="auto_whitelist">Auto Whitelist</string>
+    <string name="reset_whitelist">Reset whitelist?</string>
+    <string name="are_you_reset_whitelist">Are you sure you want to reset the whitelist?</string>
+    <string name="reset">Reset</string>
+    <string name="delete_apk_files">Delete .apk files</string>
+    <string name="lte_threading">LTE Threading (Faster)</string>
+</resources>

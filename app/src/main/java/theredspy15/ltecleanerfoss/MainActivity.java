@@ -1,5 +1,5 @@
 /*
- *  Copyright 2018 TheRedSpy15
+ *  Copyright 2019 TheRedSpy15
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
  *
@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     int filesRemoved = 0;
     int kilobytesTotal = 0;
     static boolean delete = false;
+    final byte cores = (byte) Runtime.getRuntime().availableProcessors();
+    byte lteThreads = 0;
 
     LinearLayout fileListView;
 
@@ -81,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
                         reset();
                         delete = true;
                         new Thread(this::scan).start();
+                        if (Stash.getBoolean("lteThread",false)) while (lteThreads < cores) {
+                            new Thread(this::scan).start();
+                            ++lteThreads;
+                        }
                     })
                     .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                         reset();
@@ -104,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         Looper.prepare();
 
         byte cycles = 1;
-        byte maxCycles = 10;
+        byte maxCycles = 15;
         if (!delete) maxCycles = 1; // when nothing is being deleted. Stops duplicates from being found
 
         // removes the need to 'clean' multiple times to get everything
@@ -116,9 +122,10 @@ public class MainActivity extends AppCompatActivity {
             foundFiles = getListFiles(directory); // deletes empty here
 
             // filter
-            for (File file : foundFiles)
-                if (filter(file))
-                    displayPath(file);
+            for (File file : foundFiles) {
+                if (Stash.getBoolean("autoWhite")) autoWhiteList(file);
+                if (filter(file)) displayPath(file);
+            }
 
             if (filesRemoved == 0) break; // nothing found this run
             else ++cycles; // something found - increase cycle limit
@@ -148,8 +155,9 @@ public class MainActivity extends AppCompatActivity {
 
         for (File file : files)
             if (!isWhiteListed(file)) // won't touch if whitelisted
-                if (file.isDirectory()) { // folder if statements
+                if (file.isDirectory()) { // folder
 
+                    if (Stash.getBoolean("autoWhite")) autoWhiteList(file); // auto whitelist
                     if (isDirectoryEmpty(file) && Stash.getBoolean("deleteEmpty",true)) displayPath(file); // delete if empty
                     else inFiles.addAll(getListFiles(file)); // add contents to returned list
 
@@ -180,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
         // creating and adding a text view to the scroll view with path to file
         ++filesRemoved;
-        TextView textView = generateTextView(Color.WHITE, file.getAbsolutePath());
+        TextView textView = generateTextView(R.color.colorAccent, file.getAbsolutePath());
 
         // adding to scroll view
         runOnUiThread(() -> fileListView.addView(textView));
@@ -199,16 +207,16 @@ public class MainActivity extends AppCompatActivity {
     private TextView generateTextView(int color, String text) {
 
         TextView textView = new TextView(MainActivity.this);
-        textView.setTextColor(color);
+        textView.setTextColor(getResources().getColor(color));
         textView.setText(text);
-
+        textView.setPadding(3,3,3,3);
         return textView;
     }
 
     /**
      * Runs a for each loop through the white list, and compares the path of the file
      * to each path in the list
-     * @param file file to check
+     * @param file file to check if in the whitelist
      * @return true if is the file is in the white list, false if not
      */
     private synchronized boolean isWhiteListed(File file) {
@@ -216,6 +224,22 @@ public class MainActivity extends AppCompatActivity {
         for (String path : whiteList) if (path.equals(file.getAbsolutePath()) || path.equals(file.getName())) return true;
 
         return false;
+    }
+
+    /**
+     * Runs before anything is filtered/cleaned. Automatically adds folders to the whitelist
+     * based on the name of the folder itself
+     * @param file file to check whether it should be added to the whitelist
+     */
+    private synchronized void autoWhiteList(File file) {
+
+        String protectedFileList[] = {
+                "BACKUP", "backup", "Backup", "backups",
+                "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
+                "important", "important"};
+
+        for (String protectedFile : protectedFileList) if (file.getName().contains(protectedFile))
+            whiteList.add(file.getAbsolutePath());
     }
 
     /**
@@ -227,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
         foundFiles = new ArrayList<>();
         filesRemoved = 0;
         kilobytesTotal = 0;
+        lteThreads = 0;
 
         fileListView.removeAllViews();
     }
@@ -280,7 +305,9 @@ public class MainActivity extends AppCompatActivity {
             extensionFilter.add("analytics");
             extensionFilter.add("Analytics");
             extensionFilter.add(".exo");
+            extensionFilter.add(".thumbnails");
         }
+        if (Stash.getBoolean("deleteApk",false)) extensionFilter.add(".apk");
     }
 
     /**
