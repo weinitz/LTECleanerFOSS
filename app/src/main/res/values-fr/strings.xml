@@ -9,7 +9,7 @@
   -->
 
 <resources>
-    <string name="app_name">LTE Cleaner (FOSS)</string>
+    <string name="app_name">LTE Cleaner</string>
     <string name="lte_cleaner">LTE Cleaner ! Nettoyeur de logs, temporaire et vide</string>
     <string name="no_files_found">Aucun fichier trouvé</string>
     <string name="delete_empty_folders">Suprimer dossier vide</string>
