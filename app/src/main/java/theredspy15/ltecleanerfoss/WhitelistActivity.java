@@ -11,8 +11,6 @@
 package theredspy15.ltecleanerfoss;
 
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -20,6 +18,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.fxn.stash.Stash;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class WhitelistActivity extends AppCompatActivity {
 

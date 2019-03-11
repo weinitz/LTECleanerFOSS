@@ -17,11 +17,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,10 +28,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 public class MainActivity extends AppCompatActivity {
 
     static List<String> whiteList = new ArrayList<>();
-    static ArrayList<String> extensionFilter = new ArrayList<>();
+    static ArrayList<String> filters = new ArrayList<>();
     List<File> foundFiles = new ArrayList<>();
     int filesRemoved = 0;
     int kilobytesTotal = 0;
@@ -266,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private boolean filter(File file) {
 
-        for (String extension : extensionFilter) if (file.getAbsolutePath().contains(extension)) return true;
+        for (String extension : filters) if (file.getAbsolutePath().contains(extension)) return true;
 
         return false;
     }
@@ -297,19 +298,25 @@ public class MainActivity extends AppCompatActivity {
 
         // filters
         if (Stash.getBoolean("genericFilter",true)) { // generic
-            extensionFilter.add(".tmp");
-            extensionFilter.add(".log");
+            filters.add(".tmp");
+            filters.add(".log");
+            filters.add("logs");
+            filters.add("Logs");
         }
         if (Stash.getBoolean("aggressiveFilter",false)) { // aggressive
-            extensionFilter.add("supersonicads");
-            extensionFilter.add("Cache");
-            extensionFilter.add("cache");
-            extensionFilter.add("analytics");
-            extensionFilter.add("Analytics");
-            extensionFilter.add(".exo");
-            extensionFilter.add(".thumbnails");
+            filters.add("supersonicads");
+            filters.add("Cache");
+            filters.add("cache");
+            filters.add("analytics");
+            filters.add("Analytics");
+            filters.add(".exo");
+            filters.add("thumbnails");
+            filters.add("mobvista");
+            filters.add(".apk");
+            filters.add("UnityAdsVideoCache");
+            filters.add("albumthumbs");
         }
-        if (Stash.getBoolean("deleteApk",false)) extensionFilter.add(".apk");
+        if (Stash.getBoolean("deleteApk",false)) filters.add(".apk");
     }
 
     /**
