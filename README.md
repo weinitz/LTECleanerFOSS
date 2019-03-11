@@ -20,7 +20,7 @@ There simply is way too many apps out there that claim to speed up you device. I
 LTE Cleaner only aims to clean your phone by removing safe to delete files. Which not only frees up a lot of space,
 But it also can improve your privacy. Since LTE Cleaners removes .log files, which well, log what you do.
 
-__LTE Cleaner is %100 free, open source, ad free, and deletes everything it claims too.__
+__LTE Cleaner is 100% free, open source, ad free, and deletes everything it claims too.__
 
 Cleans:
 - Empty folders
