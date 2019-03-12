@@ -29,6 +29,11 @@ Cleans:
 - Caches
 - Advertisement folders
 
+Coming major features:
+- daily cleans
+- clean SD card
+- SAF file browser
+
 ![screenshot](https://github.com/TheRedSpy15/LTECleanerFOSS/blob/master/Screenshots/Screenshot_1529468353_framed.png)
 
 __Privacy Policy:__ https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html
