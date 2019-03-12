@@ -31,17 +31,6 @@
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/threadBox"
-                android:onClick="save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/lte_threading"
-                android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="@+id/scrollView2" />
-
-            <CheckBox
                 android:id="@+id/genericBox"
                 android:onClick="save"
                 android:layout_width="match_parent"

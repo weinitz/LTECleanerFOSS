@@ -33,9 +33,11 @@
     <string name="kb">KB</string>
     <string name="found">Found: </string>
     <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Reset whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to reset the whitelist?</string>
-    <string name="reset">Reset</string>
+    <string name="reset_whitelist">Empty whitelist?</string>
+    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
+    <string name="reset">Clear</string>
     <string name="delete_apk_files">Delete .apk files</string>
     <string name="lte_threading">LTE Threading (Faster)</string>
+    <string name="default_whitelist">Default Whitelist</string>
+    <string name="add_defaults">Add Recommended Whitelists</string>
 </resources>

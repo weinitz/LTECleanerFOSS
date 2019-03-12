@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
     int filesRemoved = 0;
     int kilobytesTotal = 0;
     static boolean delete = false;
-    final byte cores = (byte) Runtime.getRuntime().availableProcessors();
-    byte lteThreads = 0;
 
     LinearLayout fileListView;
 
@@ -56,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
         SafeLooper.install();
 
         fileListView = findViewById(R.id.fileListView);
-
-        setUpWhiteListAndFilter(true);
-        requestWriteExternalPermission();
     }
 
     /**
@@ -76,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public final void clean(View view) {
 
+        requestWriteExternalPermission();
+
         if (!Stash.getBoolean("oneClick",false)) // one-click disabled
             new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
                     .setTitle(R.string.select_task)
@@ -84,10 +81,6 @@ public class MainActivity extends AppCompatActivity {
                         reset();
                         delete = true;
                         new Thread(this::scan).start();
-                        if (Stash.getBoolean("lteThread",false)) while (lteThreads < cores) {
-                            new Thread(this::scan).start();
-                            ++lteThreads;
-                        }
                     })
                     .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                         reset();
@@ -119,8 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
             // find files
             String path = Environment.getExternalStorageDirectory().toString() + "/"; // just a forward slash for whole device
-            File directory = new File(path);
-            foundFiles = getListFiles(directory); // deletes empty here
+            foundFiles = getListFiles(new File(path)); // deletes empty here
 
             // filter
             for (File file : foundFiles) {
@@ -254,7 +246,6 @@ public class MainActivity extends AppCompatActivity {
         foundFiles = new ArrayList<>();
         filesRemoved = 0;
         kilobytesTotal = 0;
-        lteThreads = 0;
 
         fileListView.removeAllViews();
     }
@@ -277,13 +268,12 @@ public class MainActivity extends AppCompatActivity {
      * extensions to filter
      * @param loadStash whether to load the saved whitelist in the stash
      */
-    static void setUpWhiteListAndFilter(boolean loadStash) {
+    static void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
 
         if (loadStash) whiteList = Stash.getArrayList("whiteList",String.class);
 
         // white list
-        if (whiteList.size() == 0) { // if whitelist was reset
-
+        if (!whiteList.contains(new File(Environment.getExternalStorageDirectory(), "Music").getPath()) && defaultList) {
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Music").getPath());
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Podcasts").getPath());
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Ringtones").getPath());
@@ -312,7 +302,6 @@ public class MainActivity extends AppCompatActivity {
             filters.add(".exo");
             filters.add("thumbnails");
             filters.add("mobvista");
-            filters.add(".apk");
             filters.add("UnityAdsVideoCache");
             filters.add("albumthumbs");
         }
