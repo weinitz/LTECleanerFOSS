@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         SafeLooper.install();
 
         fileListView = findViewById(R.id.fileListView);
+
+        setUpWhiteListAndFilter(true, false);
     }
 
     /**
