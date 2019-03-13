@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         fileListView = findViewById(R.id.fileListView);
 
         setUpWhiteListAndFilter(true, false);
+        requestWriteExternalPermission();
     }
 
     /**
@@ -72,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
      * Runs search and delete on background thread
      */
     public final void clean(View view) {
-
-        requestWriteExternalPermission();
 
         if (!Stash.getBoolean("oneClick",false)) // one-click disabled
             new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
