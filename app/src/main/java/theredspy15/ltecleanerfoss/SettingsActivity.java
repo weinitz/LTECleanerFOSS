@@ -14,12 +14,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 
 import com.fxn.stash.Stash;
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -28,7 +29,6 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox aggressiveBox;
     CheckBox oneClickBox;
     CheckBox autoWhiteBox;
-    CheckBox threadBox;
     CheckBox apkBox;
 
     @SuppressLint("CommitPrefEdits")
@@ -44,7 +44,6 @@ public class SettingsActivity extends AppCompatActivity {
         emptyCheckBox = findViewById(R.id.emptyFolderBox);
         oneClickBox = findViewById(R.id.oneClickBox);
         autoWhiteBox = findViewById(R.id.autoWhiteBox);
-        threadBox = findViewById(R.id.threadBox);
         apkBox = findViewById(R.id.apkBox);
 
         // checkboxes
@@ -53,7 +52,6 @@ public class SettingsActivity extends AppCompatActivity {
         aggressiveBox.setChecked(Stash.getBoolean("aggressiveFilter",false));
         oneClickBox.setChecked(Stash.getBoolean("oneClick",false));
         autoWhiteBox.setChecked(Stash.getBoolean("autoWhite", true));
-        threadBox.setChecked(Stash.getBoolean("lteThread", false));
         apkBox.setChecked(Stash.getBoolean("deleteApk", false));
     }
 
@@ -70,7 +68,6 @@ public class SettingsActivity extends AppCompatActivity {
         Stash.put("oneClick", oneClickBox.isChecked());
         Stash.put("whiteList", MainActivity.whiteList);
         Stash.put("autoWhite", autoWhiteBox.isChecked());
-        Stash.put("lteThread", threadBox.isChecked());
         Stash.put("deleteApk", apkBox.isChecked());
     }
 

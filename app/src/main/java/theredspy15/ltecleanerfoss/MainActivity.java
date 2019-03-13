@@ -17,11 +17,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,16 +28,20 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 public class MainActivity extends AppCompatActivity {
 
     static List<String> whiteList = new ArrayList<>();
-    static ArrayList<String> extensionFilter = new ArrayList<>();
+    static ArrayList<String> filters = new ArrayList<>();
     List<File> foundFiles = new ArrayList<>();
     int filesRemoved = 0;
     int kilobytesTotal = 0;
     static boolean delete = false;
-    final byte cores = (byte) Runtime.getRuntime().availableProcessors();
-    byte lteThreads = 0;
 
     LinearLayout fileListView;
 
@@ -56,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         fileListView = findViewById(R.id.fileListView);
 
-        setUpWhiteListAndFilter(true);
-        requestWriteExternalPermission();
+        setUpWhiteListAndFilter(true, false);
     }
 
     /**
@@ -75,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public final void clean(View view) {
 
+        requestWriteExternalPermission();
+
         if (!Stash.getBoolean("oneClick",false)) // one-click disabled
             new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
                     .setTitle(R.string.select_task)
@@ -83,10 +83,6 @@ public class MainActivity extends AppCompatActivity {
                         reset();
                         delete = true;
                         new Thread(this::scan).start();
-                        if (Stash.getBoolean("lteThread",false)) while (lteThreads < cores) {
-                            new Thread(this::scan).start();
-                            ++lteThreads;
-                        }
                     })
                     .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                         reset();
@@ -118,8 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
             // find files
             String path = Environment.getExternalStorageDirectory().toString() + "/"; // just a forward slash for whole device
-            File directory = new File(path);
-            foundFiles = getListFiles(directory); // deletes empty here
+            foundFiles = getListFiles(new File(path)); // deletes empty here
 
             // filter
             for (File file : foundFiles) {
@@ -253,7 +248,6 @@ public class MainActivity extends AppCompatActivity {
         foundFiles = new ArrayList<>();
         filesRemoved = 0;
         kilobytesTotal = 0;
-        lteThreads = 0;
 
         fileListView.removeAllViews();
     }
@@ -266,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private boolean filter(File file) {
 
-        for (String extension : extensionFilter) if (file.getAbsolutePath().contains(extension)) return true;
+        for (String extension : filters) if (file.getAbsolutePath().contains(extension)) return true;
 
         return false;
     }
@@ -276,13 +270,12 @@ public class MainActivity extends AppCompatActivity {
      * extensions to filter
      * @param loadStash whether to load the saved whitelist in the stash
      */
-    static void setUpWhiteListAndFilter(boolean loadStash) {
+    static void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
 
         if (loadStash) whiteList = Stash.getArrayList("whiteList",String.class);
 
         // white list
-        if (whiteList.size() == 0) { // if whitelist was reset
-
+        if (!whiteList.contains(new File(Environment.getExternalStorageDirectory(), "Music").getPath()) && defaultList) {
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Music").getPath());
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Podcasts").getPath());
             whiteList.add(new File(Environment.getExternalStorageDirectory(), "Ringtones").getPath());
@@ -297,19 +290,24 @@ public class MainActivity extends AppCompatActivity {
 
         // filters
         if (Stash.getBoolean("genericFilter",true)) { // generic
-            extensionFilter.add(".tmp");
-            extensionFilter.add(".log");
+            filters.add(".tmp");
+            filters.add(".log");
+            filters.add("logs");
+            filters.add("Logs");
         }
         if (Stash.getBoolean("aggressiveFilter",false)) { // aggressive
-            extensionFilter.add("supersonicads");
-            extensionFilter.add("Cache");
-            extensionFilter.add("cache");
-            extensionFilter.add("analytics");
-            extensionFilter.add("Analytics");
-            extensionFilter.add(".exo");
-            extensionFilter.add(".thumbnails");
+            filters.add("supersonicads");
+            filters.add("Cache");
+            filters.add("cache");
+            filters.add("analytics");
+            filters.add("Analytics");
+            filters.add(".exo");
+            filters.add("thumbnails");
+            filters.add("mobvista");
+            filters.add("UnityAdsVideoCache");
+            filters.add("albumthumbs");
         }
-        if (Stash.getBoolean("deleteApk",false)) extensionFilter.add(".apk");
+        if (Stash.getBoolean("deleteApk",false)) filters.add(".apk");
     }
 
     /**

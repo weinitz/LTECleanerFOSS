@@ -11,8 +11,6 @@
 package theredspy15.ltecleanerfoss;
 
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -20,6 +18,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.fxn.stash.Stash;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class WhitelistActivity extends AppCompatActivity {
 
@@ -43,24 +44,33 @@ public class WhitelistActivity extends AppCompatActivity {
      * Clears the whitelist, then sets it up again without loading saved one from stash
      * @param view the view that is clicked
      */
-    public final void resetWhitelist(View view) {
+    public final void emptyWhitelist(View view) {
 
         new AlertDialog.Builder(WhitelistActivity.this,R.style.MyAlertDialogTheme)
                 .setTitle(R.string.reset_whitelist)
                 .setMessage(R.string.are_you_reset_whitelist)
                 .setPositiveButton(R.string.reset, (dialog, whichButton) -> {
                     MainActivity.whiteList.clear();
-
+                    MainActivity.setUpWhiteListAndFilter(false, false); // loadStash: false so we don't end up with the same thing we just reset
+                    Stash.put("whiteList", MainActivity.whiteList);
                     runOnUiThread(() -> {
                         adapter.notifyDataSetChanged();
                         listView.invalidateViews();
                         listView.refreshDrawableState();
                     });
-
-                    MainActivity.setUpWhiteListAndFilter(false); // false so we don't end up with the same thing we just reset
                 })
                 .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
+    }
+
+    public final void addRecommended(View view) {
+        MainActivity.whiteList.clear();
+        MainActivity.setUpWhiteListAndFilter(false, true);
         Stash.put("whiteList", MainActivity.whiteList);
+        runOnUiThread(() -> {
+            adapter.notifyDataSetChanged();
+            listView.invalidateViews();
+            listView.refreshDrawableState();
+        });
     }
 
     /**
