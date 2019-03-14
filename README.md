@@ -34,6 +34,7 @@ Coming major features:
 - clean SD card
 - SAF file browser
 - Proper settings menu
+- Progress bar
 
 ![screenshot](https://github.com/TheRedSpy15/LTECleanerFOSS/blob/master/Screenshots/Screenshot_1529468353_framed.png)
 
