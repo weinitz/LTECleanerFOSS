@@ -19,6 +19,7 @@ import android.os.Environment;
 import android.os.Looper;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.fxn.stash.Stash;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     static boolean delete = false;
 
     LinearLayout fileListView;
+    ScrollView fileScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         SafeLooper.install();
 
         fileListView = findViewById(R.id.fileListView);
+        fileScrollView = findViewById(R.id.fileScrollView);
 
         setUpWhiteListAndFilter(true, false);
         requestWriteExternalPermission();
@@ -128,11 +131,15 @@ public class MainActivity extends AppCompatActivity {
             filesRemoved = 0; // reset for next cycle
         }
 
-        // toast view with amount found/freed
-        if (delete) TastyToast.makeText( // Clean toast
-                this, getString(R.string.freed) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
-        else TastyToast.makeText( // Analyze toast
-                this, getString(R.string.found) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
+        if (kilobytesTotal == 0) {
+            TastyToast.makeText(this, getString(R.string.nothing_found), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
+        } else {
+            // toast view with amount found/freed
+            if (delete) TastyToast.makeText( // Clean toast
+                    this, getString(R.string.freed) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
+            else TastyToast.makeText( // Analyze toast
+                    this, getString(R.string.found) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
+        }
 
         Looper.loop();
     }
@@ -186,6 +193,9 @@ public class MainActivity extends AppCompatActivity {
 
         // adding to scroll view
         runOnUiThread(() -> fileListView.addView(textView));
+
+        // scroll to bottom
+        fileScrollView.post(() -> fileScrollView.fullScroll(ScrollView.FOCUS_DOWN));
 
         // deletion & error effect
         if (delete)

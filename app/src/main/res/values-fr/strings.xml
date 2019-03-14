@@ -40,4 +40,5 @@
     <string name="lte_threading">LTE Threading (Faster)</string>
     <string name="default_whitelist">Default Whitelist</string>
     <string name="add_defaults">Add Default Whitelists</string>
+    <string name="nothing_found">Nothing found</string>
 </resources>
