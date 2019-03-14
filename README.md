@@ -35,6 +35,7 @@ Coming major features:
 - SAF file browser
 - Proper settings menu
 - Progress bar
+- Shortcuts
 
 ![screenshot](https://github.com/TheRedSpy15/LTECleanerFOSS/blob/master/Screenshots/Screenshot_1529468353_framed.png)
 
