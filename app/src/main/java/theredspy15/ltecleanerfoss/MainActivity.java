@@ -19,6 +19,7 @@ import android.os.Environment;
 import android.os.Looper;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout fileListView;
     ScrollView fileScrollView;
+    ProgressBar scanPBar;
+    ProgressBar storagePBar;
+    TextView progressText;
+    TextView statusText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
         fileListView = findViewById(R.id.fileListView);
         fileScrollView = findViewById(R.id.fileScrollView);
+        scanPBar = findViewById(R.id.scanProgress);
+        storagePBar = findViewById(R.id.storageProgress);
+        progressText = findViewById(R.id.ScanTextView);
+        statusText = findViewById(R.id.statusTextView);
 
         setUpWhiteListAndFilter(true, false);
         requestWriteExternalPermission();
@@ -103,9 +112,10 @@ public class MainActivity extends AppCompatActivity {
      * out files for deletion. Repeats the process as long as it keeps finding files to clean,
      * unless nothing is found to begin with
      */
-    private void scan() {
+    private synchronized void scan() {
 
         Looper.prepare();
+        runOnUiThread(() -> statusText.setText(getString(R.string.status_running)));
 
         byte cycles = 1;
         byte maxCycles = 15;
@@ -116,12 +126,19 @@ public class MainActivity extends AppCompatActivity {
 
             // find files
             String path = Environment.getExternalStorageDirectory().toString() + "/"; // just a forward slash for whole device
-            foundFiles = getListFiles(new File(path)); // deletes empty here
+            foundFiles = getListFiles(new File(path));
+            scanPBar.setMax(scanPBar.getMax() + foundFiles.size());
 
             // filter
             for (File file : foundFiles) {
                 if (Stash.getBoolean("autoWhite")) autoWhiteList(file);
                 if (filter(file)) displayPath(file);
+
+                double scanPercent = scanPBar.getProgress() * 100.0 / scanPBar.getMax();
+                runOnUiThread(() -> {
+                    scanPBar.setProgress(scanPBar.getProgress() + 1);
+                    progressText.setText("Progress: " + String.format("%.0f", scanPercent) + "%");
+                });
             }
 
             if (filesRemoved == 0) break; // nothing found this run
@@ -141,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                     this, getString(R.string.found) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
         }
 
+        runOnUiThread(() -> statusText.setText(getString(R.string.status_idle)));
         Looper.loop();
     }
 
@@ -159,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
                 if (file.isDirectory()) { // folder
 
                     if (Stash.getBoolean("autoWhite")) autoWhiteList(file); // auto whitelist
-                    if (isDirectoryEmpty(file) && Stash.getBoolean("deleteEmpty",true)) displayPath(file); // delete if empty
                     else inFiles.addAll(getListFiles(file)); // add contents to returned list
 
                 } else inFiles.add(file); // add file
@@ -208,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
      * @param text - text of textview
      * @return - created textview
      */
-    private TextView generateTextView(int color, String text) {
+    private synchronized TextView generateTextView(int color, String text) {
 
         TextView textView = new TextView(MainActivity.this);
         textView.setTextColor(getResources().getColor(color));
@@ -252,13 +269,14 @@ public class MainActivity extends AppCompatActivity {
      * Removes all views present in fileListView (linear view), and sets found and removed
      * files to 0
      */
-    private void reset() {
+    private synchronized void reset() {
 
         foundFiles = new ArrayList<>();
         filesRemoved = 0;
         kilobytesTotal = 0;
 
         fileListView.removeAllViews();
+        scanPBar.setProgress(0);
     }
 
     /**
@@ -267,11 +285,15 @@ public class MainActivity extends AppCompatActivity {
      * @param file file to check
      * @return true if the file's extension is in the filter, false otherwise
      */
-    private boolean filter(File file) {
+    private synchronized boolean filter(File file) {
 
-        for (String extension : filters) if (file.getAbsolutePath().contains(extension)) return true;
+        for (String extension : filters) {
+            if (file.getAbsolutePath().contains(extension)) return true; // file
+            else if (file.isDirectory())
+                if (isDirectoryEmpty(file) && Stash.getBoolean("deleteEmpty",true)) return true; // empty folder
+        }
 
-        return false;
+        return false; // not empty folder or file in filter
     }
 
     /**
@@ -279,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
      * extensions to filter
      * @param loadStash whether to load the saved whitelist in the stash
      */
-    static void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
+    static synchronized void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
 
         if (loadStash) whiteList = Stash.getArrayList("whiteList",String.class);
 
@@ -322,7 +344,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Request write permission
      */
-    public void requestWriteExternalPermission() {
+    public synchronized void requestWriteExternalPermission() {
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)

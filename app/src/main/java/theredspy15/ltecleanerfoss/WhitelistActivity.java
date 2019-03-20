@@ -63,7 +63,6 @@ public class WhitelistActivity extends AppCompatActivity {
     }
 
     public final void addRecommended(View view) {
-        MainActivity.whiteList.clear();
         MainActivity.setUpWhiteListAndFilter(false, true);
         Stash.put("whiteList", MainActivity.whiteList);
         runOnUiThread(() -> {

@@ -38,14 +38,15 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/cleanButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
+        app:layout_constraintTop_toBottomOf="@+id/scanProgress">
 
         <LinearLayout
             android:id="@+id/fileListView"
@@ -98,5 +99,69 @@
         fancy:fb_radius="30dp"
         fancy:fb_text="Clean"
         fancy:fb_textColor="@color/buttonText" />
+
+    <ProgressBar
+        android:id="@+id/scanProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="173dp"
+        android:layout_height="164dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/circular_background"
+        android:indeterminate="false"
+        android:max="0"
+        android:progress="0"
+        android:progressDrawable="@drawable/circular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusTextView" />
+
+    <ProgressBar
+        android:id="@+id/storageProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="173dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/circular_background"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/circular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusTextView" />
+
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/status_idle"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <TextView
+        android:id="@+id/ScanTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/progress_0"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/scanProgress"
+        app:layout_constraintEnd_toEndOf="@+id/scanProgress"
+        app:layout_constraintStart_toStartOf="@+id/scanProgress" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/used_0"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/storageProgress"
+        app:layout_constraintEnd_toEndOf="@+id/storageProgress"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/storageProgress" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
