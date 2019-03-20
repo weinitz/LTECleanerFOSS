@@ -30,12 +30,13 @@ Cleans:
 - Advertisement folders
 
 Coming major features:
-- daily cleans
-- clean SD card
+- Daily cleans
+- Clean SD card
 - SAF file browser
 - Proper settings menu
 - Progress bar
 - Shortcuts
+- Overhauled GUI
 
 ![screenshot](https://github.com/TheRedSpy15/LTECleanerFOSS/blob/master/Screenshots/Screenshot_1529468353_framed.png)
 
