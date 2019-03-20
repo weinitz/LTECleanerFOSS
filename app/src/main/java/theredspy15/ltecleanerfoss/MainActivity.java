@@ -337,6 +337,16 @@ public class MainActivity extends AppCompatActivity {
             filters.add("mobvista");
             filters.add("UnityAdsVideoCache");
             filters.add("albumthumbs");
+            filters.add("thumbs.db");
+            filters.add("LOST.DIR");
+            filters.add(".Trash");
+            filters.add("desktop.ini");
+            filters.add("leakcanary-");
+            filters.add(".DS_Store");
+            filters.add(".spotlight-V100");
+            filters.add("fseventsd");
+            filters.add("bugreport");
+            filters.add("Bugreport");
         }
         if (Stash.getBoolean("deleteApk",false)) filters.add(".apk");
     }
