@@ -14,15 +14,14 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.view.View;
 import android.widget.CheckBox;
 
 import com.fxn.stash.Stash;
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends PreferenceActivity {
 
     CheckBox genericBox;
     CheckBox emptyCheckBox;

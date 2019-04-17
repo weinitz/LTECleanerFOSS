@@ -28,6 +28,7 @@ import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
      * out files for deletion. Repeats the process as long as it keeps finding files to clean,
      * unless nothing is found to begin with
      */
-    private synchronized void scan() {
+    private void scan() {
 
         Looper.prepare();
         runOnUiThread(() -> statusText.setText(getString(R.string.status_running)));
@@ -277,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
 
         fileListView.removeAllViews();
         scanPBar.setProgress(0);
+        scanPBar.setMax(1);
     }
 
     /**
@@ -301,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
      * extensions to filter
      * @param loadStash whether to load the saved whitelist in the stash
      */
-    static synchronized void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
+    synchronized void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
 
         if (loadStash) whiteList = Stash.getArrayList("whiteList",String.class);
 
@@ -320,34 +322,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // filters
-        if (Stash.getBoolean("genericFilter",true)) { // generic
-            filters.add(".tmp");
-            filters.add(".log");
-            filters.add("logs");
-            filters.add("Logs");
-        }
-        if (Stash.getBoolean("aggressiveFilter",false)) { // aggressive
-            filters.add("supersonicads");
-            filters.add("Cache");
-            filters.add("cache");
-            filters.add("analytics");
-            filters.add("Analytics");
-            filters.add(".exo");
-            filters.add("thumbnails");
-            filters.add("mobvista");
-            filters.add("UnityAdsVideoCache");
-            filters.add("albumthumbs");
-            filters.add("thumbs.db");
-            filters.add("LOST.DIR");
-            filters.add(".Trash");
-            filters.add("desktop.ini");
-            filters.add("leakcanary-");
-            filters.add(".DS_Store");
-            filters.add(".spotlight-V100");
-            filters.add("fseventsd");
-            filters.add("bugreport");
-            filters.add("Bugreport");
-        }
+        // generic
+        if (Stash.getBoolean("genericFilter",true))
+            filters.addAll(Arrays.asList(getResources().getStringArray(R.array.generic_filter)));
+        // aggressive
+        if (Stash.getBoolean("aggressiveFilter",false))
+            filters.addAll(Arrays.asList(getResources().getStringArray(R.array.aggressive_filter)));
+        // apk
         if (Stash.getBoolean("deleteApk",false)) filters.add(".apk");
     }
 
