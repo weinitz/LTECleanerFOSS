@@ -118,12 +118,12 @@ public class MainActivity extends AppCompatActivity {
         Looper.prepare();
         runOnUiThread(() -> statusText.setText(getString(R.string.status_running)));
 
-        byte cycles = 1;
+        byte cycles = 0;
         byte maxCycles = 15;
         if (!delete) maxCycles = 1; // when nothing is being deleted. Stops duplicates from being found
 
         // removes the need to 'clean' multiple times to get everything
-        for (byte i = 0; i < cycles; i++) {
+        while (cycles < maxCycles) {
 
             // find files
             String path = Environment.getExternalStorageDirectory().toString() + "/"; // just a forward slash for whole device
@@ -142,11 +142,10 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
 
-            if (filesRemoved == 0) break; // nothing found this run
-            else ++cycles; // something found - increase cycle limit
-            if (cycles >= maxCycles) break; // cycle limit check
+            if (filesRemoved == 0) break; // nothing found this run, no need to run again
 
             filesRemoved = 0; // reset for next cycle
+            ++cycles;
         }
 
         if (kilobytesTotal == 0) {
