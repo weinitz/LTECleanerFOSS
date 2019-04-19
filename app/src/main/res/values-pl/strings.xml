@@ -43,6 +43,5 @@
     <string name="nothing_found">Nic nie znaleziono</string>
     <string name="status_idle">Status: Idle</string>
     <string name="progress_0">Progress: 0%</string>
-    <string name="used_0">Used: 0%</string>
     <string name="status_running">Status: Running</string>
 </resources>

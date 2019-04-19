@@ -1,12 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <EditTextPreference
-        android:title="Your Name"
-        android:key="username"
-        android:summary="Please provide your username" />
-    <CheckBoxPreference
-        android:title="Application Updates"
-        android:defaultValue="false"
-        android:summary="This option if selected will allow the application to check for latest versions."
-        android:key="applicationUpdates" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Settings" android:key="settings">
+
+    <Preference android:title="@string/privacy_policy"
+        android:key="policy"
+        android:summary="View the privacy policy (external link)">
+        <intent android:action="net.hasnath.android.MyActivity"/>
+    </Preference>
+
+    <Preference android:title="@string/whitelist"
+        android:key="whitelist"
+        android:summary="Shows the whitelist menu">
+        <intent android:action=".WhitelistActivity"/>
+    </Preference>
+
+    <Preference android:title="@string/make_suggestion"
+        android:key="suggestion"
+        android:summary="Open an issue on GitHub from the app. No account needed">
+        <intent android:action="net.hasnath.android.MyActivity"/>
+    </Preference>
+
+    <PreferenceCategory android:title="Filters">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:textColor="#FFF"
+            android:key="generic"
+            android:persistent="true"
+            android:summary=".tmp, .log, Logs, logs"
+            android:title="@string/enable_generic_filter" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:textColor="#FFF"
+            android:key="aggressive"
+            android:persistent="true"
+            android:summary="Too much to list here"
+            android:title="@string/aggressive_filter" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:textColor="#FFF"
+            android:key="check_box_preference_4"
+            android:persistent="true"
+            android:title="@string/delete_empty_folders" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:textColor="#FFF"
+            android:key="check_box_preference_5"
+            android:persistent="true"
+            android:summary="Installer files for android"
+            android:title="@string/delete_apk_files" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:textColor="#FFF"
+            android:key="check_box_preference_3"
+            android:persistent="true"
+            android:summary="No dialog menu when clicking Clean"
+            android:title="@string/one_click_clean" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:textColor="#FFF"
+            android:key="check_box_preference_1"
+            android:persistent="true"
+            android:title="@string/auto_whitelist" />
+    </PreferenceCategory>
 </PreferenceScreen>

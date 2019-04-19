@@ -15,8 +15,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.CheckBox;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.fxn.stash.Stash;
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
@@ -37,21 +40,17 @@ public class SettingsActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        // linking to UI
-        genericBox = findViewById(R.id.genericBox);
-        aggressiveBox = findViewById(R.id.aggressiveBox);
-        emptyCheckBox = findViewById(R.id.emptyFolderBox);
-        oneClickBox = findViewById(R.id.oneClickBox);
-        autoWhiteBox = findViewById(R.id.autoWhiteBox);
-        apkBox = findViewById(R.id.apkBox);
+        getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
 
-        // checkboxes
-        genericBox.setChecked(Stash.getBoolean("genericFilter",true));
-        emptyCheckBox.setChecked(Stash.getBoolean("deleteEmpty",false));
-        aggressiveBox.setChecked(Stash.getBoolean("aggressiveFilter",false));
-        oneClickBox.setChecked(Stash.getBoolean("oneClick",false));
-        autoWhiteBox.setChecked(Stash.getBoolean("autoWhite", true));
-        apkBox.setChecked(Stash.getBoolean("deleteApk", false));
+        // linking to UI
+}
+
+    public static class MyPreferenceFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(final Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.preferences);
+        }
     }
 
     /**

@@ -43,6 +43,5 @@
     <string name="nothing_found">Nessun elemento trovato</string>
     <string name="status_idle">Stato: in attesa</string>
     <string name="progress_0">Progresso: 0%</string>
-    <string name="used_0">Usato: 0%</string>
     <string name="status_running">Stato: In esecuzione</string>
 </resources>

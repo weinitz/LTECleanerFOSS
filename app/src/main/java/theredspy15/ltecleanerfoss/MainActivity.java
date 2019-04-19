@@ -11,8 +11,10 @@
 package theredspy15.ltecleanerfoss;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     int filesRemoved = 0;
     int kilobytesTotal = 0;
     static boolean delete = false;
+    static private Resources resources;
 
     LinearLayout fileListView;
     ScrollView fileScrollView;
@@ -64,9 +67,10 @@ public class MainActivity extends AppCompatActivity {
         fileListView = findViewById(R.id.fileListView);
         fileScrollView = findViewById(R.id.fileScrollView);
         scanPBar = findViewById(R.id.scanProgress);
-        storagePBar = findViewById(R.id.storageProgress);
         progressText = findViewById(R.id.ScanTextView);
         statusText = findViewById(R.id.statusTextView);
+
+        resources = getResources();
 
         setUpWhiteListAndFilter(true, false);
         requestWriteExternalPermission();
@@ -254,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private synchronized void autoWhiteList(File file) {
 
-        String protectedFileList[] = {
+        String[] protectedFileList = {
                 "BACKUP", "backup", "Backup", "backups",
                 "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
                 "important", "important"};
@@ -302,7 +306,8 @@ public class MainActivity extends AppCompatActivity {
      * extensions to filter
      * @param loadStash whether to load the saved whitelist in the stash
      */
-    synchronized void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
+    @SuppressLint("ResourceType")
+    synchronized static void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
 
         if (loadStash) whiteList = Stash.getArrayList("whiteList",String.class);
 
@@ -323,10 +328,10 @@ public class MainActivity extends AppCompatActivity {
         // filters
         // generic
         if (Stash.getBoolean("genericFilter",true))
-            filters.addAll(Arrays.asList(getResources().getStringArray(R.array.generic_filter)));
+            filters.addAll(Arrays.asList(resources.getStringArray(R.array.generic_filter_array)));
         // aggressive
         if (Stash.getBoolean("aggressiveFilter",false))
-            filters.addAll(Arrays.asList(getResources().getStringArray(R.array.aggressive_filter)));
+            filters.addAll(Arrays.asList(resources.getStringArray(R.array.aggressive_filter_array)));
         // apk
         if (Stash.getBoolean("deleteApk",false)) filters.add(".apk");
     }
@@ -348,13 +353,10 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String permissions[], @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case 1:
-                if (grantResults.length > 0 // Granted
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) break;
-                else System.exit(0); // Permission denied
-                break;
+                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED)
+                System.exit(0); // Permission denied
         }
     }
 }

@@ -15,6 +15,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">#B8B8B8</item>
+        <item name="android:textColorPrimary">#fff</item>
     </style>
 
     <!-- Issue reporter theme -->
