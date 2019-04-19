@@ -4,19 +4,28 @@
     <Preference android:title="@string/privacy_policy"
         android:key="policy"
         android:summary="View the privacy policy (external link)">
-        <intent android:action="net.hasnath.android.MyActivity"/>
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="theredspy15.ltecleanerfoss"
+            android:targetClass="" />
     </Preference>
 
     <Preference android:title="@string/whitelist"
         android:key="whitelist"
         android:summary="Shows the whitelist menu">
-        <intent android:action=".WhitelistActivity"/>
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="theredspy15.ltecleanerfoss"
+            android:targetClass="theredspy15.ltecleanerfoss.WhitelistActivity" />
     </Preference>
 
     <Preference android:title="@string/make_suggestion"
         android:key="suggestion"
         android:summary="Open an issue on GitHub from the app. No account needed">
-        <intent android:action="net.hasnath.android.MyActivity"/>
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.package.name"
+            android:targetClass="com.package.name.ActivityName" />
     </Preference>
 
     <PreferenceCategory android:title="Filters">

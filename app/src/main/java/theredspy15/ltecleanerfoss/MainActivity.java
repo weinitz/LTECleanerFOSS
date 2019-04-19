@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 double scanPercent = scanPBar.getProgress() * 100.0 / scanPBar.getMax();
                 runOnUiThread(() -> {
                     scanPBar.setProgress(scanPBar.getProgress() + 1);
-                    progressText.setText("Progress: " + String.format("%.0f", scanPercent) + "%");
+                    progressText.setText(String.format("%.0f", scanPercent) + "%");
                 });
             }
 
