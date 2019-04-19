@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout fileListView;
     ScrollView fileScrollView;
     ProgressBar scanPBar;
-    ProgressBar storagePBar;
     TextView progressText;
     TextView statusText;
 
