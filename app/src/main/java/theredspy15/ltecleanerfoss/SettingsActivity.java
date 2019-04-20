@@ -19,8 +19,6 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.CheckBox;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.fxn.stash.Stash;
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
 
@@ -41,8 +39,6 @@ public class SettingsActivity extends PreferenceActivity {
         setContentView(R.layout.activity_settings);
 
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
-
-        // linking to UI
 }
 
     public static class MyPreferenceFragment extends PreferenceFragment {

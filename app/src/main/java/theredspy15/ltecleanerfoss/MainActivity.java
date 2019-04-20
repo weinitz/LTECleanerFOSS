@@ -32,6 +32,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
      * out files for deletion. Repeats the process as long as it keeps finding files to clean,
      * unless nothing is found to begin with
      */
+    @SuppressLint("SetTextI18n")
     private void scan() {
 
         Looper.prepare();
@@ -133,15 +135,15 @@ public class MainActivity extends AppCompatActivity {
             foundFiles = getListFiles(new File(path));
             scanPBar.setMax(scanPBar.getMax() + foundFiles.size());
 
-            // filter
+            // scan
             for (File file : foundFiles) {
-                if (Stash.getBoolean("autoWhite")) autoWhiteList(file);
-                if (filter(file)) displayPath(file);
+                if (filter(file)) displayPath(file); // filter
 
-                double scanPercent = scanPBar.getProgress() * 100.0 / scanPBar.getMax();
+                // progress
                 runOnUiThread(() -> {
                     scanPBar.setProgress(scanPBar.getProgress() + 1);
-                    progressText.setText(String.format("%.0f", scanPercent) + "%");
+                    double scanPercent = scanPBar.getProgress() * 100.0 / scanPBar.getMax();
+                    progressText.setText(String.format(Locale.US, "%.0f", scanPercent) + "%");
                 });
             }
 
