@@ -11,6 +11,7 @@
 package theredspy15.ltecleanerfoss;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -39,7 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
             this.addPreferencesFromResource(R.xml.preferences);
             Preference button = findPreference("suggestion");
             button.setOnPreferenceClickListener(preference -> {
-                reportIssue();
+                reportIssue(button.getContext());
                 return true;
             });
         }
@@ -47,7 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
         /**
          * Creates a menu that allows the user to create an issue on github
          */
-        public final void reportIssue() {
+        public final void reportIssue(Context context) {
 
             IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
                     .theme(R.style.CustomIssueReportTheme)
@@ -55,7 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
                     .guestToken("5b88864377fb229774278868687f9c113eee8430")
                     .minDescriptionLength(20)
                     .homeAsUpEnabled(true)
-                    .launch(getActivity().getApplicationContext());
+                    .launch(context);
         }
     }
 }
