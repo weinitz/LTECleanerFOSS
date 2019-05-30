@@ -72,5 +72,6 @@
         <item>fseventsd</item>
         <item>bugreport</item>
         <item>Bugreport</item>
+        <item>.Trash</item>
     </string-array>
 </resources>

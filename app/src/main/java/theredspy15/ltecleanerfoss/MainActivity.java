@@ -13,12 +13,15 @@ package theredspy15.ltecleanerfoss;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
+import android.preference.PreferenceManager;
+import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -37,6 +40,8 @@ import java.util.Locale;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -49,12 +54,15 @@ public class MainActivity extends AppCompatActivity {
     int kilobytesTotal = 0;
     static boolean delete = false;
     static private Resources resources;
+    ConstraintSet constraintSet = new ConstraintSet();
+    SharedPreferences prefs;
 
     LinearLayout fileListView;
     ScrollView fileScrollView;
     ProgressBar scanPBar;
     TextView progressText;
     TextView statusText;
+    ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +77,12 @@ public class MainActivity extends AppCompatActivity {
         scanPBar = findViewById(R.id.scanProgress);
         progressText = findViewById(R.id.ScanTextView);
         statusText = findViewById(R.id.statusTextView);
+        layout = findViewById(R.id.main_layout);
 
         resources = getResources();
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        constraintSet.clone(layout);
 
-        setUpWhiteListAndFilter(true, false);
         requestWriteExternalPermission();
     }
 
@@ -91,17 +101,15 @@ public class MainActivity extends AppCompatActivity {
      */
     public final void clean(View view) {
 
-        if (!Stash.getBoolean("oneClick",false)) // one-click disabled
+        if (!prefs.getBoolean("one_click", false)) // one-click disabled
             new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
                     .setTitle(R.string.select_task)
                     .setMessage(R.string.do_you_want_to)
                     .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
-                        reset();
                         delete = true;
                         new Thread(this::scan).start();
                     })
                     .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
-                        reset();
                         delete = false;
                         new Thread(this::scan).start();
                     }).show();
@@ -110,6 +118,13 @@ public class MainActivity extends AppCompatActivity {
             delete = true; // clean
             new Thread(this::scan).start();
         }
+    }
+
+    public void animateBtn() {
+        TransitionManager.beginDelayedTransition(layout);
+        constraintSet.clear(R.id.cleanButton,ConstraintSet.TOP);
+        constraintSet.setMargin(R.id.statusTextView,ConstraintSet.TOP,10);
+        constraintSet.applyTo(layout);
     }
 
     /**
@@ -121,10 +136,17 @@ public class MainActivity extends AppCompatActivity {
     private void scan() {
 
         Looper.prepare();
-        runOnUiThread(() -> statusText.setText(getString(R.string.status_running)));
+        reset();
+        whiteList = Stash.getArrayList("whiteList",String.class);
+        setUpFilter(prefs.getBoolean("generic", true), prefs.getBoolean("aggressive", false), prefs.getBoolean("apk", false));
+
+        runOnUiThread(() -> {
+            animateBtn();
+            statusText.setText(getString(R.string.status_running));
+        });
 
         byte cycles = 0;
-        byte maxCycles = 15;
+        byte maxCycles = 10;
         if (!delete) maxCycles = 1; // when nothing is being deleted. Stops duplicates from being found
 
         // removes the need to 'clean' multiple times to get everything
@@ -177,14 +199,18 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<File> inFiles = new ArrayList<>();
         File[] files = parentDirectory.listFiles();
 
-        for (File file : files)
-            if (!isWhiteListed(file)) // won't touch if whitelisted
+        for (File file : files) {
+            if (!isWhiteListed(file)){ // won't touch if whitelisted
                 if (file.isDirectory()) { // folder
 
-                    if (Stash.getBoolean("autoWhite")) autoWhiteList(file); // auto whitelist
+                    if (prefs.getBoolean("auto_white", true)) {
+                        if (!autoWhiteList(file)) inFiles.addAll(getListFiles(file));
+                    }
                     else inFiles.addAll(getListFiles(file)); // add contents to returned list
 
                 } else inFiles.add(file); // add file
+            }
+        }
 
         return inFiles;
     }
@@ -257,17 +283,22 @@ public class MainActivity extends AppCompatActivity {
      * based on the name of the folder itself
      * @param file file to check whether it should be added to the whitelist
      */
-    private synchronized void autoWhiteList(File file) {
+    private synchronized boolean autoWhiteList(File file) {
 
         String[] protectedFileList = {
                 "BACKUP", "backup", "Backup", "backups",
                 "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
                 "important", "important"};
 
-        for (String protectedFile : protectedFileList) if (file.getName().contains(protectedFile) && !
-                whiteList.contains(file.getAbsolutePath()))
-            whiteList.add(file.getAbsolutePath());
-        Stash.put("whiteList", MainActivity.whiteList);
+        for (String protectedFile : protectedFileList) {
+            if (file.getName().contains(protectedFile) && !whiteList.contains(file.getAbsolutePath())) {
+                whiteList.add(file.getAbsolutePath());
+                Stash.put("whiteList", whiteList);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -276,13 +307,17 @@ public class MainActivity extends AppCompatActivity {
      */
     private synchronized void reset() {
 
-        foundFiles = new ArrayList<>();
+        foundFiles.clear();
         filesRemoved = 0;
         kilobytesTotal = 0;
+        resources = getResources();
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        fileListView.removeAllViews();
-        scanPBar.setProgress(0);
-        scanPBar.setMax(1);
+        runOnUiThread(() -> {
+            fileListView.removeAllViews();
+            scanPBar.setProgress(0);
+            scanPBar.setMax(1);
+        });
     }
 
     /**
@@ -296,7 +331,7 @@ public class MainActivity extends AppCompatActivity {
         for (String extension : filters) {
             if (file.getAbsolutePath().contains(extension)) return true; // file
             else if (file.isDirectory())
-                if (isDirectoryEmpty(file) && Stash.getBoolean("deleteEmpty",true)) return true; // empty folder
+                if (isDirectoryEmpty(file) && prefs.getBoolean("empty", false)) return true; // empty folder
         }
 
         return false; // not empty folder or file in filter
@@ -304,37 +339,22 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Adds paths to the white list that are not to be cleaned. As well as adds
-     * extensions to filter
-     * @param loadStash whether to load the saved whitelist in the stash
+     * extensions to filter. 'generic', 'aggressive', and 'apk' should be assigned
+     * by calling preferences.getBoolean()
      */
     @SuppressLint("ResourceType")
-    synchronized static void setUpWhiteListAndFilter(boolean loadStash, boolean defaultList) {
-
-        if (loadStash) whiteList = Stash.getArrayList("whiteList",String.class);
-
-        // white list
-        if (!whiteList.contains(new File(Environment.getExternalStorageDirectory(), "Music").getPath()) && defaultList) {
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Music").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Podcasts").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Ringtones").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Alarms").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Notifications").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Pictures").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Movies").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Download").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "DCIM").getPath());
-            whiteList.add(new File(Environment.getExternalStorageDirectory(), "Documents").getPath());
-        }
+    synchronized static void setUpFilter(boolean generic, boolean aggressive, boolean apk) {
 
         // filters
+        filters.clear();
         // generic
-        if (Stash.getBoolean("genericFilter",true))
+        if (generic)
             filters.addAll(Arrays.asList(resources.getStringArray(R.array.generic_filter_array)));
         // aggressive
-        if (Stash.getBoolean("aggressiveFilter",false))
+        if (aggressive)
             filters.addAll(Arrays.asList(resources.getStringArray(R.array.aggressive_filter_array)));
         // apk
-        if (Stash.getBoolean("deleteApk",false)) filters.add(".apk");
+        if (apk) filters.add(".apk");
     }
 
     /**
@@ -342,22 +362,20 @@ public class MainActivity extends AppCompatActivity {
      */
     public synchronized void requestWriteExternalPermission() {
 
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                1);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+            1);
+        }
     }
 
     /**
      * Handles the whether the user grants permission. Closes app on deny
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 1) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 1)
             if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED)
                 System.exit(0); // Permission denied
-        }
     }
 }

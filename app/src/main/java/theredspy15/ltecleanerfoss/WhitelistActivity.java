@@ -10,7 +10,10 @@
 
 package theredspy15.ltecleanerfoss;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -22,11 +25,14 @@ import com.fxn.stash.Stash;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+
 public class WhitelistActivity extends AppCompatActivity {
 
     ListView listView;
 
     BaseAdapter adapter;
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +42,9 @@ public class WhitelistActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.whitelistView);
 
-        adapter = new ArrayAdapter<>(WhitelistActivity.this,R.layout.custom_textview,MainActivity.whiteList);
+        adapter = new ArrayAdapter<>(WhitelistActivity.this,R.layout.custom_textview, MainActivity.whiteList);
         listView.setAdapter(adapter);
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     }
 
     /**
@@ -51,7 +58,6 @@ public class WhitelistActivity extends AppCompatActivity {
                 .setMessage(R.string.are_you_reset_whitelist)
                 .setPositiveButton(R.string.reset, (dialog, whichButton) -> {
                     MainActivity.whiteList.clear();
-                    MainActivity.setUpWhiteListAndFilter(false, false); // loadStash: false so we don't end up with the same thing we just reset
                     Stash.put("whiteList", MainActivity.whiteList);
                     runOnUiThread(() -> {
                         adapter.notifyDataSetChanged();
@@ -63,8 +69,7 @@ public class WhitelistActivity extends AppCompatActivity {
     }
 
     public final void addRecommended(View view) {
-        MainActivity.setUpWhiteListAndFilter(false, true);
-        Stash.put("whiteList", MainActivity.whiteList);
+        addRecommended();
         runOnUiThread(() -> {
             adapter.notifyDataSetChanged();
             listView.invalidateViews();
@@ -72,12 +77,20 @@ public class WhitelistActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Starts the settings activity
-     * @param view the view that is clicked
-     */
-    public final void back(View view) {
-        super.onBackPressed();
+    public static void addRecommended() {
+        if (!MainActivity.whiteList.contains(new File(Environment.getExternalStorageDirectory(), "Music").getPath())) {
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Music").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Podcasts").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Ringtones").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Alarms").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Notifications").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Pictures").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Movies").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Download").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "DCIM").getPath());
+            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Documents").getPath());
+        }
+        Stash.put("whiteList", MainActivity.whiteList);
     }
 
     /**
@@ -92,8 +105,15 @@ public class WhitelistActivity extends AppCompatActivity {
                 .setTitle(R.string.add_to_whitelist)
                 .setMessage(R.string.enter_file_name)
                 .setView(input)
-                .setPositiveButton(R.string.add, (dialog, whichButton) -> MainActivity.whiteList.add(String.valueOf(input.getText())))
+                .setPositiveButton(R.string.add, (dialog, whichButton) -> {
+                    MainActivity.whiteList.add(String.valueOf(input.getText()));
+                    Stash.put("whiteList", MainActivity.whiteList);
+                    runOnUiThread(() -> {
+                        adapter.notifyDataSetChanged();
+                        listView.invalidateViews();
+                        listView.refreshDrawableState();
+                    });
+                })
                 .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
-        Stash.put("whiteList", MainActivity.whiteList);
     }
 }

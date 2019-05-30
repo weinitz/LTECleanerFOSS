@@ -57,7 +57,7 @@ public class SafeLooper implements Runnable {
 	 * <p>
 	 * Notice the action will take effect in the next event loop
 	 */
-	public static void install() {
+	static void install() {
 		handler.removeMessages(0, EXIT);
 		handler.post(new SafeLooper());
 	}

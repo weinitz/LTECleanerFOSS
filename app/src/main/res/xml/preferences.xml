@@ -12,7 +12,7 @@
 
     <Preference android:title="@string/whitelist"
         android:key="whitelist"
-        android:summary="Shows the whitelist menu">
+        android:summary="Shows the paths to exclude from scans">
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="theredspy15.ltecleanerfoss"
@@ -46,27 +46,27 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:textColor="#FFF"
-            android:key="check_box_preference_4"
+            android:key="empty"
             android:persistent="true"
             android:title="@string/delete_empty_folders" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:textColor="#FFF"
-            android:key="check_box_preference_5"
+            android:key="apk"
             android:persistent="true"
             android:summary="Installer files for android"
             android:title="@string/delete_apk_files" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:textColor="#FFF"
-            android:key="check_box_preference_3"
+            android:key="one_click"
             android:persistent="true"
             android:summary="No dialog menu when clicking Clean"
             android:title="@string/one_click_clean" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:textColor="#FFF"
-            android:key="check_box_preference_1"
+            android:key="auto_white"
             android:persistent="true"
             android:title="@string/auto_whitelist" />
     </PreferenceCategory>

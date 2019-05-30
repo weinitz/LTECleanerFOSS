@@ -11,25 +11,15 @@
 package theredspy15.ltecleanerfoss;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.view.View;
-import android.widget.CheckBox;
 
-import com.fxn.stash.Stash;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
 
-public class SettingsActivity extends PreferenceActivity {
-
-    CheckBox genericBox;
-    CheckBox emptyCheckBox;
-    CheckBox aggressiveBox;
-    CheckBox oneClickBox;
-    CheckBox autoWhiteBox;
-    CheckBox apkBox;
+public class SettingsActivity extends AppCompatActivity {
 
     @SuppressLint("CommitPrefEdits")
     @Override
@@ -38,73 +28,34 @@ public class SettingsActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.layout, new MyPreferenceFragment()).commit();
 }
 
     public static class MyPreferenceFragment extends PreferenceFragment {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.preferences);
+            this.setHasOptionsMenu(true);
+            this.addPreferencesFromResource(R.xml.preferences);
+            Preference button = findPreference("suggestion");
+            button.setOnPreferenceClickListener(preference -> {
+                reportIssue();
+                return true;
+            });
         }
-    }
 
-    /**
-     * Saves all settings to the shared preferences file
-     * @param view view that is clicked
-     */
-    public final void save(View view) {
+        /**
+         * Creates a menu that allows the user to create an issue on github
+         */
+        public final void reportIssue() {
 
-        // loading preferences from stash
-        Stash.put("deleteEmpty", emptyCheckBox.isChecked());
-        Stash.put("aggressiveFilter", aggressiveBox.isChecked());
-        Stash.put("genericFilter", genericBox.isChecked());
-        Stash.put("oneClick", oneClickBox.isChecked());
-        Stash.put("whiteList", MainActivity.whiteList);
-        Stash.put("autoWhite", autoWhiteBox.isChecked());
-        Stash.put("deleteApk", apkBox.isChecked());
-    }
-
-    /**
-     * Starts the whitelist activity
-     * @param view the view that is clicked
-     */
-    public final void whitelists(View view) {
-
-        Intent intent = new Intent(this, WhitelistActivity.class);
-        startActivity(intent);
-    }
-
-    /**
-     * Loads the privacy policy url in a browser
-     * @param view the view that is clicked
-     */
-    public final void viewPrivacyPolicy(View view) {
-
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html"));
-        startActivity(browserIntent);
-    }
-
-    /**
-     * Starts the main activity
-     * @param view the view that is clicked
-     */
-    public final void back(View view) {
-        super.onBackPressed();
-    }
-
-    /**
-     * Creates a menu that allows the user to create an issue on github
-     * @param view the view that is clicked
-     */
-    public final void reportIssue(View view) {
-
-        IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
-                .theme(R.style.CustomIssueReportTheme)
-                .guestEmailRequired(false)
-                .guestToken("5b88864377fb229774278868687f9c113eee8430")
-                .minDescriptionLength(20)
-                .homeAsUpEnabled(true)
-                .launch(this);
+            IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
+                    .theme(R.style.CustomIssueReportTheme)
+                    .guestEmailRequired(false)
+                    .guestToken("5b88864377fb229774278868687f9c113eee8430")
+                    .minDescriptionLength(20)
+                    .homeAsUpEnabled(true)
+                    .launch(getActivity().getApplicationContext());
+        }
     }
 }
