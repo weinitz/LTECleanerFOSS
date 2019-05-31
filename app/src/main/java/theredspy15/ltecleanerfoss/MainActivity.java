@@ -216,14 +216,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * lists the contents of the file to an array, if the array length is 0, then return true,
-     * else false
-     * @param directory directory to test
-     * @return true if empty, false if containing a file(s)
+     * Convenience method to quickly create a textview
+     * @param color - color text color in textview
+     * @param text - text of textview
+     * @return - created textview
      */
-    private synchronized boolean isDirectoryEmpty(File directory) {
+    private synchronized TextView generateTextView(int color, String text) {
 
-        return directory.listFiles().length == 0;
+        TextView textView = new TextView(MainActivity.this);
+        textView.setTextColor(getResources().getColor(color));
+        textView.setText(text);
+        textView.setPadding(3,3,3,3);
+        return textView;
     }
 
     /**
@@ -251,57 +255,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Convenience method to quickly create a textview
-     * @param color - color text color in textview
-     * @param text - text of textview
-     * @return - created textview
-     */
-    private synchronized TextView generateTextView(int color, String text) {
-
-        TextView textView = new TextView(MainActivity.this);
-        textView.setTextColor(getResources().getColor(color));
-        textView.setText(text);
-        textView.setPadding(3,3,3,3);
-        return textView;
-    }
-
-    /**
-     * Runs a for each loop through the white list, and compares the path of the file
-     * to each path in the list
-     * @param file file to check if in the whitelist
-     * @return true if is the file is in the white list, false if not
-     */
-    private synchronized boolean isWhiteListed(File file) {
-
-        for (String path : whiteList) if (path.equals(file.getAbsolutePath()) || path.equals(file.getName())) return true;
-
-        return false;
-    }
-
-    /**
-     * Runs before anything is filtered/cleaned. Automatically adds folders to the whitelist
-     * based on the name of the folder itself
-     * @param file file to check whether it should be added to the whitelist
-     */
-    private synchronized boolean autoWhiteList(File file) {
-
-        String[] protectedFileList = {
-                "BACKUP", "backup", "Backup", "backups",
-                "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
-                "important", "important"};
-
-        for (String protectedFile : protectedFileList) {
-            if (file.getName().contains(protectedFile) && !whiteList.contains(file.getAbsolutePath())) {
-                whiteList.add(file.getAbsolutePath());
-                Stash.put("whiteList", whiteList);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * Removes all views present in fileListView (linear view), and sets found and removed
      * files to 0
      */
@@ -318,23 +271,6 @@ public class MainActivity extends AppCompatActivity {
             scanPBar.setProgress(0);
             scanPBar.setMax(1);
         });
-    }
-
-    /**
-     * Runs as for each loop through the extension filter, and checks if
-     * the file name contains the extension
-     * @param file file to check
-     * @return true if the file's extension is in the filter, false otherwise
-     */
-    private synchronized boolean filter(File file) {
-
-        for (String extension : filters) {
-            if (file.getAbsolutePath().contains(extension)) return true; // file
-            else if (file.isDirectory())
-                if (isDirectoryEmpty(file) && prefs.getBoolean("empty", false)) return true; // empty folder
-        }
-
-        return false; // not empty folder or file in filter
     }
 
     /**
@@ -364,9 +300,73 @@ public class MainActivity extends AppCompatActivity {
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-            1);
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    1);
         }
+    }
+
+    /**
+     * Runs a for each loop through the white list, and compares the path of the file
+     * to each path in the list
+     * @param file file to check if in the whitelist
+     * @return true if is the file is in the white list, false if not
+     */
+    private synchronized boolean isWhiteListed(File file) {
+
+        for (String path : whiteList) if (path.equals(file.getAbsolutePath()) || path.equals(file.getName())) return true;
+
+        return false;
+    }
+
+    /**
+     * lists the contents of the file to an array, if the array length is 0, then return true,
+     * else false
+     * @param directory directory to test
+     * @return true if empty, false if containing a file(s)
+     */
+    private synchronized boolean isDirectoryEmpty(File directory) {
+
+        return directory.listFiles().length == 0;
+    }
+
+    /**
+     * Runs before anything is filtered/cleaned. Automatically adds folders to the whitelist
+     * based on the name of the folder itself
+     * @param file file to check whether it should be added to the whitelist
+     */
+    private synchronized boolean autoWhiteList(File file) {
+
+        String[] protectedFileList = {
+                "BACKUP", "backup", "Backup", "backups",
+                "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
+                "important", "important"};
+
+        for (String protectedFile : protectedFileList) {
+            if (file.getName().contains(protectedFile) && !whiteList.contains(file.getAbsolutePath())) {
+                whiteList.add(file.getAbsolutePath());
+                Stash.put("whiteList", whiteList);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Runs as for each loop through the extension filter, and checks if
+     * the file name contains the extension
+     * @param file file to check
+     * @return true if the file's extension is in the filter, false otherwise
+     */
+    private synchronized boolean filter(File file) {
+
+        for (String extension : filters) {
+            if (file.getAbsolutePath().contains(extension)) return true; // file
+            else if (file.isDirectory())
+                if (isDirectoryEmpty(file) && prefs.getBoolean("empty", false)) return true; // empty folder
+        }
+
+        return false; // not empty folder or file in filter
     }
 
     /**
