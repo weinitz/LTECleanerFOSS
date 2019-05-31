@@ -28,6 +28,13 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.core.app.ActivityCompat;
+
 import com.fxn.stash.Stash;
 import com.sdsmdg.tastytoast.TastyToast;
 
@@ -36,14 +43,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -207,7 +206,10 @@ public class MainActivity extends AppCompatActivity {
                     if (prefs.getBoolean("auto_white", true)) {
                         if (!autoWhiteList(file)) inFiles.addAll(getListFiles(file));
                     }
-                    else inFiles.addAll(getListFiles(file)); // add contents to returned list
+                    else {
+                        inFiles.add(file);
+                        inFiles.addAll(getListFiles(file)); // add contents to returned list
+                    }
 
                 } else inFiles.add(file); // add file
             }
@@ -299,11 +301,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public synchronized void requestWriteExternalPermission() {
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    1);
-        }
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},
+                1);
     }
 
     /**
