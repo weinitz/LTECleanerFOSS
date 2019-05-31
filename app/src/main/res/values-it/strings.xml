@@ -42,6 +42,6 @@
     <string name="add_defaults">Aggiungi le Whitelist Raccomandate</string>
     <string name="nothing_found">Nessun elemento trovato</string>
     <string name="status_idle">Stato: in attesa</string>
-    <string name="progress_0">Progresso: 0%</string>
+    <string name="progress_0">0%</string>
     <string name="status_running">Stato: In esecuzione</string>
 </resources>

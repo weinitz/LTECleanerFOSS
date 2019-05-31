@@ -42,6 +42,6 @@
     <string name="add_defaults">加入預設白名單</string>
     <string name="nothing_found">什麼都沒找到</string>
     <string name="status_idle">Status: Idle</string>
-    <string name="progress_0">Progress: 0%</string>
+    <string name="progress_0">0%</string>
     <string name="status_running">Status: Running</string>
 </resources>

@@ -42,6 +42,6 @@
     <string name="add_defaults">Add Default Whitelists</string>
     <string name="nothing_found">Nothing found</string>
     <string name="status_idle">Status: Idle</string>
-    <string name="progress_0">Progress: 0%</string>
+    <string name="progress_0">0%</string>
     <string name="status_running">Status: Running</string>
 </resources>

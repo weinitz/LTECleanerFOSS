@@ -69,6 +69,7 @@ public class WhitelistActivity extends AppCompatActivity {
     }
 
     public final void addRecommended(View view) {
+
         addRecommended();
         runOnUiThread(() -> {
             adapter.notifyDataSetChanged();
@@ -78,6 +79,7 @@ public class WhitelistActivity extends AppCompatActivity {
     }
 
     public static void addRecommended() {
+
         if (!MainActivity.whiteList.contains(new File(Environment.getExternalStorageDirectory(), "Music").getPath())) {
             MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Music").getPath());
             MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Podcasts").getPath());

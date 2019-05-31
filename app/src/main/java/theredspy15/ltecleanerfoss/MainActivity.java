@@ -121,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void animateBtn() {
+
         TransitionManager.beginDelayedTransition(layout);
         constraintSet.clear(R.id.cleanButton,ConstraintSet.TOP);
         constraintSet.setMargin(R.id.statusTextView,ConstraintSet.TOP,10);

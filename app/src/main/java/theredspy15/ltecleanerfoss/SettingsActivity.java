@@ -35,6 +35,7 @@ public class SettingsActivity extends AppCompatActivity {
     public static class MyPreferenceFragment extends PreferenceFragment {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
+
             super.onCreate(savedInstanceState);
             this.setHasOptionsMenu(true);
             this.addPreferencesFromResource(R.xml.preferences);
