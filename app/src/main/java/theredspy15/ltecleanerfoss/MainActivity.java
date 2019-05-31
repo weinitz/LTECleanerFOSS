@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         statusText = findViewById(R.id.statusTextView);
         layout = findViewById(R.id.main_layout);
 
+        whiteList = Stash.getArrayList("whiteList", String.class);
         resources = getResources();
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         constraintSet.clone(layout);
