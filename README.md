@@ -33,10 +33,8 @@ Coming major features:
 - Daily cleans
 - Clean SD card
 - SAF file browser
-- Proper settings menu
-- Progress bar
 - Shortcuts
-- Overhauled GUI
+- Community made filters
 
 ![screenshot](https://github.com/TheRedSpy15/LTECleanerFOSS/blob/master/Screenshots/Screenshot_1529468353_framed.png)
 
