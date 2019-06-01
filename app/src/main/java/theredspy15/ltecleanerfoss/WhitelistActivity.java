@@ -20,10 +20,11 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.fxn.stash.Stash;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.fxn.stash.Stash;
+import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
 
@@ -78,7 +79,7 @@ public class WhitelistActivity extends AppCompatActivity {
         });
     }
 
-    public static void addRecommended() {
+    public void addRecommended() {
 
         if (!MainActivity.whiteList.contains(new File(Environment.getExternalStorageDirectory(), "Music").getPath())) {
             MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Music").getPath());
@@ -91,8 +92,9 @@ public class WhitelistActivity extends AppCompatActivity {
             MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Download").getPath());
             MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "DCIM").getPath());
             MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Documents").getPath());
-        }
-        Stash.put("whiteList", MainActivity.whiteList);
+            Stash.put("whiteList", MainActivity.whiteList);
+        } else
+            TastyToast.makeText(WhitelistActivity.this, "Already added", TastyToast.LENGTH_LONG, TastyToast.DEFAULT).show();
     }
 
     /**
