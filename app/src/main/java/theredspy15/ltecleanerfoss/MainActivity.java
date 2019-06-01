@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -204,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         File[] files = parentDirectory.listFiles();
 
         for (File file : files) {
-            if (!isWhiteListed(file)){ // won't touch if whitelisted
+            if (!isWhiteListed(file)) { // won't touch if whitelisted
                 if (file.isDirectory()) { // folder
 
                     if (prefs.getBoolean("auto_white", true)) {
@@ -331,6 +332,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private synchronized boolean isDirectoryEmpty(File directory) {
 
+        Toast.makeText(this, "IS EMPTY", Toast.LENGTH_SHORT).show();
         return directory.listFiles().length == 0;
     }
 
