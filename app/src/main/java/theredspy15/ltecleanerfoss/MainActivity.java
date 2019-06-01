@@ -343,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
         String[] protectedFileList = {
                 "BACKUP", "backup", "Backup", "backups",
                 "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
-                "important", "important"};
+                "important", "important", "do_not_edit"};
 
         for (String protectedFile : protectedFileList) {
             if (file.getName().contains(protectedFile) && !whiteList.contains(file.getAbsolutePath())) {
