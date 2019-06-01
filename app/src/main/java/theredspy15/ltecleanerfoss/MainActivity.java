@@ -208,7 +208,10 @@ public class MainActivity extends AppCompatActivity {
                 if (file.isDirectory()) { // folder
 
                     if (prefs.getBoolean("auto_white", true)) {
-                        if (!autoWhiteList(file)) inFiles.addAll(getListFiles(file));
+                        if (!autoWhiteList(file)) {
+                            inFiles.add(file);
+                            inFiles.addAll(getListFiles(file));
+                        }
                     }
                     else {
                         inFiles.add(file); // add folder itself
