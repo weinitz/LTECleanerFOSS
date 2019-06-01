@@ -174,6 +174,11 @@ public class MainActivity extends AppCompatActivity {
             ++cycles;
         }
 
+        runOnUiThread(() -> { // crappy but working fix for percentage never reaching 100
+            scanPBar.setProgress(scanPBar.getMax());
+            progressText.setText("100%");
+        });
+
         if (kilobytesTotal == 0) {
             TastyToast.makeText(this, getString(R.string.nothing_found), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
         } else {
