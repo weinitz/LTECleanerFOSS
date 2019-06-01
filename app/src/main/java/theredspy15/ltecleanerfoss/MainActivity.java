@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!autoWhiteList(file)) inFiles.addAll(getListFiles(file));
                     }
                     else {
-                        inFiles.add(file);
+                        inFiles.add(file); // add folder itself
                         inFiles.addAll(getListFiles(file)); // add contents to returned list
                     }
 
@@ -225,14 +225,13 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Convenience method to quickly create a textview
-     * @param color - color text color in textview
      * @param text - text of textview
      * @return - created textview
      */
-    private synchronized TextView generateTextView(int color, String text) {
+    private synchronized TextView generateTextView(String text) {
 
         TextView textView = new TextView(MainActivity.this);
-        textView.setTextColor(getResources().getColor(color));
+        textView.setTextColor(getResources().getColor(R.color.colorAccent));
         textView.setText(text);
         textView.setPadding(3,3,3,3);
         return textView;
@@ -249,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
 
         // creating and adding a text view to the scroll view with path to file
         ++filesRemoved;
-        TextView textView = generateTextView(R.color.colorAccent, file.getAbsolutePath());
+        TextView textView = generateTextView(file.getAbsolutePath());
 
         // adding to scroll view
         runOnUiThread(() -> fileListView.addView(textView));
