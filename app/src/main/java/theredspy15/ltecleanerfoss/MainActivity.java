@@ -163,11 +163,9 @@ public class MainActivity extends AppCompatActivity {
                 if (filter(file)) displayPath(file); // filter
 
                 // progress
-                runOnUiThread(() -> {
-                    scanPBar.setProgress(scanPBar.getProgress() + 1);
-                    double scanPercent = scanPBar.getProgress() * 100.0 / scanPBar.getMax();
-                    progressText.setText(String.format(Locale.US, "%.0f", scanPercent) + "%");
-                });
+                runOnUiThread(() -> scanPBar.setProgress(scanPBar.getProgress() + 1));
+                double scanPercent = scanPBar.getProgress() * 100.0 / scanPBar.getMax();
+                runOnUiThread(() -> progressText.setText(String.format(Locale.US, "%.0f", scanPercent) + "%"));
             }
 
             if (filesRemoved == 0) break; // nothing found this run, no need to run again
