@@ -27,7 +27,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -331,7 +330,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private synchronized boolean isDirectoryEmpty(File directory) {
 
-        Toast.makeText(this, "IS EMPTY", Toast.LENGTH_SHORT).show();
         return directory.listFiles().length == 0;
     }
 
