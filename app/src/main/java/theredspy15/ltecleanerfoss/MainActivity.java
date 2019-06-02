@@ -247,9 +247,9 @@ public class MainActivity extends AppCompatActivity {
     private synchronized void displayPath(File file) {
 
         kilobytesTotal += Integer.parseInt(String.valueOf(file.length()/1024));
+        ++filesRemoved;
 
         // creating and adding a text view to the scroll view with path to file
-        ++filesRemoved;
         TextView textView = generateTextView(file.getAbsolutePath());
 
         // adding to scroll view
@@ -259,8 +259,13 @@ public class MainActivity extends AppCompatActivity {
         fileScrollView.post(() -> fileScrollView.fullScroll(ScrollView.FOCUS_DOWN));
 
         // deletion & error effect
-        if (delete)
-            if (!file.delete()) textView.setTextColor(Color.RED);
+        if (delete) {
+            if (!file.delete()) {
+                textView.setTextColor(Color.RED);
+                kilobytesTotal -= Integer.parseInt(String.valueOf(file.length()/1024));
+                --filesRemoved;
+            }
+        }
     }
 
     /**
