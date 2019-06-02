@@ -26,12 +26,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".WhitelistActivity"
+            android:name="theredspy15.ltecleanerfoss.WhitelistActivity"
             android:theme="@style/SettingsTheme"
             android:screenOrientation="portrait"
             android:parentActivityName=".SettingsActivity"/>
         <activity
-            android:name=".MainActivity"
+            android:name="theredspy15.ltecleanerfoss.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name="theredspy15.ltecleanerfoss.SettingsActivity"
             android:theme="@style/SettingsTheme"
             android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"/>
