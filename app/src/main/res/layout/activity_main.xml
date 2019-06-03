@@ -28,6 +28,7 @@
         android:layout_marginEnd="32dp"
         android:fontFamily="sans-serif"
         android:text="@string/lte_cleaner"
+        android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
         android:textStyle="bold"
