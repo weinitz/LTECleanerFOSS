@@ -21,11 +21,11 @@
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="354dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="sans-serif"
         android:text="@string/lte_cleaner"
         android:textColor="@color/colorAccent"
