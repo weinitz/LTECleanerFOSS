@@ -10,7 +10,7 @@
 
 <resources>
     <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner! Очиститель логов, временных и пустых файлов</string>
+    <string name="lte_cleaner">LTE Cleaner! Очиститель логов временных и пустых файлов</string>
     <string name="no_files_found">Файлы не найдены</string>
     <string name="delete_empty_folders">Очистить пустые директории</string>
     <string name="aggressive_filter">Включить агрессивный фильтр</string>

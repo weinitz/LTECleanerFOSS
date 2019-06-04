@@ -10,7 +10,7 @@
 
 <resources>
     <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner! Pulitore di Logs, File Temporanei e Cartelle Vuote</string>
+    <string name="lte_cleaner">LTE Cleaner! Pulitore di Logs File Temporanei e Cartelle Vuote</string>
     <string name="no_files_found">Nessun file trovato</string>
     <string name="delete_empty_folders">Cancella cartelle vuote</string>
     <string name="aggressive_filter">Attiva filtro aggressivo</string>

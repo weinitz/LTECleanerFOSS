@@ -10,7 +10,7 @@
 
 <resources>
     <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner! Logs, Temporary and Empty Cleaner</string>
+    <string name="lte_cleaner">LTE Cleaner! Logs Temporary and Empty Cleaner</string>
     <string name="no_files_found">No files found</string>
     <string name="delete_empty_folders">Delete empty folders</string>
     <string name="aggressive_filter">Enable aggressive filter</string>
