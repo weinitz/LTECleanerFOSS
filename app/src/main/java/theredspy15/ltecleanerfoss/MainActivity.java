@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     int filesRemoved = 0;
     int kilobytesTotal = 0;
     static boolean delete = false;
+    static boolean running = false;
     static private Resources resources;
     ConstraintSet constraintSet = new ConstraintSet();
     SharedPreferences prefs;
@@ -101,22 +102,24 @@ public class MainActivity extends AppCompatActivity {
      */
     public final void clean(View view) {
 
-        if (!prefs.getBoolean("one_click", false)) // one-click disabled
-            new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
-                    .setTitle(R.string.select_task)
-                    .setMessage(R.string.do_you_want_to)
-                    .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
-                        delete = true;
-                        new Thread(this::scan).start();
-                    })
-                    .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
-                        delete = false;
-                        new Thread(this::scan).start();
-                    }).show();
-        else { // one-click enabled
-            reset();
-            delete = true; // clean
-            new Thread(this::scan).start();
+        if (!running) {
+            if (!prefs.getBoolean("one_click", false)) // one-click disabled
+                new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
+                        .setTitle(R.string.select_task)
+                        .setMessage(R.string.do_you_want_to)
+                        .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
+                            delete = true;
+                            new Thread(this::scan).start();
+                        })
+                        .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
+                            delete = false;
+                            new Thread(this::scan).start();
+                        }).show();
+            else { // one-click enabled
+                reset();
+                delete = true; // clean
+                new Thread(this::scan).start();
+            }
         }
     }
 
@@ -138,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
         Looper.prepare();
         reset();
+        running = true;
         whiteList = Stash.getArrayList("whiteList",String.class);
         setUpFilter(prefs.getBoolean("generic", true), prefs.getBoolean("aggressive", false), prefs.getBoolean("apk", false));
 
@@ -189,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
                     this, getString(R.string.found) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
         }
 
+        running = false;
         runOnUiThread(() -> statusText.setText(getString(R.string.status_idle)));
         Looper.loop();
     }
