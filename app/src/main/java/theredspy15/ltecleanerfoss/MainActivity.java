@@ -208,23 +208,27 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<File> inFiles = new ArrayList<>();
         File[] files = parentDirectory.listFiles();
 
-        for (File file : files) {
-            if (!isWhiteListed(file)) { // won't touch if whitelisted
-                if (file.isDirectory()) { // folder
+        if (files != null) {
+            for (File file : files) {
+                if (!isWhiteListed(file)) { // won't touch if whitelisted
+                    if (file.isDirectory()) { // folder
 
-                    if (prefs.getBoolean("auto_white", true)) {
-                        if (!autoWhiteList(file)) {
-                            inFiles.add(file);
-                            inFiles.addAll(getListFiles(file));
+                        if (prefs.getBoolean("auto_white", true)) {
+                            if (!autoWhiteList(file)) {
+                                inFiles.add(file);
+                                inFiles.addAll(getListFiles(file));
+                            }
                         }
-                    }
-                    else {
-                        inFiles.add(file); // add folder itself
-                        inFiles.addAll(getListFiles(file)); // add contents to returned list
-                    }
+                        else {
+                            inFiles.add(file); // add folder itself
+                            inFiles.addAll(getListFiles(file)); // add contents to returned list
+                        }
 
-                } else inFiles.add(file); // add file
+                    } else inFiles.add(file); // add file
+                }
             }
+        } else {
+            TastyToast.makeText(this, "Failed Scan", TastyToast.LENGTH_LONG, TastyToast.ERROR).show();
         }
 
         return inFiles;
