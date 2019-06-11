@@ -188,9 +188,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // toast view with amount found/freed
             if (delete) TastyToast.makeText( // Clean toast
-                    this, getString(R.string.freed) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
+                    this, getString(R.string.freed) + " " + convertSize(kilobytesTotal) + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
             else TastyToast.makeText( // Analyze toast
-                    this, getString(R.string.found) + " " + kilobytesTotal + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
+                    this, getString(R.string.found) + " " + convertSize(kilobytesTotal) + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
         }
 
         running = false;
@@ -246,6 +246,12 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(text);
         textView.setPadding(3,3,3,3);
         return textView;
+    }
+
+    private int convertSize(int size) {
+
+        if (size >= 1024) return size / 1024;
+        else return size;
     }
 
     /**
