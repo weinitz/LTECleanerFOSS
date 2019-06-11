@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Stash.init(getApplicationContext());
-        SafeLooper.install();
 
         fileListView = findViewById(R.id.fileListView);
         fileScrollView = findViewById(R.id.fileScrollView);
@@ -347,7 +347,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private synchronized boolean isDirectoryEmpty(File directory) {
 
-        return directory.listFiles().length == 0;
+        return Objects.requireNonNull(directory.listFiles()).length == 0;
     }
 
     /**
