@@ -16,7 +16,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
@@ -42,20 +41,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    static List<String> whiteList = new ArrayList<>();
-    static ArrayList<String> filters = new ArrayList<>();
-    List<File> foundFiles = new ArrayList<>();
-    int filesRemoved = 0;
-    int kilobytesTotal = 0;
-    static boolean delete = false;
-    static boolean running = false;
-    static private Resources resources;
     ConstraintSet constraintSet = new ConstraintSet();
+    static boolean running = false;
+    private Resources resources;
     SharedPreferences prefs;
 
     LinearLayout fileListView;
@@ -67,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Stash.init(getApplicationContext());
@@ -79,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
         statusText = findViewById(R.id.statusTextView);
         layout = findViewById(R.id.main_layout);
 
-        whiteList = Stash.getArrayList("whiteList", String.class);
         resources = getResources();
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         constraintSet.clone(layout);
@@ -92,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
      * @param view the view that is clicked
      */
     public final void settings(View view) {
-
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
@@ -108,23 +96,16 @@ public class MainActivity extends AppCompatActivity {
                         .setTitle(R.string.select_task)
                         .setMessage(R.string.do_you_want_to)
                         .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
-                            delete = true;
-                            new Thread(this::scan).start();
+                            new Thread(()-> scan(true)).start();
                         })
                         .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
-                            delete = false;
-                            new Thread(this::scan).start();
+                            new Thread(()-> scan(false)).start();
                         }).show();
-            else { // one-click enabled
-                reset();
-                delete = true; // clean
-                new Thread(this::scan).start();
-            }
+            else new Thread(()-> scan(true)).start(); // one-click enabled
         }
     }
 
     public void animateBtn() {
-
         TransitionManager.beginDelayedTransition(layout);
         constraintSet.clear(R.id.cleanButton,ConstraintSet.TOP);
         constraintSet.setMargin(R.id.statusTextView,ConstraintSet.TOP,10);
@@ -137,46 +118,39 @@ public class MainActivity extends AppCompatActivity {
      * unless nothing is found to begin with
      */
     @SuppressLint("SetTextI18n")
-    private void scan() {
-
+    private void scan(boolean delete) {
         Looper.prepare();
-        reset();
         running = true;
-        whiteList = Stash.getArrayList("whiteList",String.class);
-        setUpFilter(prefs.getBoolean("generic", true), prefs.getBoolean("aggressive", false), prefs.getBoolean("apk", false));
+        reset();
+
+        File path = new File(Environment.getExternalStorageDirectory().toString()
+                + "/"); // just a forward slash for whole device
+
+        // scanner setup
+        FileScanner fs = new FileScanner(path);
+        fs.setEmptyDir(prefs.getBoolean("empty", false));
+        fs.setAutoWhite(prefs.getBoolean("auto_white", true));
+        fs.setDelete(delete);
+        fs.setGUI(this);
+
+        // filters
+        List<String> filters = new ArrayList<>();
+        if (prefs.getBoolean("generic", true))
+            filters.addAll(Arrays.asList(resources.getStringArray(R.array.generic_filter_array)));
+        if (prefs.getBoolean("aggressive", false))
+            filters.addAll(Arrays.asList(resources.getStringArray(R.array.aggressive_filter_array)));
+        fs.setUpFilters(filters, prefs.getBoolean("apk", false));
+
+        if (path.listFiles() == null) // is this needed?
+            TastyToast.makeText(this, "Failed Scan", TastyToast.LENGTH_LONG, TastyToast.ERROR).show();
 
         runOnUiThread(() -> {
             animateBtn();
             statusText.setText(getString(R.string.status_running));
         });
 
-        byte cycles = 0;
-        byte maxCycles = 10;
-        if (!delete) maxCycles = 1; // when nothing is being deleted. Stops duplicates from being found
-
-        // removes the need to 'clean' multiple times to get everything
-        while (cycles < maxCycles) {
-
-            // find files
-            String path = Environment.getExternalStorageDirectory().toString() + "/"; // just a forward slash for whole device
-            foundFiles = getListFiles(new File(path));
-            scanPBar.setMax(scanPBar.getMax() + foundFiles.size());
-
-            // scan
-            for (File file : foundFiles) {
-                if (filter(file)) displayPath(file); // filter
-
-                // progress
-                runOnUiThread(() -> scanPBar.setProgress(scanPBar.getProgress() + 1));
-                double scanPercent = scanPBar.getProgress() * 100.0 / scanPBar.getMax();
-                runOnUiThread(() -> progressText.setText(String.format(Locale.US, "%.0f", scanPercent) + "%"));
-            }
-
-            if (filesRemoved == 0) break; // nothing found this run, no need to run again
-
-            filesRemoved = 0; // reset for next cycle
-            ++cycles;
-        }
+        // start scanning
+        int kilobytesTotal = fs.startScan();
 
         runOnUiThread(() -> { // crappy but working fix for percentage never reaching 100
             scanPBar.setProgress(scanPBar.getMax());
@@ -193,46 +167,11 @@ public class MainActivity extends AppCompatActivity {
                     this, getString(R.string.found) + " " + convertSize(kilobytesTotal) + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
         }
 
-        running = false;
         runOnUiThread(() -> statusText.setText(getString(R.string.status_idle)));
+        running = false;
         Looper.loop();
     }
 
-    /**
-     * Used to generate a list of all files on device
-     * @param parentDirectory where to start searching from
-     * @return List of all files on device (besides whitelisted ones)
-     */
-    private synchronized List<File> getListFiles(File parentDirectory) {
-
-        ArrayList<File> inFiles = new ArrayList<>();
-        File[] files = parentDirectory.listFiles();
-
-        if (files != null) {
-            for (File file : files) {
-                if (!isWhiteListed(file)) { // won't touch if whitelisted
-                    if (file.isDirectory()) { // folder
-
-                        if (prefs.getBoolean("auto_white", true)) {
-                            if (!autoWhiteList(file)) {
-                                inFiles.add(file);
-                                inFiles.addAll(getListFiles(file));
-                            }
-                        }
-                        else {
-                            inFiles.add(file); // add folder itself
-                            inFiles.addAll(getListFiles(file)); // add contents to returned list
-                        }
-
-                    } else inFiles.add(file); // add file
-                }
-            }
-        } else {
-            TastyToast.makeText(this, "Failed Scan", TastyToast.LENGTH_LONG, TastyToast.ERROR).show();
-        }
-
-        return inFiles;
-    }
 
     /**
      * Convenience method to quickly create a textview
@@ -240,7 +179,6 @@ public class MainActivity extends AppCompatActivity {
      * @return - created textview
      */
     private synchronized TextView generateTextView(String text) {
-
         TextView textView = new TextView(MainActivity.this);
         textView.setTextColor(getResources().getColor(R.color.colorAccent));
         textView.setText(text);
@@ -249,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int convertSize(int size) {
-
         if (size >= 1024) return size / 1024;
         else return size;
     }
@@ -259,11 +196,7 @@ public class MainActivity extends AppCompatActivity {
      * If there is any error while deleting, turns text view of path red
      * @param file file to delete
      */
-    private synchronized void displayPath(File file) {
-
-        kilobytesTotal += Integer.parseInt(String.valueOf(file.length()/1024));
-        ++filesRemoved;
-
+    synchronized TextView displayPath(File file) {
         // creating and adding a text view to the scroll view with path to file
         TextView textView = generateTextView(file.getAbsolutePath());
 
@@ -273,25 +206,15 @@ public class MainActivity extends AppCompatActivity {
         // scroll to bottom
         fileScrollView.post(() -> fileScrollView.fullScroll(ScrollView.FOCUS_DOWN));
 
-        // deletion & error effect
-        if (delete) {
-            if (!file.delete()) {
-                textView.setTextColor(Color.RED);
-                kilobytesTotal -= Integer.parseInt(String.valueOf(file.length()/1024));
-                --filesRemoved;
-            }
-        }
+        return textView;
     }
+
 
     /**
      * Removes all views present in fileListView (linear view), and sets found and removed
      * files to 0
      */
     private synchronized void reset() {
-
-        foundFiles.clear();
-        filesRemoved = 0;
-        kilobytesTotal = 0;
         resources = getResources();
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -303,97 +226,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Adds paths to the white list that are not to be cleaned. As well as adds
-     * extensions to filter. 'generic', 'aggressive', and 'apk' should be assigned
-     * by calling preferences.getBoolean()
-     */
-    @SuppressLint("ResourceType")
-    synchronized static void setUpFilter(boolean generic, boolean aggressive, boolean apk) {
-
-        // filters
-        filters.clear();
-        // generic
-        if (generic)
-            filters.addAll(Arrays.asList(resources.getStringArray(R.array.generic_filter_array)));
-        // aggressive
-        if (aggressive)
-            filters.addAll(Arrays.asList(resources.getStringArray(R.array.aggressive_filter_array)));
-        // apk
-        if (apk) filters.add(".apk");
-    }
-
-    /**
      * Request write permission
      */
     public synchronized void requestWriteExternalPermission() {
-
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},
                 1);
-    }
-
-    /**
-     * Runs a for each loop through the white list, and compares the path of the file
-     * to each path in the list
-     * @param file file to check if in the whitelist
-     * @return true if is the file is in the white list, false if not
-     */
-    private synchronized boolean isWhiteListed(File file) {
-
-        for (String path : whiteList) if (path.equals(file.getAbsolutePath()) || path.equals(file.getName())) return true;
-
-        return false;
-    }
-
-    /**
-     * lists the contents of the file to an array, if the array length is 0, then return true,
-     * else false
-     * @param directory directory to test
-     * @return true if empty, false if containing a file(s)
-     */
-    private synchronized boolean isDirectoryEmpty(File directory) {
-
-        return Objects.requireNonNull(directory.listFiles()).length == 0;
-    }
-
-    /**
-     * Runs before anything is filtered/cleaned. Automatically adds folders to the whitelist
-     * based on the name of the folder itself
-     * @param file file to check whether it should be added to the whitelist
-     */
-    private synchronized boolean autoWhiteList(File file) {
-
-        String[] protectedFileList = {
-                "BACKUP", "backup", "Backup", "backups",
-                "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
-                "important", "important", "do_not_edit"};
-
-        for (String protectedFile : protectedFileList) {
-            if (file.getName().contains(protectedFile) && !whiteList.contains(file.getAbsolutePath())) {
-                whiteList.add(file.getAbsolutePath());
-                Stash.put("whiteList", whiteList);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Runs as for each loop through the extension filter, and checks if
-     * the file name contains the extension
-     * @param file file to check
-     * @return true if the file's extension is in the filter, false otherwise
-     */
-    private synchronized boolean filter(File file) {
-
-        for (String extension : filters) {
-            if (file.getAbsolutePath().contains(extension)) return true; // file
-            else if (file.isDirectory())
-                if (isDirectoryEmpty(file) && prefs.getBoolean("empty", false)) return true; // empty folder
-        }
-
-        return false; // not empty folder or file in filter
     }
 
     /**

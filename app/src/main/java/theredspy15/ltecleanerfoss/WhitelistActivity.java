@@ -27,13 +27,14 @@ import com.fxn.stash.Stash;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
+import java.util.List;
 
 public class WhitelistActivity extends AppCompatActivity {
 
     ListView listView;
-
     BaseAdapter adapter;
     SharedPreferences prefs;
+    private static List<String> whiteList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,8 @@ public class WhitelistActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.whitelistView);
 
-        adapter = new ArrayAdapter<>(WhitelistActivity.this,R.layout.custom_textview, MainActivity.whiteList);
+        whiteList = Stash.getArrayList("whiteList", String.class);
+        adapter = new ArrayAdapter<>(WhitelistActivity.this,R.layout.custom_textview, whiteList);
         listView.setAdapter(adapter);
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     }
@@ -58,8 +60,8 @@ public class WhitelistActivity extends AppCompatActivity {
                 .setTitle(R.string.reset_whitelist)
                 .setMessage(R.string.are_you_reset_whitelist)
                 .setPositiveButton(R.string.reset, (dialog, whichButton) -> {
-                    MainActivity.whiteList.clear();
-                    Stash.put("whiteList", MainActivity.whiteList);
+                    whiteList.clear();
+                    Stash.put("whiteList", whiteList);
                     runOnUiThread(() -> {
                         adapter.notifyDataSetChanged();
                         listView.invalidateViews();
@@ -80,28 +82,29 @@ public class WhitelistActivity extends AppCompatActivity {
     }
 
     public void addRecommended() {
+        File externalDir = Environment.getExternalStorageDirectory();
 
-        if (!MainActivity.whiteList.contains(new File(Environment.getExternalStorageDirectory(), "Music").getPath())) {
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Music").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Podcasts").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Ringtones").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Alarms").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Notifications").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Pictures").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Movies").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Download").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "DCIM").getPath());
-            MainActivity.whiteList.add(new File(Environment.getExternalStorageDirectory(), "Documents").getPath());
-            Stash.put("whiteList", MainActivity.whiteList);
+        if (whiteList.contains(new File(externalDir, "Music").getPath())) {
+            whiteList.add(new File(externalDir, "Music").getPath());
+            whiteList.add(new File(externalDir, "Podcasts").getPath());
+            whiteList.add(new File(externalDir, "Ringtones").getPath());
+            whiteList.add(new File(externalDir, "Alarms").getPath());
+            whiteList.add(new File(externalDir, "Notifications").getPath());
+            whiteList.add(new File(externalDir, "Pictures").getPath());
+            whiteList.add(new File(externalDir, "Movies").getPath());
+            whiteList.add(new File(externalDir, "Download").getPath());
+            whiteList.add(new File(externalDir, "DCIM").getPath());
+            whiteList.add(new File(externalDir, "Documents").getPath());
+            Stash.put("whiteList", whiteList);
         } else
-            TastyToast.makeText(WhitelistActivity.this, "Already added", TastyToast.LENGTH_LONG, TastyToast.DEFAULT).show();
+            TastyToast.makeText(this, "Already added", TastyToast.LENGTH_LONG, TastyToast.DEFAULT).show();
     }
 
     /**
      * Creates a dialog asking for a file/folder name to add to the whitelist
      * @param view the view that is clicked
      */
-    public final void addToWhitelist(View view) {
+    public final void addToWhiteList(View view) {
 
         final EditText input = new EditText(WhitelistActivity.this);
 
@@ -110,8 +113,8 @@ public class WhitelistActivity extends AppCompatActivity {
                 .setMessage(R.string.enter_file_name)
                 .setView(input)
                 .setPositiveButton(R.string.add, (dialog, whichButton) -> {
-                    MainActivity.whiteList.add(String.valueOf(input.getText()));
-                    Stash.put("whiteList", MainActivity.whiteList);
+                    whiteList.add(String.valueOf(input.getText()));
+                    Stash.put("whiteList", whiteList);
                     runOnUiThread(() -> {
                         adapter.notifyDataSetChanged();
                         listView.invalidateViews();
@@ -119,5 +122,12 @@ public class WhitelistActivity extends AppCompatActivity {
                     });
                 })
                 .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
+    }
+
+
+    public static synchronized List<String> getWhiteList() {
+        if (whiteList == null)
+            whiteList = Stash.getArrayList("whiteList", String.class);
+        return whiteList;
     }
 }
