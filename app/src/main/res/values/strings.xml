@@ -44,6 +44,14 @@
     <string name="status_idle">Status: Idle</string>
     <string name="progress_0">0%</string>
     <string name="status_running">Status: Running</string>
+    <string name="privacy_sum">View the privacy policy (external link)</string>
+    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
+    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
+    <string name="generic_sum">.tmp, .log, Logs, logs</string>
+    <string name="aggressive_sum">Too much to list here</string>
+    <string name="apk_sum">Installer files for android</string>
+    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
+    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
 
     <string-array name="generic_filter_array">
         <item>.tmp</item>
