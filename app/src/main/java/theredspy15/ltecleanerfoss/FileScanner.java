@@ -22,13 +22,13 @@ public class FileScanner {
     private boolean delete = false;
     private boolean emptyDir = false;
     private boolean autoWhite = true;
-    static ArrayList<String> filters = new ArrayList<>();
+    private static ArrayList<String> filters = new ArrayList<>();
     private static String[] protectedFileList = {
             "BACKUP", "backup", "Backup", "backups",
             "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
             "important", "important", "do_not_edit"};
 
-    public FileScanner(File path) {
+    FileScanner(File path) {
         this.path = path;
     }
 
@@ -133,7 +133,7 @@ public class FileScanner {
      * by calling preferences.getBoolean()
      */
     @SuppressLint("ResourceType")
-    public synchronized void setUpFilters(List<String> filterList, boolean apk) {
+    synchronized void setUpFilters(List<String> filterList, boolean apk) {
 
         // filters
         filters.clear();
@@ -143,7 +143,7 @@ public class FileScanner {
         if (apk) filters.add(".apk");
     }
 
-    public int startScan() {
+    int startScan() {
         byte cycles = 0;
         byte maxCycles = 10;
         List<File> foundFiles;
@@ -188,19 +188,19 @@ public class FileScanner {
         return kilobytesTotal;
     }
 
-    public void setEmptyDir(boolean emptyDir) {
+    void setEmptyDir(boolean emptyDir) {
         this.emptyDir = emptyDir;
     }
 
-    public void setGUI(MainActivity gui) {
+    void setGUI(MainActivity gui) {
         this.gui = gui;
     }
 
-    public void setDelete(boolean delete) {
+    void setDelete(boolean delete) {
         this.delete = delete;
     }
 
-    public void setAutoWhite(boolean autoWhite) {
+    void setAutoWhite(boolean autoWhite) {
         this.autoWhite = autoWhite;
     }
 }
