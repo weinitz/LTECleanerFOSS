@@ -134,12 +134,10 @@ public class MainActivity extends AppCompatActivity {
         fs.setGUI(this);
 
         // filters
-        List<String> filters = new ArrayList<>();
-        if (prefs.getBoolean("generic", true))
-            filters.addAll(Arrays.asList(resources.getStringArray(R.array.generic_filter_array)));
-        if (prefs.getBoolean("aggressive", false))
-            filters.addAll(Arrays.asList(resources.getStringArray(R.array.aggressive_filter_array)));
-        fs.setUpFilters(filters, prefs.getBoolean("apk", false));
+        fs.setUpFilters(prefs.getBoolean("generic", true),
+                prefs.getBoolean("aggressive", false),
+                prefs.getBoolean("apk", false));
+
 
         if (path.listFiles() == null) // is this needed?
             TastyToast.makeText(this, "Failed Scan", TastyToast.LENGTH_LONG, TastyToast.ERROR).show();

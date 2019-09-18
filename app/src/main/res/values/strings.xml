@@ -45,24 +45,21 @@
     <string name="progress_0">0%</string>
     <string name="status_running">Status: Running</string>
 
-    <string-array name="generic_filter_array">
+    <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
-        <item>Logs</item>
-        <item>logs</item>
     </string-array>
-    <string-array name="aggressive_filter_array">
+    <string-array name="generic_filter_folders">
+        <item>Logs</item>
+    </string-array>
+    <string-array name="aggressive_filter_folders">
         <item>supersonicads</item>
         <item>Cache</item>
-        <item>cache</item>
-        <item>analytics</item>
         <item>Analytics</item>
-        <item>.exo</item>
         <item>thumbnails</item>
         <item>mobvista</item>
         <item>UnityAdsVideoCache</item>
         <item>albumthumbs</item>
-        <item>thumbs.db</item>
         <item>LOST.DIR</item>
         <item>.Trash</item>
         <item>desktop.ini</item>
@@ -73,5 +70,9 @@
         <item>bugreport</item>
         <item>Bugreport</item>
         <item>.Trash</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>thumbs?.db</item>
     </string-array>
 </resources>
