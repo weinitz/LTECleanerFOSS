@@ -41,12 +41,11 @@ public class WhitelistActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_whitelist);
-
         listView = findViewById(R.id.whitelistView);
 
-        whiteList = Stash.getArrayList("whiteList", String.class);
-        adapter = new ArrayAdapter<>(WhitelistActivity.this,R.layout.custom_textview, whiteList);
+        adapter = new ArrayAdapter<>(this, R.layout.custom_textview, getWhiteList());
         listView.setAdapter(adapter);
+
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     }
 
@@ -62,29 +61,15 @@ public class WhitelistActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.reset, (dialog, whichButton) -> {
                     whiteList.clear();
                     Stash.put("whiteList", whiteList);
-                    runOnUiThread(() -> {
-                        adapter.notifyDataSetChanged();
-                        listView.invalidateViews();
-                        listView.refreshDrawableState();
-                    });
+                    refreshListView();
                 })
                 .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
     }
 
-    public final void addRecommended(View view) {
-
-        addRecommended();
-        runOnUiThread(() -> {
-            adapter.notifyDataSetChanged();
-            listView.invalidateViews();
-            listView.refreshDrawableState();
-        });
-    }
-
-    public void addRecommended() {
+    public void addRecommended(View view) {
         File externalDir = Environment.getExternalStorageDirectory();
-
-        if (whiteList.contains(new File(externalDir, "Music").getPath())) {
+        
+        if (!whiteList.contains(new File(externalDir, "Music").getPath())) {
             whiteList.add(new File(externalDir, "Music").getPath());
             whiteList.add(new File(externalDir, "Podcasts").getPath());
             whiteList.add(new File(externalDir, "Ringtones").getPath());
@@ -96,8 +81,11 @@ public class WhitelistActivity extends AppCompatActivity {
             whiteList.add(new File(externalDir, "DCIM").getPath());
             whiteList.add(new File(externalDir, "Documents").getPath());
             Stash.put("whiteList", whiteList);
+            refreshListView();
+
         } else
-            TastyToast.makeText(this, "Already added", TastyToast.LENGTH_LONG, TastyToast.DEFAULT).show();
+            TastyToast.makeText(this, "Already added",
+                    TastyToast.LENGTH_LONG, TastyToast.DEFAULT).show();
     }
 
     /**
@@ -115,15 +103,18 @@ public class WhitelistActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.add, (dialog, whichButton) -> {
                     whiteList.add(String.valueOf(input.getText()));
                     Stash.put("whiteList", whiteList);
-                    runOnUiThread(() -> {
-                        adapter.notifyDataSetChanged();
-                        listView.invalidateViews();
-                        listView.refreshDrawableState();
-                    });
+                    refreshListView();
                 })
                 .setNegativeButton(R.string.cancel, (dialog, whichButton) -> { }).show();
     }
 
+    public void refreshListView() {
+        runOnUiThread(() -> {
+            adapter.notifyDataSetChanged();
+            listView.invalidateViews();
+            listView.refreshDrawableState();
+        });
+    }
 
     public static synchronized List<String> getWhiteList() {
         if (whiteList == null)
