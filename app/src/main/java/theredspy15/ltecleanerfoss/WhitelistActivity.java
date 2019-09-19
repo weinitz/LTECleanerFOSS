@@ -68,7 +68,7 @@ public class WhitelistActivity extends AppCompatActivity {
 
     public void addRecommended(View view) {
         File externalDir = Environment.getExternalStorageDirectory();
-        
+
         if (!whiteList.contains(new File(externalDir, "Music").getPath())) {
             whiteList.add(new File(externalDir, "Music").getPath());
             whiteList.add(new File(externalDir, "Podcasts").getPath());
