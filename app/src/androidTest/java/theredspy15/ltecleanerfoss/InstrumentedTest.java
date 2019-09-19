@@ -126,8 +126,8 @@ public class InstrumentedTest {
 
     private File createDir(String name) {
         File file = new File(Environment.getExternalStorageDirectory(), name);
-        file.mkdir();
 
+        assertTrue(file.mkdir());
         assertTrue(file.exists());
         return file;
     }
