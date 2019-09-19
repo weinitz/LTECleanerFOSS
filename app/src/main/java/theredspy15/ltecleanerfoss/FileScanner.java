@@ -1,6 +1,7 @@
 package theredspy15.ltecleanerfoss;
 
 import android.annotation.SuppressLint;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.widget.TextView;
 
@@ -8,6 +9,7 @@ import com.fxn.stash.Stash;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -16,6 +18,7 @@ import static theredspy15.ltecleanerfoss.WhitelistActivity.getWhiteList;
 
 public class FileScanner {
     private File path;
+    private Resources res;
     private MainActivity gui;
     private int filesRemoved = 0;
     private int kilobytesTotal = 0;
@@ -24,14 +27,11 @@ public class FileScanner {
     private boolean autoWhite = true;
     private static ArrayList<String> filters = new ArrayList<>();
     private static String[] protectedFileList = {
-            "BACKUP", "backup", "Backup", "backups",
-            "Backups", "BACKUPS", "copy", "Copy", "copies", "Copies", "IMPORTANT",
-            "important", "important", "do_not_edit"};
+            "backup", "copy", "copies", "important", "do_not_edit"};
 
     FileScanner(File path) {
         this.path = path;
     }
-
     private List<File> getListFiles() {
         return getListFiles(path);
     }
@@ -74,9 +74,10 @@ public class FileScanner {
      * @return true if is the file is in the white list, false if not
      */
     private synchronized boolean isWhiteListed(File file) {
-
-        for (String path : getWhiteList()) if (path.equals(file.getAbsolutePath()) || path.equals(file.getName())) return true;
-
+        for (String path : getWhiteList())
+            if (path.equalsIgnoreCase(file.getAbsolutePath())
+                    || path.equalsIgnoreCase(file.getName()))
+                return true;
         return false;
     }
 
@@ -88,8 +89,9 @@ public class FileScanner {
     private synchronized boolean autoWhiteList(File file) {
 
         for (String protectedFile : protectedFileList) {
-            if (file.getName().contains(protectedFile) && !getWhiteList().contains(file.getAbsolutePath())) {
-                getWhiteList().add(file.getAbsolutePath());
+            if (file.getName().toLowerCase().contains(protectedFile) &&
+                    !getWhiteList().contains(file.getAbsolutePath().toLowerCase())) {
+                getWhiteList().add(file.getAbsolutePath().toLowerCase());
                 Stash.put("whiteList", getWhiteList());
                 return true;
             }
@@ -109,8 +111,10 @@ public class FileScanner {
         if (file.isDirectory() && isDirectoryEmpty(file)
                 && emptyDir) return true; // empty folder
 
-        for (String extension : filters)
-            if (file.getAbsolutePath().contains(extension)) return true; // file
+        for (String filter : filters)
+            if (file.getAbsolutePath().toLowerCase()
+                    .matches(filter.toLowerCase()))
+                return true; // file
 
         return false; // not empty folder or file in filter
     }
@@ -133,14 +137,32 @@ public class FileScanner {
      * by calling preferences.getBoolean()
      */
     @SuppressLint("ResourceType")
-    synchronized void setUpFilters(List<String> filterList, boolean apk) {
+    synchronized void setUpFilters(boolean generic, boolean aggressive, boolean apk) {
+        List<String> folders = new ArrayList<>();
+        List<String> files = new ArrayList<>();
+
+        if (gui != null)
+            setResouces(gui.getResources());
+
+        if (generic) {
+            folders.addAll(Arrays.asList(res.getStringArray(R.array.generic_filter_folders)));
+            files.addAll(Arrays.asList(res.getStringArray(R.array.generic_filter_files)));
+        }
+
+        if (aggressive) {
+            folders.addAll(Arrays.asList(res.getStringArray(R.array.aggressive_filter_folders)));
+            files.addAll(Arrays.asList(res.getStringArray(R.array.aggressive_filter_files)));
+        }
 
         // filters
         filters.clear();
-        filters.addAll(filterList);
+        for (String folder : folders)
+            filters.add(getRegexForFolder(folder));
+        for (String file : files)
+            filters.add(getRegexForFile(file));
 
         // apk
-        if (apk) filters.add(".apk");
+        if (apk) filters.add(getRegexForFile(".apk"));
     }
 
     int startScan() {
@@ -188,12 +210,24 @@ public class FileScanner {
         return kilobytesTotal;
     }
 
-    void setEmptyDir(boolean emptyDir) {
-        this.emptyDir = emptyDir;
+    private String getRegexForFolder(String folder) {
+        return ".*(\\\\|/)" + folder + "(\\\\|/|$).*";
+    }
+
+    private String getRegexForFile(String file) {
+        return ".+"+ file.replace(".", "\\.") + "$";
     }
 
     void setGUI(MainActivity gui) {
         this.gui = gui;
+    }
+
+    void setResouces(Resources res) {
+        this.res = res;
+    }
+
+    void setEmptyDir(boolean emptyDir) {
+        this.emptyDir = emptyDir;
     }
 
     void setDelete(boolean delete) {

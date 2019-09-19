@@ -14,8 +14,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Environment;
 
-import androidx.test.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.fxn.stash.Stash;
 
@@ -25,9 +25,6 @@ import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -40,40 +37,33 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(AndroidJUnit4.class)
 public class InstrumentedTest {
-    private List<String> aggressiveFilters;
-    private List<String> genericFilters;
-    private List<String> allFilters;
     private FileScanner fs;
 
     @Before
     public void init() {
-        Context appContext = InstrumentationRegistry.getTargetContext();
-        Resources res = appContext.getResources();
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         File path = new File(Environment.getExternalStorageDirectory().toString() + "/");
+        Resources res = appContext.getResources();
         fs = new FileScanner(path);
         Stash.init(appContext);
         fs.setAutoWhite(false);
+        fs.setResouces(res);
         fs.setDelete(true);
-
-        allFilters = new ArrayList<>();
-        genericFilters = Arrays.asList(res.getStringArray(R.array.generic_filter_array));
-        aggressiveFilters = Arrays.asList(res.getStringArray(R.array.aggressive_filter_array));
-        allFilters.addAll(aggressiveFilters);
-        allFilters.addAll(genericFilters);
     }
 
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("theredspy15.ltecleanerfoss", appContext.getPackageName());
     }
 
     @Test
     public void checkLogFiles() {
-        File logFile = createFile("testfile.log");
-        File clogFile = createFile("clogs.png");
-        fs.setUpFilters(genericFilters, false);
+        File logFile = createFile("testfile.loG");
+        File clogFile = createFile("clogs.pnG");
+        fs.setUpFilters(true,
+                false, false);
         fs.startScan();
 
         assertTrue(clogFile.exists());
@@ -82,8 +72,9 @@ public class InstrumentedTest {
 
     @Test
     public void checkTempFiles() {
-        File tmpFile = createFile("testfile.tmp");
-        fs.setUpFilters(genericFilters, false);
+        File tmpFile = createFile("testfile.tMp");
+        fs.setUpFilters(true,
+                false, false);
         fs.startScan();
 
         assertFalse(tmpFile.exists());
@@ -91,8 +82,9 @@ public class InstrumentedTest {
 
     @Test
     public void checkThumbFiles() {
-        File thumbFile = createFile("thumbs.db");
-        fs.setUpFilters(aggressiveFilters, false);
+        File thumbFile = createFile("thumbs.Db");
+        fs.setUpFilters(false,
+                true, false);
         fs.startScan();
 
         assertFalse(thumbFile.exists());
@@ -100,8 +92,9 @@ public class InstrumentedTest {
 
     @Test
     public void checkAPKFiles() {
-        File thumbFile = createFile("chrome.apk");
-        fs.setUpFilters(allFilters, true);
+        File thumbFile = createFile("chrome.aPk");
+        fs.setUpFilters(true,
+                true, true);
         fs.startScan();
 
         assertFalse(thumbFile.exists());
@@ -110,7 +103,8 @@ public class InstrumentedTest {
     @Test
     public void checkEmptyDir() {
         File emptyDir = createDir("testdir");
-        fs.setUpFilters(genericFilters, false);
+        fs.setUpFilters(true,
+                false, false);
         fs.setEmptyDir(true);
         fs.startScan();
 
@@ -132,8 +126,8 @@ public class InstrumentedTest {
 
     private File createDir(String name) {
         File file = new File(Environment.getExternalStorageDirectory(), name);
-        file.mkdir();
 
+        assertTrue(file.mkdir());
         assertTrue(file.exists());
         return file;
     }

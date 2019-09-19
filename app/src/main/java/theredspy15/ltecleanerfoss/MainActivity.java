@@ -38,15 +38,11 @@ import com.fxn.stash.Stash;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ConstraintSet constraintSet = new ConstraintSet();
     static boolean running = false;
-    private Resources resources;
     SharedPreferences prefs;
 
     LinearLayout fileListView;
@@ -69,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         statusText = findViewById(R.id.statusTextView);
         layout = findViewById(R.id.main_layout);
 
-        resources = getResources();
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         constraintSet.clone(layout);
 
@@ -134,12 +129,10 @@ public class MainActivity extends AppCompatActivity {
         fs.setGUI(this);
 
         // filters
-        List<String> filters = new ArrayList<>();
-        if (prefs.getBoolean("generic", true))
-            filters.addAll(Arrays.asList(resources.getStringArray(R.array.generic_filter_array)));
-        if (prefs.getBoolean("aggressive", false))
-            filters.addAll(Arrays.asList(resources.getStringArray(R.array.aggressive_filter_array)));
-        fs.setUpFilters(filters, prefs.getBoolean("apk", false));
+        fs.setUpFilters(prefs.getBoolean("generic", true),
+                prefs.getBoolean("aggressive", false),
+                prefs.getBoolean("apk", false));
+
 
         if (path.listFiles() == null) // is this needed?
             TastyToast.makeText(this, "Failed Scan", TastyToast.LENGTH_LONG, TastyToast.ERROR).show();
@@ -215,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
      * files to 0
      */
     private synchronized void reset() {
-        resources = getResources();
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         runOnUiThread(() -> {
@@ -239,8 +231,9 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 1)
-            if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED)
+        if (requestCode == 1 &&
+                grantResults.length > 0 &&
+                grantResults[0] != PackageManager.PERMISSION_GRANTED)
                 System.exit(0); // Permission denied
     }
 }
