@@ -226,6 +226,9 @@ public class MainActivity extends AppCompatActivity {
                 1);
     }
 
+
+
+
     /**
      * Handles the whether the user grants permission. Closes app on deny
      */
