@@ -12,6 +12,9 @@
 <resources>
     <color name="colorPrimary">#292929</color>
     <color name="colorPrimaryDark">#161616</color>
+    <color name="colorSecondary">#02010A</color>
+    <color name ="colorSecondaryLight">#CCDDE2</color>
+
     <color name="colorAccent">#53b440</color>
     <color name="buttonText">#FFF</color>
     <color name="file_path_color">#979797</color>
