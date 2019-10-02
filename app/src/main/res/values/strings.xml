@@ -8,7 +8,7 @@
   ~ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">LTE Cleaner</string>
     <string name="lte_cleaner">LTE Cleaner! Logs Temporary and Empty Cleaner</string>
     <string name="no_files_found">No files found</string>
@@ -52,7 +52,11 @@
     <string name="apk_sum">Installer files for android</string>
     <string name="oneclick_sum">No dialog menu when clicking Clean</string>
     <string name="autowhite_sum">Detect folders that should be protected automatically</string>
+    <string name="prompt_string" tools:ignore="MissingTranslation">Please add file access permissions</string>
+    <string name="settings_string" tools:ignore="MissingTranslation">Settings</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_prompt">PromptActivity</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
@@ -60,6 +64,8 @@
     <string-array name="generic_filter_folders">
         <item>Logs?</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string-array name="aggressive_filter_folders">
         <item>supersonicads</item>
         <item>Cache</item>
