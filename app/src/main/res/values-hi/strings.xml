@@ -1,0 +1,55 @@
+<!--
+  ~  Copyright 2019 TheRedSpy15
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">LTE Cleaner</string>
+    <string name="lte_cleaner">LTE Cleaner! टेम्पररी और खाली क्लीनर लॉग</string>
+    <string name="no_files_found">कोई फाइल नहीं है </string>
+    <string name="delete_empty_folders">खाली फ़ोल्डर डिलीट करे</string>
+    <string name="aggressive_filter">अग्ग्रेसिव  फ़िल्टर इनेबल करें</string>
+    <string name="Save">सेव</string>
+    <string name="filter">फ़िल्टर</string>
+    <string name="whitelist">व्हीटलिस्ट</string>
+    <string name="privacy_policy">प्राइवेसी पॉलिसी</string>
+    <string name="add_to_whitelist">व्हीटलिस्ट में ऐड करो</string>
+    <string name="add">ऐड </string>
+    <string name="cancel">कांसल</string>
+    <string name="enter_file_name">फाइल/फोल्डर नाम व्हीटलिस्ट में ऐड करो</string>
+    <string name="make_suggestion">सुझाव दो</string>
+    <string name="select_task">कोई कार्य सिलेक्ट करो</string>
+    <string name="do_you_want_to">क्या आप सभी  फ़ाइलों को हटाना (डिलीट करना) चाहते हैं, या केवल उन्हें डिस्प्ले करना (अनलाइज़ करना) चाहते  है?</string>
+    <string name="clean">क्लीन</string>
+    <string name="analyze">अनलाइज़</string>
+    <string name="enable_generic_filter">जेनेरिक फ़िल्टर इनेबल करो</string>
+    <string name="one_click_clean">एक क्लिक क्लीन</string>
+    <string name="freed">फ्रीड :</string>
+    <string name="kb">KB</string>
+    <string name="found">फाउंड : </string>
+    <string name="auto_whitelist">ऑटो  व्हीटलिस्ट</string>
+    <string name="reset_whitelist">एम्प्टी व्हीटलिस्ट ?</string>
+    <string name="are_you_reset_whitelist">क्या आप व्हीटलिस्ट को क्लियर करना चाहते हैं?</string>
+    <string name="reset">क्लियर</string>
+    <string name="delete_apk_files">.apk  फाइल्स डिलीट करो</string>
+    <string name="lte_threading">LTE Threading (Faster)</string>
+    <string name="default_whitelist">Default Whitelist</string>
+    <string name="add_defaults">Add Recommended Whitelists</string>
+    <string name="nothing_found">Nothing found</string>
+    <string name="status_idle">Status: Idle</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">Status: Running</string>
+    <string name="privacy_sum">प्राइवेसी पालिसी देखे (external link)</string>
+    <string name="whitelist_sum">स्कैन से एक्सक्लूड करने के लिए पाथ दिखाता है</string>
+    <string name="suggestion_sum">ऐप से GitHub पर एक इश्यू खोलें। कोई अकाउंट की आवश्यकता नहीं है</string>
+    <string name="generic_sum">.tmp, .log, Logs, logs</string>
+    <string name="aggressive_sum">Too much to list here</string>
+    <string name="apk_sum">Installer files for android</string>
+    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
+    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
+</resources>
