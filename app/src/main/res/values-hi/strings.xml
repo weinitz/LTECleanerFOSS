@@ -46,7 +46,7 @@
     <string name="status_running">Status: Running</string>
     <string name="privacy_sum">प्राइवेसी पालिसी देखे (external link)</string>
     <string name="whitelist_sum">स्कैन से एक्सक्लूड करने के लिए पाथ दिखाता है</string>
-    <string name="suggestion_sum">ऐप से GitHub पर एक इश्यू खोलें। कोई अकाउंट  की आवश्यकता नहीं है</string>
+    <string name="suggestion_sum">ऐप से GitHub पर एक इश्यू खोलें। कोई अकाउंट की आवश्यकता नहीं है</string>
     <string name="generic_sum">.tmp, .log, Logs, logs</string>
     <string name="aggressive_sum">Too much to list here</string>
     <string name="apk_sum">Installer files for android</string>
