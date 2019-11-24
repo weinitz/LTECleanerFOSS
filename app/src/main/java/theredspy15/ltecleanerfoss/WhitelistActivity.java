@@ -121,6 +121,4 @@ public class WhitelistActivity extends AppCompatActivity {
             whiteList = Stash.getArrayList("whiteList", String.class);
         return whiteList;
     }
-
-
 }

@@ -17,6 +17,7 @@ import java.util.Objects;
 import static theredspy15.ltecleanerfoss.WhitelistActivity.getWhiteList;
 
 public class FileScanner {
+
     private File path;
     private Resources res;
     private MainActivity gui;
@@ -142,7 +143,7 @@ public class FileScanner {
         List<String> files = new ArrayList<>();
 
         if (gui != null)
-            setResouces(gui.getResources());
+            setResources(gui.getResources());
 
         if (generic) {
             folders.addAll(Arrays.asList(res.getStringArray(R.array.generic_filter_folders)));
@@ -189,7 +190,7 @@ public class FileScanner {
                         if (file.delete()) { // deletion
                             kilobytesTotal += Integer.parseInt(String.valueOf(file.length() / 1024));
                             ++filesRemoved;
-                        } else if (tv != null) tv.setTextColor(Color.RED); // error effect
+                        } else if (tv != null) tv.setTextColor(Color.GRAY); // error effect
 
                 }
 
@@ -222,7 +223,7 @@ public class FileScanner {
         this.gui = gui;
     }
 
-    void setResouces(Resources res) {
+    void setResources(Resources res) {
         this.res = res;
     }
 

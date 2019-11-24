@@ -109,35 +109,34 @@
     <ProgressBar
         android:id="@+id/scanProgress"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="151dp"
+        android:layout_height="144dp"
         android:background="@drawable/circular_background"
         android:indeterminate="false"
         android:max="1"
         android:progress="0"
         android:progressDrawable="@drawable/circular"
-        app:layout_constraintBottom_toBottomOf="@+id/statusTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/statusTextView" />
+        app:layout_constraintBottom_toBottomOf="@+id/ScanTextView"
+        app:layout_constraintEnd_toEndOf="@+id/ScanTextView"
+        app:layout_constraintStart_toStartOf="@+id/ScanTextView"
+        app:layout_constraintTop_toTopOf="@+id/ScanTextView" />
 
     <TextView
         android:id="@+id/ScanTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="monospace"
         android:text="@string/progress_0"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/scanProgress"
-        app:layout_constraintEnd_toEndOf="@+id/scanProgress"
-        app:layout_constraintStart_toStartOf="@+id/scanProgress"
-        app:layout_constraintTop_toTopOf="@+id/scanProgress" />
+        app:layout_constraintBottom_toBottomOf="@+id/statusTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/statusTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/statusTextView"

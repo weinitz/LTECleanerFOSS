@@ -47,7 +47,7 @@ public class InstrumentedTest {
         fs = new FileScanner(path);
         Stash.init(appContext);
         fs.setAutoWhite(false);
-        fs.setResouces(res);
+        fs.setResources(res);
         fs.setDelete(true);
     }
 

@@ -13,18 +13,14 @@ package theredspy15.ltecleanerfoss;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.transition.TransitionManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -37,17 +33,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.fxn.stash.Stash;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
-import java.net.URI;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     ConstraintSet constraintSet = new ConstraintSet();
     static boolean running = false;
@@ -59,8 +51,6 @@ public class MainActivity extends AppCompatActivity  {
     TextView progressText;
     TextView statusText;
     ConstraintLayout layout;
-    private FragmentManager mfragmentManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +84,6 @@ public class MainActivity extends AppCompatActivity  {
      * Runs search and delete on background thread
      */
     public final void clean(View view) {
-
         if (!running) {
             if (!prefs.getBoolean("one_click", false)) // one-click disabled
                 new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
@@ -236,9 +225,6 @@ public class MainActivity extends AppCompatActivity  {
                 1);
     }
 
-
-
-
     /**
      * Handles the whether the user grants permission. Launches new fragment asking the user to give file permission.
      */
@@ -258,7 +244,4 @@ public class MainActivity extends AppCompatActivity  {
         Intent intent = new Intent(this, PromptActivity.class);
         startActivity(intent);
     }
-
-
-
 }
