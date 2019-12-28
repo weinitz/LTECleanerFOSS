@@ -2,6 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Settings" android:key="settings">
 
     <Preference android:title="@string/privacy_policy"
+        android:key="privacyPolicy"
         android:summary="@string/privacy_sum">
         <intent android:action="android.intent.action.VIEW"
             android:data="https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html" />
