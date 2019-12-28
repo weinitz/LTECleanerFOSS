@@ -46,7 +46,7 @@ public class WhitelistActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, R.layout.custom_textview, getWhiteList());
         listView.setAdapter(adapter);
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        prefs =  getSharedPreferences("whiteList_prefs",0);
     }
 
     /**

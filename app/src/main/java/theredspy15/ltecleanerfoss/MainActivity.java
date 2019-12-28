@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         statusText = findViewById(R.id.statusTextView);
         layout = findViewById(R.id.main_layout);
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        prefs = getSharedPreferences("prefs",0);
         constraintSet.clone(layout);
 
         requestWriteExternalPermission();
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
      * files to 0
      */
     private synchronized void reset() {
-        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        prefs =  getSharedPreferences("prefs",0);
 
         runOnUiThread(() -> {
             fileListView.removeAllViews();
