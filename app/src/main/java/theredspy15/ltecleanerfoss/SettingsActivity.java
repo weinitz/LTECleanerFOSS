@@ -17,6 +17,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
 
@@ -29,21 +30,36 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        getFragmentManager().beginTransaction().replace(R.id.layout, new MyPreferenceFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.layout, new MyPreferenceFragment()).commit();
 }
 
-    public static class MyPreferenceFragment extends PreferenceFragment {
+    public static class MyPreferenceFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
-
             super.onCreate(savedInstanceState);
             this.setHasOptionsMenu(true);
-            this.addPreferencesFromResource(R.xml.preferences);
-            Preference button = findPreference("suggestion");
-            button.setOnPreferenceClickListener(preference -> {
-                reportIssue(button.getContext());
-                return true;
-            });
+
+        }
+
+        /**
+         * Inflate Preferences
+         */
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            addPreferencesFromResource(R.xml.preferences);
+        }
+
+        /**
+         * ClickEvent Listener for Preferences
+         */
+        @Override
+        public boolean onPreferenceTreeClick(androidx.preference.Preference preference) {
+            switch(preference.getKey()){
+                case "suggestion":
+                    reportIssue(getContext());
+                    return true;
+            }
+            return super.onPreferenceTreeClick(preference);
         }
 
         /**
