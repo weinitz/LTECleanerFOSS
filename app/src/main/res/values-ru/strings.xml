@@ -30,7 +30,6 @@
     <string name="enable_generic_filter">Включить общий фильтр</string>
     <string name="one_click_clean">Очистка одним нажатием</string>
     <string name="freed">Освобождено: </string>
-    <string name="kb">KB</string>
     <string name="found">Найдено: </string>
     <string name="auto_whitelist">Auto Whitelist</string>
     <string name="reset_whitelist">Reset whitelist?</string>

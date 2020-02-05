@@ -22,7 +22,7 @@ public class FileScanner {
     private Resources res;
     private MainActivity gui;
     private int filesRemoved = 0;
-    private int kilobytesTotal = 0;
+    private long kilobytesTotal = 0;
     private boolean delete = false;
     private boolean emptyDir = false;
     private boolean autoWhite = true;
@@ -43,7 +43,6 @@ public class FileScanner {
      * @return List of all files on device (besides whitelisted ones)
      */
     private synchronized List<File> getListFiles(File parentDirectory) {
-
         ArrayList<File> inFiles = new ArrayList<>();
         File[] files = parentDirectory.listFiles();
 
@@ -101,7 +100,6 @@ public class FileScanner {
         return false;
     }
 
-
     /**
      * Runs as for each loop through the extension filter, and checks if
      * the file name contains the extension
@@ -130,7 +128,6 @@ public class FileScanner {
 
         return Objects.requireNonNull(directory.listFiles()).length == 0;
     }
-
 
     /**
      * Adds paths to the white list that are not to be cleaned. As well as adds
@@ -166,7 +163,7 @@ public class FileScanner {
         if (apk) filters.add(getRegexForFile(".apk"));
     }
 
-    int startScan() {
+    long startScan() {
         byte cycles = 0;
         byte maxCycles = 10;
         List<File> foundFiles;
@@ -186,12 +183,15 @@ public class FileScanner {
                     if (gui != null)
                         tv = gui.displayPath(file);
 
-                    if (delete)
+                    if (delete) {
+                        kilobytesTotal += file.length();
+                        ++filesRemoved;
                         if (file.delete()) { // deletion
-                            kilobytesTotal += Integer.parseInt(String.valueOf(file.length() / 1024));
-                            ++filesRemoved;
-                        } else if (tv != null) tv.setTextColor(Color.GRAY); // error effect
 
+                        } else if (tv != null) tv.setTextColor(Color.GRAY); // error effect
+                    } else {
+                        kilobytesTotal += file.length();
+                    }
                 }
 
                 if (gui != null) {

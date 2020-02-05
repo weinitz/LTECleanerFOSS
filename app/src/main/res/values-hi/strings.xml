@@ -8,7 +8,7 @@
   ~ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
   -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">LTE Cleaner</string>
     <string name="lte_cleaner">LTE Cleaner! टेम्पररी और खाली क्लीनर लॉग</string>
     <string name="no_files_found">कोई फाइल नहीं है </string>
@@ -30,7 +30,6 @@
     <string name="enable_generic_filter">जेनेरिक फ़िल्टर इनेबल करो</string>
     <string name="one_click_clean">एक क्लिक क्लीन</string>
     <string name="freed">फ्रीड :</string>
-    <string name="kb">KB</string>
     <string name="found">फाउंड : </string>
     <string name="auto_whitelist">ऑटो  व्हीटलिस्ट</string>
     <string name="reset_whitelist">एम्प्टी व्हीटलिस्ट ?</string>

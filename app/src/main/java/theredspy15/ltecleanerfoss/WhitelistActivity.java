@@ -19,12 +19,12 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fxn.stash.Stash;
-import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
 import java.util.List;
@@ -84,8 +84,8 @@ public class WhitelistActivity extends AppCompatActivity {
             refreshListView();
 
         } else
-            TastyToast.makeText(this, "Already added",
-                    TastyToast.LENGTH_LONG, TastyToast.DEFAULT).show();
+            Toast.makeText(this, "Already added",
+                    Toast.LENGTH_LONG).show();
     }
 
     /**

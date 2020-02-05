@@ -10,7 +10,7 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner! Logs Temporary and Empty Cleaner</string>
+    <string name="lte_cleaner">LTE Cleaner!</string>
     <string name="no_files_found">No files found</string>
     <string name="delete_empty_folders">Delete empty folders</string>
     <string name="aggressive_filter">Enable aggressive filter</string>
@@ -30,7 +30,6 @@
     <string name="enable_generic_filter">Enable generic filter</string>
     <string name="one_click_clean">One click clean</string>
     <string name="freed">Freed: </string>
-    <string name="kb">KB</string>
     <string name="found">Found: </string>
     <string name="auto_whitelist">Auto Whitelist</string>
     <string name="reset_whitelist">Empty whitelist?</string>

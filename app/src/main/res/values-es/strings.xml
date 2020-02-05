@@ -30,7 +30,6 @@
     <string name="enable_generic_filter">Habilitar filtro genérico</string>
     <string name="one_click_clean">Limpiar en un clic</string>
     <string name="freed">Liberado:</string>
-    <string name="kb">KB</string>
     <string name="found">Encontrado:</string>
     <string name="auto_whitelist">Auto Whitelist</string>
     <string name="reset_whitelist">Reset whitelist?</string>

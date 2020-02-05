@@ -16,6 +16,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
@@ -35,9 +36,9 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.app.ActivityCompat;
 
 import com.fxn.stash.Stash;
-import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -102,7 +103,8 @@ public class MainActivity extends AppCompatActivity {
     public void animateBtn() {
         TransitionManager.beginDelayedTransition(layout);
         constraintSet.clear(R.id.cleanButton,ConstraintSet.TOP);
-        constraintSet.setMargin(R.id.statusTextView,ConstraintSet.TOP,10);
+        constraintSet.clear(R.id.statusTextView,ConstraintSet.BOTTOM);
+        constraintSet.setMargin(R.id.statusTextView,ConstraintSet.TOP,50);
         constraintSet.applyTo(layout);
     }
 
@@ -132,9 +134,11 @@ public class MainActivity extends AppCompatActivity {
                 prefs.getBoolean("aggressive", false),
                 prefs.getBoolean("apk", false));
 
-
-        if (path.listFiles() == null) // is this needed?
-            TastyToast.makeText(this, "Failed Scan", TastyToast.LENGTH_LONG, TastyToast.ERROR).show();
+        // failed scan
+        if (path.listFiles() == null) { // is this needed? yes.
+            TextView textView = printTextView("Scan failed.", Color.RED);
+            runOnUiThread(() -> fileListView.addView(textView));
+        }
 
         runOnUiThread(() -> {
             animateBtn();
@@ -142,24 +146,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // start scanning
-        int kilobytesTotal = fs.startScan();
+        long kilobytesTotal = fs.startScan();
 
-        runOnUiThread(() -> { // crappy but working fix for percentage never reaching 100
+        // crappy but working fix for percentage never reaching 100
+        runOnUiThread(() -> {
             scanPBar.setProgress(scanPBar.getMax());
             progressText.setText("100%");
         });
 
-        if (kilobytesTotal == 0) {
-            TastyToast.makeText(this, getString(R.string.nothing_found), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
-        } else {
-            // toast view with amount found/freed
-            if (delete) TastyToast.makeText( // Clean toast
-                    this, getString(R.string.freed) + " " + convertSize(kilobytesTotal) + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
-            else TastyToast.makeText( // Analyze toast
-                    this, getString(R.string.found) + " " + convertSize(kilobytesTotal) + getString(R.string.kb), TastyToast.LENGTH_LONG, TastyToast.SUCCESS).show();
-        }
+        // kilobytes found/freed text
+        runOnUiThread(() -> {
+            if (delete) {
+                statusText.setText(getString(R.string.freed) + " " + convertSize(kilobytesTotal));
+            } else {
+                statusText.setText(getString(R.string.found) + " " + convertSize(kilobytesTotal));
+            }
+        });
+        fileScrollView.post(() -> fileScrollView.fullScroll(ScrollView.FOCUS_DOWN));
 
-        runOnUiThread(() -> statusText.setText(getString(R.string.status_idle)));
         running = false;
         Looper.loop();
     }
@@ -170,17 +174,26 @@ public class MainActivity extends AppCompatActivity {
      * @param text - text of textview
      * @return - created textview
      */
-    private synchronized TextView generateTextView(String text) {
+    private synchronized TextView printTextView(String text, int color) {
         TextView textView = new TextView(MainActivity.this);
-        textView.setTextColor(getResources().getColor(R.color.colorAccent));
+        textView.setTextColor(color);
         textView.setText(text);
         textView.setPadding(3,3,3,3);
         return textView;
     }
 
-    private int convertSize(int size) {
-        if (size >= 1024) return size / 1024;
-        else return size;
+    private String convertSize(long length) {
+        final DecimalFormat format = new DecimalFormat("#.##");
+        final long MiB = 1024 * 1024;
+        final long KiB = 1024;
+
+        if (length > MiB) {
+            return format.format(length / MiB) + " MB";
+        }
+        if (length > KiB) {
+            return format.format(length / KiB) + " KB";
+        }
+        return format.format(length) + " B";
     }
 
     /**
@@ -190,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
      */
     synchronized TextView displayPath(File file) {
         // creating and adding a text view to the scroll view with path to file
-        TextView textView = generateTextView(file.getAbsolutePath());
+        TextView textView = printTextView(file.getAbsolutePath(), getResources().getColor(R.color.colorAccent));
 
         // adding to scroll view
         runOnUiThread(() -> fileListView.addView(textView));
@@ -233,7 +246,6 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 1 &&
                 grantResults.length > 0 &&
                 grantResults[0] != PackageManager.PERMISSION_GRANTED)
-                //System.exit(0); // Permission denied
             prompt();
     }
 

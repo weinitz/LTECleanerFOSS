@@ -30,7 +30,6 @@
     <string name="enable_generic_filter">Włącz filtr ogólny</string>
     <string name="one_click_clean">Wyczyść jednym kliknięciem</string>
     <string name="freed">Zwolniono: </string>
-    <string name="kb">KB</string>
     <string name="found">Znaleziono: </string>
     <string name="auto_whitelist">Automatyczna Biała Lista</string>
     <string name="reset_whitelist">Zresetować białą listę?</string>

@@ -17,24 +17,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/main_layout"
-    android:background="@drawable/gradient">
-
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/lte_cleaner"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="@color/colorPrimary">
 
     <ScrollView
         android:id="@+id/fileScrollView"
@@ -44,7 +27,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/rounded_view"
         app:layout_constraintBottom_toTopOf="@+id/cleanButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -143,14 +126,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
-        android:layout_marginTop="68dp"
         android:layout_marginEnd="129dp"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/status_idle"
         android:textColor="@color/colorAccent"
-        android:textSize="20sp"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
