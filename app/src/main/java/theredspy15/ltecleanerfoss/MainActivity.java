@@ -119,8 +119,7 @@ public class MainActivity extends AppCompatActivity {
         running = true;
         reset();
 
-        File path = new File(Environment.getExternalStorageDirectory().toString()
-                + "/"); // just a forward slash for whole device
+        File path = Environment.getExternalStorageDirectory();
 
         // scanner setup
         FileScanner fs = new FileScanner(path);
