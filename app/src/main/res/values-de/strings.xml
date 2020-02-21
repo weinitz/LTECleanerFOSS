@@ -51,4 +51,8 @@
     <string name="apk_sum">Installer-Dateien für Android</string>
     <string name="oneclick_sum">Kein Dialog, wenn säubern ausgewählt wird</string>
     <string name="autowhite_sum">Zu schützende Ordner automatisch erkennen</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prompt_string">Please add file access permissions</string>
+    <string name="settings_string">Settings</string>
+    <string name="title_activity_prompt">PromptActivity</string>
 </resources>
