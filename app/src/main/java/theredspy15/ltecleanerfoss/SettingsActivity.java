@@ -10,13 +10,10 @@
 
 package theredspy15.ltecleanerfoss;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
@@ -25,7 +22,6 @@ import com.heinrichreimersoftware.androidissuereporter.IssueReporterLauncher;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -33,14 +29,13 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.layout, new MyPreferenceFragment()).commit();
-}
+    }
 
     public static class MyPreferenceFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             this.setHasOptionsMenu(true);
-
         }
 
         /**
@@ -56,13 +51,13 @@ public class SettingsActivity extends AppCompatActivity {
          */
         @Override
         public boolean onPreferenceTreeClick(androidx.preference.Preference preference) {
-            switch(preference.getKey()){
-                case "suggestion":
-                    reportIssue(getContext());
-                    return true;
-                case "privacyPolicy":
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url))));
-                    return true;
+            String key = preference.getKey();
+            if ("suggestion".equals(key)) {
+                reportIssue(getContext());
+                return true;
+            } else if ("privacyPolicy".equals(key)) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url))));
+                return true;
             }
             return super.onPreferenceTreeClick(preference);
         }
@@ -70,7 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
         /**
          * Creates a menu that allows the user to create an issue on github
          */
-        public final void reportIssue(Context context) {
+        final void reportIssue(Context context) {
 
             IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
                     .theme(R.style.CustomIssueReportTheme)

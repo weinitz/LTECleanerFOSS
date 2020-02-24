@@ -10,10 +10,8 @@
 
 package theredspy15.ltecleanerfoss;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -33,7 +31,6 @@ public class WhitelistActivity extends AppCompatActivity {
 
     ListView listView;
     BaseAdapter adapter;
-    SharedPreferences prefs;
     private static List<String> whiteList;
 
     @Override
@@ -45,8 +42,6 @@ public class WhitelistActivity extends AppCompatActivity {
 
         adapter = new ArrayAdapter<>(this, R.layout.custom_textview, getWhiteList());
         listView.setAdapter(adapter);
-
-        prefs =  getSharedPreferences("whiteList_prefs",0);
     }
 
     /**

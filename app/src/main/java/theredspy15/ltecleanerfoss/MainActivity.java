@@ -20,7 +20,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
-import android.preference.PreferenceManager;
 import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -34,6 +33,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.app.ActivityCompat;
+import androidx.preference.PreferenceManager;
 
 import com.fxn.stash.Stash;
 
@@ -66,15 +66,21 @@ public class MainActivity extends AppCompatActivity {
         statusText = findViewById(R.id.statusTextView);
         layout = findViewById(R.id.main_layout);
 
-        prefs = getSharedPreferences("prefs",0);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("firsttime", true)) firstTime();
+
         constraintSet.clone(layout);
 
         requestWriteExternalPermission();
     }
 
+    public final void firstTime() {
+        //prefs.
+    }
+
     /**
      * Starts the settings activity
-     * @param view the view that is clicked
+     * @param view the view that is clickedprefs = getSharedPreferences("Settings",0);
      */
     public final void settings(View view) {
         Intent intent = new Intent(this, SettingsActivity.class);
@@ -219,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
      * files to 0
      */
     private synchronized void reset() {
-        prefs =  getSharedPreferences("prefs",0);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         runOnUiThread(() -> {
             fileListView.removeAllViews();
