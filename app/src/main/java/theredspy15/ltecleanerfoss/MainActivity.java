@@ -112,11 +112,11 @@ public class MainActivity extends AppCompatActivity {
                         .setMessage(R.string.do_you_want_to)
                         .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
                             new Thread(()-> scan(true)).start();
-                            if (prefs.getBoolean("firsttime", true)) firstTime();
+                            //if (prefs.getBoolean("firsttime", true)) firstTime();
                         })
                         .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                             new Thread(()-> scan(false)).start();
-                            if (prefs.getBoolean("firsttime", true)) firstTime();
+                            //if (prefs.getBoolean("firsttime", true)) firstTime();
                         }).show();
             else new Thread(()-> scan(true)).start(); // one-click enabled
         }
