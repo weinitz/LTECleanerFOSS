@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         layout = findViewById(R.id.main_layout);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("firsttime", true)) firstTime();
 
         constraintSet.clone(layout);
 
@@ -75,7 +74,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public final void firstTime() {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("firsttime", false);
+        editor.apply();
 
+        new AlertDialog.Builder(this, R.style.MyAlertDialogTheme)
+                .setTitle("HEY!!!")
+                .setMessage(
+                        "Hello there! I made this app this app because I love to code." +
+                        " But I currently make no revenue. So... I created a 'Pro' version." +
+                        " It will NOT provide any exclusive features like some apps... " +
+                        "But rather support me and provide early access to features")
+                .setPositiveButton("I'll check it out!", (dialog, whichButton) -> {
+                    // open play store
+                })
+                .setNegativeButton("Whatever...", (dialog, whichButton) -> {})
+                .show();
     }
 
     /**
@@ -98,9 +112,11 @@ public class MainActivity extends AppCompatActivity {
                         .setMessage(R.string.do_you_want_to)
                         .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
                             new Thread(()-> scan(true)).start();
+                            if (prefs.getBoolean("firsttime", true)) firstTime();
                         })
                         .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                             new Thread(()-> scan(false)).start();
+                            if (prefs.getBoolean("firsttime", true)) firstTime();
                         }).show();
             else new Thread(()-> scan(true)).start(); // one-click enabled
         }
