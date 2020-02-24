@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     TextView statusText;
     ConstraintLayout layout;
 
+    @SuppressLint("LogConditional")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         fs.setEmptyDir(prefs.getBoolean("empty", false));
         fs.setAutoWhite(prefs.getBoolean("auto_white", true));
         fs.setDelete(delete);
+        fs.setCorpse(prefs.getBoolean("corpse", false));
         fs.setGUI(this);
 
         // filters

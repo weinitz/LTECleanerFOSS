@@ -55,4 +55,6 @@
     <string name="prompt_string">Please add file access permissions</string>
     <string name="settings_string">Settings</string>
     <string name="title_activity_prompt">PromptActivity</string>
+    <string name="corpse_summary">Files left over from uninstalled apps</string>
+    <string name="corpse_title">Delete corpse files</string>
 </resources>

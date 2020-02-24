@@ -48,6 +48,13 @@
             android:persistent="true"
             android:title="@string/delete_empty_folders" />
         <CheckBoxPreference
+            android:defaultValue="false"
+            android:textColor="#FFF"
+            android:key="corpse"
+            android:persistent="true"
+            android:summary="@string/corpse_summary"
+            android:title="@string/corpse_title" />
+        <CheckBoxPreference
             android:defaultValue="true"
             android:textColor="#FFF"
             android:key="apk"
