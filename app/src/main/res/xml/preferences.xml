@@ -73,18 +73,21 @@
             android:summary="@string/apk_sum"
             android:title="@string/delete_apk_files" />
         <CheckBoxPreference
-            android:defaultValue="false"
-            android:textColor="#FFF"
-            android:key="one_click"
-            android:persistent="true"
-            android:summary="@string/oneclick_sum"
-            android:title="@string/one_click_clean" />
-        <CheckBoxPreference
             android:defaultValue="true"
             android:textColor="#FFF"
             android:key="auto_white"
             android:persistent="true"
             android:summary="@string/autowhite_sum"
             android:title="@string/auto_whitelist" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Miscellaneous">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:textColor="#FFF"
+            android:key="one_click"
+            android:persistent="true"
+            android:summary="@string/oneclick_sum"
+            android:title="@string/one_click_clean" />
     </PreferenceCategory>
 </PreferenceScreen>
