@@ -36,6 +36,11 @@ Coming major features:
 - Shortcuts
 - Community made filters
 
+**Differences between versions:**
+- Stable/master: This is the stable branch that gets released on the Play store. Also the same release on F-Droid.
+- Beta: Only on Play store. Allows users to try experimental features for feedback.
+- Pro ($0.99): Stable (non-experimental) features released before stable/master gets them. Play store only.
+
 ![screenshot](https://github.com/TheRedSpy15/LTECleanerFOSS/blob/master/Screenshots/Screenshot_1529468353_framed.png)
 
 __Privacy Policy:__ https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html
