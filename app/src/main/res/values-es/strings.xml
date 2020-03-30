@@ -10,7 +10,7 @@
 
 <resources>
     <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner! Limpiador de registros archivos temporales y carpetas vacías</string>
+    <string name="lte_cleaner">LTE Cleaner!</string>
     <string name="no_files_found">No se encontraron archivos</string>
     <string name="delete_empty_folders">Eliminar carpetas vacías</string>
     <string name="aggressive_filter">Habilitar filtro agresivo</string>
@@ -31,28 +31,32 @@
     <string name="one_click_clean">Limpiar en un clic</string>
     <string name="freed">Liberado:</string>
     <string name="found">Encontrado:</string>
-    <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Reset whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to reset the whitelist?</string>
-    <string name="reset">Reset</string>
-    <string name="delete_apk_files">Delete .apk files</string>
+    <string name="auto_whitelist">Lista blanca automática</string>
+    <string name="reset_whitelist">Resetear lista blanca?</string>
+    <string name="are_you_reset_whitelist">¿Seguro que quiere limpiar la lista blanca?</string>
+    <string name="reset">Resetear</string>
+    <string name="delete_apk_files">Borrar ficheros .apk</string>
     <string name="lte_threading">LTE Threading (Faster)</string>
-    <string name="default_whitelist">Default Whitelist</string>
-    <string name="add_defaults">Add Default Whitelists</string>
-    <string name="nothing_found">Nothing found</string>
-    <string name="status_idle">Status: Idle</string>
+    <string name="default_whitelist">Lista blanca por defecto</string>
+    <string name="add_defaults">Añadir lista blanca recomendada</string>
+    <string name="nothing_found">No se encontró nada</string>
+    <string name="status_idle">Estado: En espera</string>
     <string name="progress_0">0%</string>
-    <string name="status_running">Status: Running</string>
-    <string name="privacy_sum">View the privacy policy (external link)</string>
-    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
-    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
+    <string name="status_running">Estado: Ejecutando</string>
+    <string name="privacy_sum">Ver la política de privacidad (link externo)</string>
+    <string name="whitelist_sum">Muestra la rutas excluidas de escaneo</string>
+    <string name="suggestion_sum">Dejar un comentario en GitHub desde la app. No se necesita cuenta</string>
     <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
-    <string name="apk_sum">Installer files for android</string>
-    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
-    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
+    <string name="aggressive_sum">Muchísimo que listar</string>
+    <string name="apk_sum">Archivos de instalación de Android</string>
+    <string name="oneclick_sum">Se limpiará automáticamente sin abrir ningún diálogo</string>
+    <string name="autowhite_sum">Detectar carpetas que pueden protegerse automáticamente</string>
+    <string name="prompt_string">Por favor dé permiso de modificar archivos</string>
+    <string name="settings_string">Opciones</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="prompt_string">Please add file access permissions</string>
-    <string name="settings_string">Settings</string>
     <string name="title_activity_prompt">PromptActivity</string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>
