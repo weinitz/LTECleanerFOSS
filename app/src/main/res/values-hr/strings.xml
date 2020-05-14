@@ -1,0 +1,36 @@
+<!--
+  ~  Copyright 2019 TheRedSpy15
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">LTE Cleaner</string>
+    <string name="lte_cleaner">LTE Cleaner!</string>
+    <string name="no_files_found">Nema pronađenih datoteka</string>
+    <string name="delete_empty_folders">Obriši prazne mape</string>
+    <string name="aggressive_filter">Omogući agresivan filter</string>
+    <string name="Save">Spremi</string>
+    <string name="filter">Filtriraj</string>
+    <string name="add">Dodaj</string>
+    <string name="cancel">Poništi</string>
+    <string name="make_suggestion">Predloži</string>
+    <string name="select_task">Odaberi radnju</string>
+    <string name="clean">Očisti</string>
+    <string name="analyze">Analiziraj</string>
+    <string name="found">Pronađeno:</string>
+    <string name="delete_apk_files">Obriši .apk datoteke</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">Status: Pokrenuto</string>
+    <string name="generic_sum">.tmp, .log, Logs, logs</string>
+    <string name="apk_sum">Instalacijske datoteke za android</string>
+    <string name="settings_string">Postavke</string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>
