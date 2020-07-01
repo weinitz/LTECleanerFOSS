@@ -55,6 +55,8 @@
     <string name="settings_string">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_prompt">PromptActivity</string>
+    <string name="corpse_summary">Files left over from uninstalled apps</string>
+    <string name="corpse_title">Delete corpse files</string>
 
 
     <string-array name="generic_filter_files">
@@ -86,6 +88,7 @@
         <item>.spotlight-V100</item>
         <item>fseventsd</item>
         <item>Bugreport</item>
+        <item>bugreports</item>
         <item>.Trash</item>
         <item>cache</item>
     </string-array>

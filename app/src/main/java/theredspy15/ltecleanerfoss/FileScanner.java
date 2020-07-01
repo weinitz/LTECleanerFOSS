@@ -1,6 +1,18 @@
+/*
+ *  Copyright 2019 TheRedSpy15
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ */
+
 package theredspy15.ltecleanerfoss;
 
 import android.annotation.SuppressLint;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.widget.TextView;
@@ -10,6 +22,7 @@ import com.fxn.stash.Stash;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -26,6 +39,7 @@ public class FileScanner {
     private boolean delete = false;
     private boolean emptyDir = false;
     private boolean autoWhite = true;
+    private boolean corpse = false;
     private static ArrayList<String> filters = new ArrayList<>();
     private static String[] protectedFileList = {
             "backup", "copy", "copies", "important", "do_not_edit"};
@@ -101,12 +115,18 @@ public class FileScanner {
     }
 
     /**
-     * Runs as for each loop through the extension filter, and checks if
-     * the file name contains the extension
+     * Runs as for each loop through the filter, and checks if
+     * the file matches any filters
      * @param file file to check
      * @return true if the file's extension is in the filter, false otherwise
      */
     public synchronized boolean filter(File file) {
+        // corpse checking - TODO: needs improved!
+        if (file.getParentFile() != null && file.getParentFile().getParentFile() != null&& corpse)
+            if (file.getParentFile().getName().equals("data") && file.getParentFile().getParentFile().getName().equals("Android"))
+                if (!getInstalledPackages().contains(file.getName()) && !file.getName().equals(".nomedia"))
+                    return true;
+
         if (file.isDirectory() && isDirectoryEmpty(file)
                 && emptyDir) return true; // empty folder
 
@@ -116,6 +136,17 @@ public class FileScanner {
                 return true; // file
 
         return false; // not empty folder or file in filter
+    }
+
+    private synchronized List<String> getInstalledPackages() {
+        final PackageManager pm = gui.getPackageManager();
+        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+        List<String> packagesString = new LinkedList<>();
+        for (ApplicationInfo packageInfo : packages) {
+            packagesString.add(packageInfo.packageName);
+        }
+        return packagesString;
     }
 
     /**
@@ -233,6 +264,10 @@ public class FileScanner {
 
     void setDelete(boolean delete) {
         this.delete = delete;
+    }
+
+    void setCorpse(boolean corpse) {
+        this.corpse = corpse;
     }
 
     void setAutoWhite(boolean autoWhite) {

@@ -20,6 +20,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -33,7 +34,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.app.ActivityCompat;
-import androidx.preference.PreferenceManager;
 
 import com.fxn.stash.Stash;
 
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     TextView statusText;
     ConstraintLayout layout;
 
+    @SuppressLint("LogConditional")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,25 +72,6 @@ public class MainActivity extends AppCompatActivity {
         constraintSet.clone(layout);
 
         requestWriteExternalPermission();
-    }
-
-    public final void firstTime() {
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("firsttime", false);
-        editor.apply();
-
-        new AlertDialog.Builder(this, R.style.MyAlertDialogTheme)
-                .setTitle("HEY!!!")
-                .setMessage(
-                        "Hello there! I made this app this app because I love to code." +
-                        " But I currently make no revenue. So... I created a 'Pro' version." +
-                        " It will NOT provide any exclusive features like some apps... " +
-                        "But rather support me and provide early access to features")
-                .setPositiveButton("I'll check it out!", (dialog, whichButton) -> {
-                    // open play store
-                })
-                .setNegativeButton("Whatever...", (dialog, whichButton) -> {})
-                .show();
     }
 
     /**
@@ -112,11 +94,9 @@ public class MainActivity extends AppCompatActivity {
                         .setMessage(R.string.do_you_want_to)
                         .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
                             new Thread(()-> scan(true)).start();
-                            if (prefs.getBoolean("firsttime", true)) firstTime();
                         })
                         .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
                             new Thread(()-> scan(false)).start();
-                            if (prefs.getBoolean("firsttime", true)) firstTime();
                         }).show();
             else new Thread(()-> scan(true)).start(); // one-click enabled
         }
@@ -148,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         fs.setEmptyDir(prefs.getBoolean("empty", false));
         fs.setAutoWhite(prefs.getBoolean("auto_white", true));
         fs.setDelete(delete);
+        fs.setCorpse(prefs.getBoolean("corpse", false));
         fs.setGUI(this);
 
         // filters
