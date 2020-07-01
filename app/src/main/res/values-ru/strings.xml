@@ -55,4 +55,6 @@
     <string name="settings_string">Настройки</string>
     <string name="hello_blank_fragment">Привет пустой фрагмент</string>
     <string name="title_activity_prompt">Оперативная деятельность</string>
+    <string name="corpse_title">Delete corpse files</string>
+    <string name="corpse_summary">Files left over from uninstalled apps</string>
 </resources>

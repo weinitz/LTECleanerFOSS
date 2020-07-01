@@ -55,7 +55,8 @@
     <string name="settings_string">Opciones</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_prompt">PromptActivity</string>
-
+    <string name="corpse_title">Delete corpse files</string>
+    <string name="corpse_summary">Files left over from uninstalled apps</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

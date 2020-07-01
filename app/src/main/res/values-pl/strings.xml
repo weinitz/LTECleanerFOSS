@@ -55,4 +55,6 @@
     <string name="settings_string">Ustawienia</string>
     <string name="hello_blank_fragment">Witam pusty fragment</string>
     <string name="title_activity_prompt">Szybkie działania</string>
+    <string name="corpse_title">Delete corpse files</string>
+    <string name="corpse_summary">Files left over from uninstalled apps</string>
 </resources>
