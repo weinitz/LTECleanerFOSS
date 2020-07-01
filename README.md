@@ -1,5 +1,7 @@
 # LTECleanerFOSS
-![logo](https://imgur.com/ykSLpTS.png)
+![logo](https://imgur.com/ykSLpTS.png) 
+
+![Android CI](https://github.com/TheRedSpy15/LTECleanerFOSS/workflows/Android%20CI/badge.svg)
 
 [![Translate - with Stringlate](https://img.shields.io/badge/translate%20with-stringlate-green.svg)](https://lonamiwebs.github.io/stringlate/translate?git=https%3A%2F%2Fgithub.com%2FTheRedSpy15%2FLTECleanerFOSS)
 
