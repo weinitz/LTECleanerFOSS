@@ -57,6 +57,8 @@
     <string name="title_activity_prompt">PromptActivity</string>
     <string name="corpse_title">Delete corpse files</string>
     <string name="corpse_summary">Files left over from uninstalled apps</string>
+    <string name="donate">Donate</string>
+    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

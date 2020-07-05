@@ -11,8 +11,6 @@
 package theredspy15.ltecleanerfoss;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,9 +52,6 @@ public class SettingsActivity extends AppCompatActivity {
             String key = preference.getKey();
             if ("suggestion".equals(key)) {
                 reportIssue(getContext());
-                return true;
-            } else if ("privacyPolicy".equals(key)) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url))));
                 return true;
             }
             return super.onPreferenceTreeClick(preference);

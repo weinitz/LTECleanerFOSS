@@ -57,6 +57,8 @@
     <string name="oneclick_sum">No dialog menu when clicking Clean</string>
     <string name="prompt_string">Please add file access permissions</string>
     <string name="autowhite_sum">Detect folders that should be protected automatically</string>
+    <string name="donate">Donate</string>
+    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

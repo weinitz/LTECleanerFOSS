@@ -12,6 +12,13 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Settings" android:key="settings">
 
+    <Preference android:title="@string/donate"
+        android:key="donate"
+        android:summary="@string/donate_sum">
+        <intent android:action="android.intent.action.VIEW"
+            android:data="https://www.paypal.me/theredspy15" />
+    </Preference>
+
     <Preference android:title="@string/privacy_policy"
         android:key="privacyPolicy"
         android:summary="@string/privacy_sum">
@@ -90,4 +97,5 @@
             android:summary="@string/oneclick_sum"
             android:title="@string/one_click_clean" />
     </PreferenceCategory>
+
 </PreferenceScreen>
