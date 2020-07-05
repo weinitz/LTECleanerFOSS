@@ -14,7 +14,7 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "theredspy15.ltecleanerfoss"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 37
         versionName "4.2.0"
