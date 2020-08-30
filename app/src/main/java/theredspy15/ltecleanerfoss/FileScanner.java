@@ -157,7 +157,8 @@ public class FileScanner {
      */
     private synchronized boolean isDirectoryEmpty(File directory) {
 
-        return Objects.requireNonNull(directory.listFiles()).length == 0;
+        if (directory.list() != null) return Objects.requireNonNull(directory.list()).length == 0;
+        else return false;
     }
 
     /**
