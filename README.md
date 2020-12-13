@@ -7,6 +7,11 @@
 
 # The last Android cleaner you will ever need!
 
+## NOTICE!!! - December 13th (2020)
+**In response to the large number of apps on the play store that are cloning LTE Cleaner and running ads, I will be changing from the MIT license, to GPLv3.**
+
+**2020 has been crazy too. I have not in anyway worked on this app since the summer. But I'm back baby!**
+
 [<img src="https://f-droid.org/badge/get-it-on.png"
      alt="Get it on F-Droid"
      height="90">](https://f-droid.org/packages/theredspy15.ltecleanerfoss/)
