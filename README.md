@@ -48,3 +48,5 @@ __Privacy Policy:__ https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/p
 
 Big thanks to Ander Méndez for creating the awesome logo!
 GitHub: https://github.com/mendezand 
+
+![license](https://imgur.com/QQlcEVT.png) 
