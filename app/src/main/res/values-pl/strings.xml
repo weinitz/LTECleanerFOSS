@@ -53,18 +53,4 @@
     <string name="corpse_title">Usuń pozostawione pliki</string>
     <string name="donate">Darowizna</string>
     <string name="donate_sum">Sponsoruj mi kawę! Możesz też wybrać kwotę darowizny za pomocą PayPal, dzięki czemu będę mógł nadal wspierać tę aplikację</string>
-
-
-    <string-array name="ogólne_filtry_plików">
-        <item>.tmp</item>
-        <item>.log</item>
-    </string-array>
-    <string-array name="ogólne_filtry_folderów">
-        <item>Logs</item>
-        <item>logs</item>
-        <item>temp</item>
-        <item>Temporary</item>
-        <item>temporary</item>
-    </string-array>
-		
 </resources>
