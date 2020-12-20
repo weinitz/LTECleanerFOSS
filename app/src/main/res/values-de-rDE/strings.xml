@@ -3,90 +3,90 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
+    <string name="app_name">LTE-Reiniger</string>
     <string name="lte_cleaner">LTE Cleaner!</string>
-    <string name="no_files_found">No files found</string>
-    <string name="delete_empty_folders">Delete empty folders</string>
-    <string name="aggressive_filter">Enable aggressive filter</string>
-    <string name="Save">Save</string>
+    <string name="no_files_found">Keine Dateien gefunden</string>
+    <string name="delete_empty_folders">Leere Ordner löschen</string>
+    <string name="aggressive_filter">Aggressiven Filter aktivieren</string>
+    <string name="Save">Speichern</string>
     <string name="filter">Filter</string>
     <string name="whitelist">Whitelist</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="add_to_whitelist">Add to whitelist</string>
-    <string name="add">Add</string>
-    <string name="cancel">Cancel</string>
-    <string name="enter_file_name">Enter file/folder name to whitelist</string>
-    <string name="make_suggestion">Make Suggestion</string>
-    <string name="select_task">Select a task</string>
-    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
-    <string name="clean">Clean</string>
-    <string name="analyze">Analyze</string>
-    <string name="enable_generic_filter">Enable generic filter</string>
-    <string name="one_click_clean">One click clean</string>
-    <string name="freed">Freed: </string>
-    <string name="found">Found: </string>
-    <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Empty whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
-    <string name="reset">Clear</string>
-    <string name="delete_apk_files">Delete .apk files</string>
-    <string name="lte_threading">LTE Threading (Faster)</string>
-    <string name="default_whitelist">Default Whitelist</string>
-    <string name="add_defaults">Add Recommended Whitelists</string>
-    <string name="nothing_found">Nothing found</string>
+    <string name="privacy_policy">Datenschutzrichtlinie</string>
+    <string name="add_to_whitelist">Zur Whitelist hinzufügen</string>
+    <string name="add">Hinzufügen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="enter_file_name">Datei-/Ordnernamen in Whitelist eingeben</string>
+    <string name="make_suggestion">Vorschlag machen</string>
+    <string name="select_task">Task auswählen</string>
+    <string name="do_you_want_to">Möchten Sie alle gefundenen Dateien löschen (Bereinigen) oder sie nur anzeigen (Analysieren)?</string>
+    <string name="clean">Bereinigen</string>
+    <string name="analyze">Analysieren</string>
+    <string name="enable_generic_filter">Generischen Filter aktivieren</string>
+    <string name="one_click_clean">Ein Klick bereinigen</string>
+    <string name="freed">Freigegeben: </string>
+    <string name="found">Gefunden: </string>
+    <string name="auto_whitelist">Automatische Whitelist</string>
+    <string name="reset_whitelist">Leere Whitelist?</string>
+    <string name="are_you_reset_whitelist">Sind Sie sicher, dass Sie die Whitelist löschen möchten?</string>
+    <string name="reset">Löschen</string>
+    <string name="delete_apk_files">.apk-Dateien löschen</string>
+    <string name="lte_threading">LTE-Threading (schneller)</string>
+    <string name="default_whitelist">StandardWhitelist</string>
+    <string name="add_defaults">Empfohlene Whitelists hinzufügen</string>
+    <string name="nothing_found">Nichts gefunden</string>
     <string name="status_idle">Status: Idle</string>
     <string name="progress_0">0%</string>
-    <string name="status_running">Status: Running</string>
-    <string name="privacy_sum">View the privacy policy (external link)</string>
-    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
-    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
-    <string name="apk_sum">Installer files for android</string>
-    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
-    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
-    <string name="prompt_string">Please add file access permissions</string>
-    <string name="settings_string">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="status_running">Status: Aktiv</string>
+    <string name="privacy_sum">Datenschutzrichtlinie anzeigen (externer Link)</string>
+    <string name="whitelist_sum">Zeigt die Pfade an, die von Scans ausgeschlossen werden sollen</string>
+    <string name="suggestion_sum">Öffnen Sie ein Problem auf GitHub von der App aus. Kein Konto erforderlich</string>
+    <string name="generic_sum">.tmp, .log, Protokolle, Protokolle</string>
+    <string name="aggressive_sum">Zu viel, um hier aufzulisten</string>
+    <string name="apk_sum">Installer-Dateien für Android</string>
+    <string name="oneclick_sum">Kein Dialogfenster beim Klicken auf \'Bereinigen\'</string>
+    <string name="autowhite_sum">Ordner erkennen, die automatisch geschützt werden sollen</string>
+    <string name="prompt_string">Fügen Sie die Dateizugriffsberechtigungen hinzu.</string>
+    <string name="settings_string">Einstellungen</string>
+    <string name="hello_blank_fragment">Hello-Leerzeichen-Fragment</string>
     <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_summary">Files left over from uninstalled apps</string>
-    <string name="corpse_title">Delete corpse files</string>
-    <string name="donate">Donate</string>
-    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
+    <string name="corpse_summary">Dateien, die von deinstallierten Apps übrig bleiben</string>
+    <string name="corpse_title">Corpse-Dateien löschen</string>
+    <string name="donate">Spenden</string>
+    <string name="donate_sum">Kauf mir einen Kaffee! Oder wählen Sie, wie viel mit PayPal zu spenden, damit ich diese App unterstützen kann</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
     </string-array>
     <string-array name="generic_filter_folders">
-        <item>Logs</item>
-        <item>logs</item>
-        <item>temp</item>
-        <item>Temporary</item>
-        <item>temporary</item>
+        <item>Protokolle</item>
+        <item>Protokolle</item>
+        <item>Temp</item>
+        <item>Temporär</item>
+        <item>Temporär</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="aggressive_filter_folders">
-        <item>supersonicads</item>
+        <item>Supersonicads</item>
         <item>Cache</item>
-        <item>Analytics</item>
-        <item>thumbnails?</item>
+        <item>Analyse</item>
+        <item>Miniaturbilder?</item>
         <item>mobvista</item>
         <item>UnityAdsVideoCache</item>
-        <item>albumthumbs?</item>
+        <item>Albumthumbs?</item>
         <item>LOST.DIR</item>
-        <item>.Trash</item>
+        <item>.Papierkorb</item>
         <item>desktop.ini</item>
-        <item>leakcanary</item>
+        <item>Undichte</item>
         <item>.DS_Store</item>
         <item>.spotlight-V100</item>
-        <item>fseventsd</item>
+        <item>fsiebsd</item>
         <item>Bugreport</item>
-        <item>bugreports</item>
-        <item>.Trash</item>
-        <item>cache</item>
+        <item>Bugreports</item>
+        <item>.Papierkorb</item>
+        <item>Cache</item>
     </string-array>
     <string-array name="aggressive_filter_files">
         <item>.exo</item>
-        <item>thumbs?.db</item>
+        <item>thumbs? .db</item>
     </string-array>
 </resources>
