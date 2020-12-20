@@ -3,90 +3,90 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner!</string>
-    <string name="no_files_found">No files found</string>
-    <string name="delete_empty_folders">Delete empty folders</string>
-    <string name="aggressive_filter">Enable aggressive filter</string>
-    <string name="Save">Save</string>
-    <string name="filter">Filter</string>
-    <string name="whitelist">Whitelist</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="add_to_whitelist">Add to whitelist</string>
-    <string name="add">Add</string>
-    <string name="cancel">Cancel</string>
-    <string name="enter_file_name">Enter file/folder name to whitelist</string>
-    <string name="make_suggestion">Make Suggestion</string>
-    <string name="select_task">Select a task</string>
-    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
-    <string name="clean">Clean</string>
-    <string name="analyze">Analyze</string>
-    <string name="enable_generic_filter">Enable generic filter</string>
-    <string name="one_click_clean">One click clean</string>
-    <string name="freed">Freed: </string>
-    <string name="found">Found: </string>
-    <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Empty whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
-    <string name="reset">Clear</string>
-    <string name="delete_apk_files">Delete .apk files</string>
-    <string name="lte_threading">LTE Threading (Faster)</string>
-    <string name="default_whitelist">Default Whitelist</string>
-    <string name="add_defaults">Add Recommended Whitelists</string>
-    <string name="nothing_found">Nothing found</string>
-    <string name="status_idle">Status: Idle</string>
+    <string name="app_name">Vyčištění LTE</string>
+    <string name="lte_cleaner">Uklízeč LTE!</string>
+    <string name="no_files_found">Nebyly nalezeny žádné soubory</string>
+    <string name="delete_empty_folders">Odstranit prázdné složky</string>
+    <string name="aggressive_filter">Povolit agresivní filtr</string>
+    <string name="Save">Uložit</string>
+    <string name="filter">Filtrovat</string>
+    <string name="whitelist">Seznam povolených adres</string>
+    <string name="privacy_policy">Ochrana osobních údajů</string>
+    <string name="add_to_whitelist">Přidat do seznamu povolených</string>
+    <string name="add">Přidat</string>
+    <string name="cancel">Storno</string>
+    <string name="enter_file_name">Zadejte název souboru/složky do seznamu povolených adres</string>
+    <string name="make_suggestion">Navrhnout návrh</string>
+    <string name="select_task">Vyberte úlohu</string>
+    <string name="do_you_want_to">Chcete odstranit (Vyčistit) všechny nalezené soubory, nebo je pouze zobrazit (Analyzovat)?</string>
+    <string name="clean">Vyčistit</string>
+    <string name="analyze">Analyzovat</string>
+    <string name="enable_generic_filter">Povolit generický filtr</string>
+    <string name="one_click_clean">Jedno klepnutí je čisté</string>
+    <string name="freed">Uvolněno: </string>
+    <string name="found">Nalezeno: </string>
+    <string name="auto_whitelist">Automatický seznam povolených adres</string>
+    <string name="reset_whitelist">Prázdný seznam povolených adres</string>
+    <string name="are_you_reset_whitelist">Jste si jisti, že chcete vymazat seznam povolených adres?</string>
+    <string name="reset">Vyčistit</string>
+    <string name="delete_apk_files">Odstranit soubory .apk</string>
+    <string name="lte_threading">LTE Threading (rychlejší)</string>
+    <string name="default_whitelist">Výchozí seznam povolených adres</string>
+    <string name="add_defaults">Přidat doporučené seznamy povolených adres</string>
+    <string name="nothing_found">Nic nenalezeno</string>
+    <string name="status_idle">Stav: Nečinný</string>
     <string name="progress_0">0%</string>
-    <string name="status_running">Status: Running</string>
-    <string name="privacy_sum">View the privacy policy (external link)</string>
-    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
-    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
-    <string name="apk_sum">Installer files for android</string>
-    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
-    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
-    <string name="prompt_string">Please add file access permissions</string>
-    <string name="settings_string">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_summary">Files left over from uninstalled apps</string>
-    <string name="corpse_title">Delete corpse files</string>
-    <string name="donate">Donate</string>
-    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
+    <string name="status_running">Stav: Spuštěno</string>
+    <string name="privacy_sum">Zobrazit zásady ochrany osobních údajů (externí odkaz)</string>
+    <string name="whitelist_sum">Zobrazí cesty, které se mají vyloučit ze skenování</string>
+    <string name="suggestion_sum">Otevřete problém v aplikaci GitHub z aplikace. Není potřeba žádný účet</string>
+    <string name="generic_sum">.tmp, .log, Protokoly, protokoly</string>
+    <string name="aggressive_sum">Příliš mnoho na seznam zde</string>
+    <string name="apk_sum">Soubory instalačního programu pro android</string>
+    <string name="oneclick_sum">Při klepnutí na tlačítko Vyčistit se zobrazí dialogové okno</string>
+    <string name="autowhite_sum">Zjišťovat složky, které mají být automaticky chráněny</string>
+    <string name="prompt_string">Přidejte přístupová oprávnění k souboru</string>
+    <string name="settings_string">NastaveníComment</string>
+    <string name="hello_blank_fragment">Prázdný fragment</string>
+    <string name="title_activity_prompt">Aktivita náznaku</string>
+    <string name="corpse_summary">Soubory ponechané v odinstalovaných aplikacích</string>
+    <string name="corpse_title">Odstranit soubory mrtvol</string>
+    <string name="donate">Darování</string>
+    <string name="donate_sum">Kup mi kafe! Nebo zvolte, kolik se darovat pomocí služby PayPal, takže mohu pokračovat v podpoře této aplikace</string>
     <string-array name="generic_filter_files">
-        <item>.tmp</item>
+        <item>.tmp.</item>
         <item>.log</item>
     </string-array>
     <string-array name="generic_filter_folders">
-        <item>Logs</item>
-        <item>logs</item>
-        <item>temp</item>
-        <item>Temporary</item>
-        <item>temporary</item>
+        <item>Protokoly</item>
+        <item>logs, protokoly</item>
+        <item>dočasný</item>
+        <item>Dočasné</item>
+        <item>dočasné</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="aggressive_filter_folders">
-        <item>supersonicads</item>
-        <item>Cache</item>
-        <item>Analytics</item>
-        <item>thumbnails?</item>
+        <item>supersonikád</item>
+        <item>Paměť cache</item>
+        <item>Analytika</item>
+        <item>skicy?</item>
         <item>mobvista</item>
         <item>UnityAdsVideoCache</item>
-        <item>albumthumbs?</item>
-        <item>LOST.DIR</item>
-        <item>.Trash</item>
+        <item>albuminy?</item>
+        <item>LOK.DIR</item>
+        <item>.Koš</item>
         <item>desktop.ini</item>
-        <item>leakcanary</item>
+        <item>kapající</item>
         <item>.DS_Store</item>
         <item>.spotlight-V100</item>
-        <item>fseventsd</item>
+        <item>fsedmsetd</item>
         <item>Bugreport</item>
         <item>bugreports</item>
-        <item>.Trash</item>
-        <item>cache</item>
+        <item>.Koš</item>
+        <item>mezipaměť</item>
     </string-array>
     <string-array name="aggressive_filter_files">
         <item>.exo</item>
-        <item>thumbs?.db</item>
+        <item>palce? .db</item>
     </string-array>
 </resources>
