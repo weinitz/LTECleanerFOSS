@@ -3,90 +3,90 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner!</string>
-    <string name="no_files_found">No files found</string>
-    <string name="delete_empty_folders">Delete empty folders</string>
-    <string name="aggressive_filter">Enable aggressive filter</string>
-    <string name="Save">Save</string>
-    <string name="filter">Filter</string>
-    <string name="whitelist">Whitelist</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="add_to_whitelist">Add to whitelist</string>
-    <string name="add">Add</string>
-    <string name="cancel">Cancel</string>
-    <string name="enter_file_name">Enter file/folder name to whitelist</string>
-    <string name="make_suggestion">Make Suggestion</string>
-    <string name="select_task">Select a task</string>
-    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
+    <string name="app_name">LTE 清除程式</string>
+    <string name="lte_cleaner">LTE 清除器！</string>
+    <string name="no_files_found">找不到檔案</string>
+    <string name="delete_empty_folders">刪除空資料夾</string>
+    <string name="aggressive_filter">啟用侵略過濾器</string>
+    <string name="Save">儲存</string>
+    <string name="filter">過濾</string>
+    <string name="whitelist">白名單</string>
+    <string name="privacy_policy">隱私權原則</string>
+    <string name="add_to_whitelist">新增至白名單</string>
+    <string name="add">新增</string>
+    <string name="cancel">取消</string>
+    <string name="enter_file_name">輸入檔案/資料夾名稱至白名單</string>
+    <string name="make_suggestion">進行建議</string>
+    <string name="select_task">選取作業</string>
+    <string name="do_you_want_to">您要刪除（清除）所有找到的檔案，或只顯示（分析）它們嗎？</string>
     <string name="clean">Clean</string>
-    <string name="analyze">Analyze</string>
-    <string name="enable_generic_filter">Enable generic filter</string>
-    <string name="one_click_clean">One click clean</string>
-    <string name="freed">Freed: </string>
-    <string name="found">Found: </string>
-    <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Empty whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
-    <string name="reset">Clear</string>
-    <string name="delete_apk_files">Delete .apk files</string>
-    <string name="lte_threading">LTE Threading (Faster)</string>
-    <string name="default_whitelist">Default Whitelist</string>
-    <string name="add_defaults">Add Recommended Whitelists</string>
-    <string name="nothing_found">Nothing found</string>
-    <string name="status_idle">Status: Idle</string>
+    <string name="analyze">分析</string>
+    <string name="enable_generic_filter">啟用通用過濾器</string>
+    <string name="one_click_clean">只要按一下清除</string>
+    <string name="freed">已釋放： </string>
+    <string name="found">找到： </string>
+    <string name="auto_whitelist">自動白名單</string>
+    <string name="reset_whitelist">空白白名單？</string>
+    <string name="are_you_reset_whitelist">您確定要清除白名單嗎？</string>
+    <string name="reset">清除</string>
+    <string name="delete_apk_files">刪除 .apk 檔</string>
+    <string name="lte_threading">LTE Threading （更快）</string>
+    <string name="default_whitelist">預設白名單</string>
+    <string name="add_defaults">新增建議的白名單</string>
+    <string name="nothing_found">找不到項目</string>
+    <string name="status_idle">Status： Idle</string>
     <string name="progress_0">0%</string>
-    <string name="status_running">Status: Running</string>
-    <string name="privacy_sum">View the privacy policy (external link)</string>
-    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
-    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
-    <string name="apk_sum">Installer files for android</string>
-    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
-    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
-    <string name="prompt_string">Please add file access permissions</string>
-    <string name="settings_string">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_summary">Files left over from uninstalled apps</string>
-    <string name="corpse_title">Delete corpse files</string>
-    <string name="donate">Donate</string>
-    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
+    <string name="status_running">狀態：執行中</string>
+    <string name="privacy_sum">檢視隱私權原則（外部鏈結）</string>
+    <string name="whitelist_sum">顯示要從掃描排除的路徑</string>
+    <string name="suggestion_sum">從應用程式開啟 GitHub 上的問題。 不需要帳戶</string>
+    <string name="generic_sum">.tmp、 .log、日誌、日誌</string>
+    <string name="aggressive_sum">這裡列出太多</string>
+    <string name="apk_sum">Android 的安裝程式檔案</string>
+    <string name="oneclick_sum">按一下清除時，沒有對話框功能表</string>
+    <string name="autowhite_sum">偵測應該自動保護的資料夾</string>
+    <string name="prompt_string">請新增檔案存取許可權</string>
+    <string name="settings_string">設定</string>
+    <string name="hello_blank_fragment">Hello 空白片段</string>
+    <string name="title_activity_prompt">提示活動</string>
+    <string name="corpse_summary">已解除安裝應用程式遺留的檔案數</string>
+    <string name="corpse_title">刪除屍體檔案</string>
+    <string name="donate">多納特</string>
+    <string name="donate_sum">給我買杯咖啡 或選擇使用 PayPal 捐贈多少，讓我可以繼續支援此應用程式</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
     </string-array>
     <string-array name="generic_filter_folders">
-        <item>Logs</item>
+        <item>日誌</item>
         <item>logs</item>
-        <item>temp</item>
-        <item>Temporary</item>
-        <item>temporary</item>
+        <item>暫時</item>
+        <item>臨時</item>
+        <item>一時</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="aggressive_filter_folders">
-        <item>supersonicads</item>
-        <item>Cache</item>
-        <item>Analytics</item>
-        <item>thumbnails?</item>
-        <item>mobvista</item>
+        <item>蘇西米西茲</item>
+        <item>快取</item>
+        <item>分析</item>
+        <item>縮圖？</item>
+        <item>莫布維斯塔</item>
         <item>UnityAdsVideoCache</item>
-        <item>albumthumbs?</item>
+        <item>什麼？</item>
         <item>LOST.DIR</item>
         <item>.Trash</item>
         <item>desktop.ini</item>
-        <item>leakcanary</item>
+        <item>漏</item>
         <item>.DS_Store</item>
-        <item>.spotlight-V100</item>
-        <item>fseventsd</item>
+        <item>.spot淺 V100</item>
+        <item>f70sd</item>
         <item>Bugreport</item>
         <item>bugreports</item>
         <item>.Trash</item>
-        <item>cache</item>
+        <item>快取</item>
     </string-array>
     <string-array name="aggressive_filter_files">
         <item>.exo</item>
-        <item>thumbs?.db</item>
+        <item>thumbs？.db</item>
     </string-array>
 </resources>
