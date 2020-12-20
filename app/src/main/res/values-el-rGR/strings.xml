@@ -1,56 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Copyright 2020 Hunter J Drum
+  ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
     <string name="app_name">LTE Cleaner</string>
     <string name="lte_cleaner">LTE Cleaner!</string>
-    <string name="no_files_found">Δεν βρέθηκαν αρχεία</string>
-    <string name="delete_empty_folders">Διαγραφή κενών αρχείων</string>
-    <string name="aggressive_filter">Ενεργοποίηση επιθετικών φίλτρων</string>
-    <string name="Save">Αποθήκευση</string>
-    <string name="filter">Φίλτρο</string>
-    <string name="whitelist">Λίστα επιτρεπόμενων</string>
-    <string name="privacy_policy">Πολιτική απορρήτου</string>
-    <string name="add_to_whitelist">Προσθήκη στη λίστα επιτρεπόμενων</string>
-    <string name="add">Προσθήκη</string>
-    <string name="cancel">Ακύρωση</string>
-    <string name="enter_file_name">Εισαγωγή ονόματος αρχείου/φακέλου στη λίστα επιτρεπόμενων</string>
-    <string name="make_suggestion">Υποβολή πρότασης</string>
-    <string name="select_task">Επιλογή εργασίας</string>
-    <string name="do_you_want_to">Θέλετε να διαγράψετε (Καθαρισμός) όλα τα αρχεία που βρέθηκαν ή να τα εμφανίσετε (Ανάλυση) μόνο;</string>
-    <string name="clean">Καθαρισμός</string>
-    <string name="analyze">Ανάλυση</string>
-    <string name="enable_generic_filter">Ενεργοποίηση γενικού φίλτρου</string>
-    <string name="one_click_clean">Καθαρισμός με ένα κλικ</string>
-    <string name="freed">Απελευθερώθηκαν: </string>
-    <string name="found">Βρέθηκαν: </string>
-    <string name="auto_whitelist">Αυτόματη λίστα επιτρεπόμενων</string>
-    <string name="reset_whitelist">Κενή λίστα επιτρεπόμενων;</string>
-    <string name="are_you_reset_whitelist">Είστε σίγουροι ότι θέλετε να διαγράψετε τη λίστα επιτρεπόμενων;</string>
-    <string name="reset">Καθαρισμός</string>
-    <string name="delete_apk_files">Διαγραφή .apk αρχείων</string>
-    <string name="lte_threading">LTE Threading (Γρηγορότερα)</string>
-    <string name="default_whitelist">Προεπιλεγμένη λίστα επιτρεπόμενων</string>
-    <string name="add_defaults">Προσθήκη προτεινόμενων λιστών επιτρεπόμενων</string>
-    <string name="nothing_found">Δεν βρέθηκε τίποτα</string>
-    <string name="status_idle">Κατάσταση: Αδρανής</string>
+    <string name="no_files_found">No files found</string>
+    <string name="delete_empty_folders">Delete empty folders</string>
+    <string name="aggressive_filter">Enable aggressive filter</string>
+    <string name="Save">Save</string>
+    <string name="filter">Filter</string>
+    <string name="whitelist">Whitelist</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="add_to_whitelist">Add to whitelist</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_file_name">Enter file/folder name to whitelist</string>
+    <string name="make_suggestion">Make Suggestion</string>
+    <string name="select_task">Select a task</string>
+    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
+    <string name="clean">Clean</string>
+    <string name="analyze">Analyze</string>
+    <string name="enable_generic_filter">Enable generic filter</string>
+    <string name="one_click_clean">One click clean</string>
+    <string name="freed">Freed: </string>
+    <string name="found">Found: </string>
+    <string name="auto_whitelist">Auto Whitelist</string>
+    <string name="reset_whitelist">Empty whitelist?</string>
+    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
+    <string name="reset">Clear</string>
+    <string name="delete_apk_files">Delete .apk files</string>
+    <string name="lte_threading">LTE Threading (Faster)</string>
+    <string name="default_whitelist">Default Whitelist</string>
+    <string name="add_defaults">Add Recommended Whitelists</string>
+    <string name="nothing_found">Nothing found</string>
+    <string name="status_idle">Status: Idle</string>
     <string name="progress_0">0%</string>
-    <string name="status_running">Κατάσταση: Εκτελείται</string>
-    <string name="privacy_sum">Προβολή της πολιτικής απορρήτου (εξωτερικός σύνδεσμος)</string>
-    <string name="whitelist_sum">Εμφάνιση των διαδρομών προς εξαίρεση από τις σαρώσεις</string>
-    <string name="suggestion_sum">Δήλωση προβλήματος στο GitHub από την εφαρμογή. Δεν απαιτείται λογαριασμός</string>
+    <string name="status_running">Status: Running</string>
+    <string name="privacy_sum">View the privacy policy (external link)</string>
+    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
+    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
     <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Πάρα πολλά για να μπουν στη λίστα εδώ</string>
-    <string name="apk_sum">Αρχεία εγκατάστασης για Android</string>
-    <string name="oneclick_sum">Χωρίς μενού διαλόγου όταν κάνετε κλικ στην επιλογή Καθαρισμός</string>
-    <string name="autowhite_sum">Εντοπισμός φακέλων που θα πρέπει να προστατεύονται αυτόματα</string>
-    <string name="prompt_string">Παρακαλώ προσθέστε δικαιώματα πρόσβασης αρχείων</string>
-    <string name="settings_string">Ρυθμίσεις</string>
+    <string name="aggressive_sum">Too much to list here</string>
+    <string name="apk_sum">Installer files for android</string>
+    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
+    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
+    <string name="prompt_string">Please add file access permissions</string>
+    <string name="settings_string">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_title">Delete corpse files</string>
     <string name="corpse_summary">Files left over from uninstalled apps</string>
+    <string name="corpse_title">Delete corpse files</string>
     <string name="donate">Donate</string>
     <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
+    <string-array name="generic_filter_files">
+        <item>.tmp</item>
+        <item>.log</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>Logs</item>
+        <item>logs</item>
+        <item>temp</item>
+        <item>Temporary</item>
+        <item>temporary</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="aggressive_filter_folders">
+        <item>supersonicads</item>
+        <item>Cache</item>
+        <item>Analytics</item>
+        <item>thumbnails?</item>
+        <item>mobvista</item>
+        <item>UnityAdsVideoCache</item>
+        <item>albumthumbs?</item>
+        <item>LOST.DIR</item>
+        <item>.Trash</item>
+        <item>desktop.ini</item>
+        <item>leakcanary</item>
+        <item>.DS_Store</item>
+        <item>.spotlight-V100</item>
+        <item>fseventsd</item>
+        <item>Bugreport</item>
+        <item>bugreports</item>
+        <item>.Trash</item>
+        <item>cache</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>thumbs?.db</item>
+    </string-array>
 </resources>
