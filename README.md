@@ -1,7 +1,7 @@
 # LTECleanerFOSS
 ![logo](https://imgur.com/ykSLpTS.png) 
 
-![Android CI](https://github.com/TheRedSpy15/LTECleanerFOSS/workflows/Android%20CI/badge.svg) [![Crowdin](https://badges.crowdin.net/lte-cleaner/localized.svg)](https://crowdin.com/project/lte-cleaner)
+![Android CI](https://github.com/TheRedSpy15/LTECleanerFOSS/workflows/Android%20CI/badge.svg) [![Crowdin](https://badges.crowdin.net/lte-cleaner/localized.svg)](https://crowdin.com/project/lte-cleaner) ![code-inspector](https://www.code-inspector.com/project/2073/score/svg) ![code-grade](https://www.code-inspector.com/project/2073/status/svg)
 
 # The last Android cleaner you will ever need!
 
