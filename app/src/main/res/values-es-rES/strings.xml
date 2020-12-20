@@ -3,90 +3,90 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner!</string>
-    <string name="no_files_found">No files found</string>
-    <string name="delete_empty_folders">Delete empty folders</string>
-    <string name="aggressive_filter">Enable aggressive filter</string>
-    <string name="Save">Save</string>
-    <string name="filter">Filter</string>
-    <string name="whitelist">Whitelist</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="add_to_whitelist">Add to whitelist</string>
-    <string name="add">Add</string>
-    <string name="cancel">Cancel</string>
-    <string name="enter_file_name">Enter file/folder name to whitelist</string>
-    <string name="make_suggestion">Make Suggestion</string>
-    <string name="select_task">Select a task</string>
-    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
-    <string name="clean">Clean</string>
-    <string name="analyze">Analyze</string>
-    <string name="enable_generic_filter">Enable generic filter</string>
-    <string name="one_click_clean">One click clean</string>
-    <string name="freed">Freed: </string>
-    <string name="found">Found: </string>
-    <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Empty whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
-    <string name="reset">Clear</string>
-    <string name="delete_apk_files">Delete .apk files</string>
+    <string name="app_name">Limpiador LTE</string>
+    <string name="lte_cleaner">¡LTE Cleaner!</string>
+    <string name="no_files_found">No se han encontrado archivos</string>
+    <string name="delete_empty_folders">Cómo eliminar carpetas vacías</string>
+    <string name="aggressive_filter">Habilitar filtro agresivo</string>
+    <string name="Save">Guardar</string>
+    <string name="filter">Filtro</string>
+    <string name="whitelist">Lista blanca</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="add_to_whitelist">Añadir a la lista blanca</string>
+    <string name="add">Añadir</string>
+    <string name="cancel">Cancelar</string>
+    <string name="enter_file_name">Especifique el nombre de archivo/carpeta en la lista blanca</string>
+    <string name="make_suggestion">Hacer sugestión</string>
+    <string name="select_task">Seleccionar una tarea</string>
+    <string name="do_you_want_to">¿Desea suprimir (Limpiar) todos los archivos encontrados o sólo visualizar (Analizar)?</string>
+    <string name="clean">Limpio</string>
+    <string name="analyze">Analizar</string>
+    <string name="enable_generic_filter">Habilitar filtro genérico</string>
+    <string name="one_click_clean">Un clic en limpio</string>
+    <string name="freed">Liberado: </string>
+    <string name="found">Encontrado: </string>
+    <string name="auto_whitelist">Lista blanca automática</string>
+    <string name="reset_whitelist">¿Lista blanca vacía?</string>
+    <string name="are_you_reset_whitelist">¿Está seguro de que desea borrar la lista blanca?</string>
+    <string name="reset">Claro</string>
+    <string name="delete_apk_files">Suprimir archivos .apk</string>
     <string name="lte_threading">LTE Threading (Faster)</string>
-    <string name="default_whitelist">Default Whitelist</string>
-    <string name="add_defaults">Add Recommended Whitelists</string>
-    <string name="nothing_found">Nothing found</string>
-    <string name="status_idle">Status: Idle</string>
+    <string name="default_whitelist">Lista blanca predeterminada</string>
+    <string name="add_defaults">Añadir Whitelistas recomendados</string>
+    <string name="nothing_found">Nada encontrado</string>
+    <string name="status_idle">Estado: Desocupado</string>
     <string name="progress_0">0%</string>
-    <string name="status_running">Status: Running</string>
-    <string name="privacy_sum">View the privacy policy (external link)</string>
-    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
-    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
-    <string name="apk_sum">Installer files for android</string>
-    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
-    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
-    <string name="prompt_string">Please add file access permissions</string>
-    <string name="settings_string">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="status_running">Estado: En ejecución</string>
+    <string name="privacy_sum">Ver la política de privacidad (enlace externo)</string>
+    <string name="whitelist_sum">Muestra las vías de acceso para excluir de las exploraciones</string>
+    <string name="suggestion_sum">Abra un problema en GitHub desde la aplicación. No se necesita ninguna cuenta</string>
+    <string name="generic_sum">.tmp, .log, Registros, registros</string>
+    <string name="aggressive_sum">Demasiado para enumerar aquí</string>
+    <string name="apk_sum">Archivos del instalador para android</string>
+    <string name="oneclick_sum">No hay menú de diálogo al pulsar Limpiar</string>
+    <string name="autowhite_sum">Detectar carpetas que deben protegerse automáticamente</string>
+    <string name="prompt_string">Añada permisos de acceso a archivos</string>
+    <string name="settings_string">Configuración</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
     <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_summary">Files left over from uninstalled apps</string>
-    <string name="corpse_title">Delete corpse files</string>
-    <string name="donate">Donate</string>
-    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
+    <string name="corpse_summary">Archivos sobrados de aplicaciones desinstaladas</string>
+    <string name="corpse_title">Suprimir archivos de cadáver</string>
+    <string name="donate">Donar</string>
+    <string name="donate_sum">¡Cómprame un Café! O elegir cuánto donar usando PayPal para que pueda seguir apoyando esta aplicación</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
-        <item>.log</item>
+        <item>Archivo</item>
     </string-array>
     <string-array name="generic_filter_folders">
-        <item>Logs</item>
+        <item>Registros</item>
         <item>logs</item>
         <item>temp</item>
-        <item>Temporary</item>
-        <item>temporary</item>
+        <item>Temporal</item>
+        <item>temporal</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="aggressive_filter_folders">
         <item>supersonicads</item>
-        <item>Cache</item>
-        <item>Analytics</item>
-        <item>thumbnails?</item>
+        <item>Caché</item>
+        <item>Análisis</item>
+        <item>Miniaturas</item>
         <item>mobvista</item>
         <item>UnityAdsVideoCache</item>
-        <item>albumthumbs?</item>
+        <item>albumpulgares?</item>
         <item>LOST.DIR</item>
         <item>.Trash</item>
         <item>desktop.ini</item>
-        <item>leakcanary</item>
+        <item>fugas</item>
         <item>.DS_Store</item>
         <item>.spotlight-V100</item>
-        <item>fseventsd</item>
+        <item>fsetenta,</item>
         <item>Bugreport</item>
         <item>bugreports</item>
         <item>.Trash</item>
-        <item>cache</item>
+        <item>Caché</item>
     </string-array>
     <string-array name="aggressive_filter_files">
         <item>.exo</item>
-        <item>thumbs?.db</item>
+        <item>¿pulgares? .db</item>
     </string-array>
 </resources>
