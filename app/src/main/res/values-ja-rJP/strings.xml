@@ -3,90 +3,90 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner!</string>
-    <string name="no_files_found">No files found</string>
-    <string name="delete_empty_folders">Delete empty folders</string>
-    <string name="aggressive_filter">Enable aggressive filter</string>
-    <string name="Save">Save</string>
-    <string name="filter">Filter</string>
-    <string name="whitelist">Whitelist</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="add_to_whitelist">Add to whitelist</string>
-    <string name="add">Add</string>
-    <string name="cancel">Cancel</string>
-    <string name="enter_file_name">Enter file/folder name to whitelist</string>
-    <string name="make_suggestion">Make Suggestion</string>
-    <string name="select_task">Select a task</string>
-    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
-    <string name="clean">Clean</string>
-    <string name="analyze">Analyze</string>
-    <string name="enable_generic_filter">Enable generic filter</string>
-    <string name="one_click_clean">One click clean</string>
-    <string name="freed">Freed: </string>
-    <string name="found">Found: </string>
-    <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Empty whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
-    <string name="reset">Clear</string>
-    <string name="delete_apk_files">Delete .apk files</string>
-    <string name="lte_threading">LTE Threading (Faster)</string>
-    <string name="default_whitelist">Default Whitelist</string>
-    <string name="add_defaults">Add Recommended Whitelists</string>
-    <string name="nothing_found">Nothing found</string>
-    <string name="status_idle">Status: Idle</string>
+    <string name="app_name">エボリューション</string>
+    <string name="lte_cleaner">エボリューション・クリーナー</string>
+    <string name="no_files_found">ファイルが見つからない</string>
+    <string name="delete_empty_folders">空フォルダーの削除</string>
+    <string name="aggressive_filter">攻撃フィルターの有効</string>
+    <string name="Save">セーブ</string>
+    <string name="filter">フィルター</string>
+    <string name="whitelist">ホワイトリスト</string>
+    <string name="privacy_policy">プライバシー・ポリシー</string>
+    <string name="add_to_whitelist">ホワイトリストに追加</string>
+    <string name="add">追加</string>
+    <string name="cancel">キャンセル</string>
+    <string name="enter_file_name">ファイル /フォルダー名をホワイトリストに入力してください</string>
+    <string name="make_suggestion">提案の作成</string>
+    <string name="select_task">タスクの選択</string>
+    <string name="do_you_want_to">検出されたすべてのファイルを削除 (クリーン) しますか、または表示 (分析) のみを行いますか ?</string>
+    <string name="clean">クリーン</string>
+    <string name="analyze">分析</string>
+    <string name="enable_generic_filter">汎用フィルターの使用</string>
+    <string name="one_click_clean">ワンクリック・クリーン</string>
+    <string name="freed">解放: </string>
+    <string name="found">見つかりました : </string>
+    <string name="auto_whitelist">自動ホワイトリスト</string>
+    <string name="reset_whitelist">ホワイトリスト?</string>
+    <string name="are_you_reset_whitelist">ホワイトリストを消去しますか ?</string>
+    <string name="reset">Clear - クリア</string>
+    <string name="delete_apk_files">.apk ファイルの削除</string>
+    <string name="lte_threading">LTE スレッディング (高速)</string>
+    <string name="default_whitelist">デフォルトのホワイトリスト</string>
+    <string name="add_defaults">推奨されるホワイトリストの追加</string>
+    <string name="nothing_found">見つからない</string>
+    <string name="status_idle">状況: アイドル</string>
     <string name="progress_0">0%</string>
-    <string name="status_running">Status: Running</string>
-    <string name="privacy_sum">View the privacy policy (external link)</string>
-    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
-    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
-    <string name="apk_sum">Installer files for android</string>
-    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
-    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
-    <string name="prompt_string">Please add file access permissions</string>
-    <string name="settings_string">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_summary">Files left over from uninstalled apps</string>
-    <string name="corpse_title">Delete corpse files</string>
-    <string name="donate">Donate</string>
-    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
+    <string name="status_running">状況: 実行中</string>
+    <string name="privacy_sum">プライバシー・ポリシーの表示 (外部リンク)</string>
+    <string name="whitelist_sum">スキャンから除外するパスを表示します。</string>
+    <string name="suggestion_sum">アプリケーションから GitHub に関する問題を開きます。 アカウントは不要です。</string>
+    <string name="generic_sum">.tmp、 .log、ログ、ログ</string>
+    <string name="aggressive_sum">リストには多すぎる</string>
+    <string name="apk_sum">android のインストーラー・ファイル</string>
+    <string name="oneclick_sum">「クリーン」をクリックしてもダイアログ・</string>
+    <string name="autowhite_sum">自動的に保護する必要があるフォルダーを検出する</string>
+    <string name="prompt_string">ファイル・アクセス許可を追加して</string>
+    <string name="settings_string">設定</string>
+    <string name="hello_blank_fragment">Hello ブランク・フラグメント</string>
+    <string name="title_activity_prompt">プロンプト・アクティビティー</string>
+    <string name="corpse_summary">アンインストールされたアプリケーションから残されたファイル</string>
+    <string name="corpse_title">corpse ファイルの削除</string>
+    <string name="donate">ドナーテ</string>
+    <string name="donate_sum">コーヒーを買ってくれ ! または、 PayPal を使用した寄付の程度を選択して、このアプリをサポートすることができます。</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
     </string-array>
     <string-array name="generic_filter_folders">
-        <item>Logs</item>
-        <item>logs</item>
-        <item>temp</item>
-        <item>Temporary</item>
-        <item>temporary</item>
+        <item>ログ</item>
+        <item>ログ</item>
+        <item>一時</item>
+        <item>一時</item>
+        <item>一時的な</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="aggressive_filter_folders">
-        <item>supersonicads</item>
-        <item>Cache</item>
-        <item>Analytics</item>
-        <item>thumbnails?</item>
-        <item>mobvista</item>
-        <item>UnityAdsVideoCache</item>
-        <item>albumthumbs?</item>
+        <item>スーペルソニカ</item>
+        <item>キャッシュ</item>
+        <item>アナリティクス</item>
+        <item>つまみ爪?</item>
+        <item>暴徒</item>
+        <item>非 ityAdsVideoCache</item>
+        <item>アルブムサンブ?</item>
         <item>LOST.DIR</item>
-        <item>.Trash</item>
+        <item>. ごみ箱</item>
         <item>desktop.ini</item>
-        <item>leakcanary</item>
+        <item>リーカナリー</item>
         <item>.DS_Store</item>
-        <item>.spotlight-V100</item>
-        <item>fseventsd</item>
-        <item>Bugreport</item>
-        <item>bugreports</item>
-        <item>.Trash</item>
-        <item>cache</item>
+        <item>.スポットライト V100</item>
+        <item>f7 tsd</item>
+        <item>バグ・レポート</item>
+        <item>ブグレーポート</item>
+        <item>. ごみ箱</item>
+        <item>キャッシュ</item>
     </string-array>
     <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>thumbs?.db</item>
+        <item>エキスポ</item>
+        <item>親指?.db</item>
     </string-array>
 </resources>
