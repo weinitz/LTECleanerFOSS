@@ -5,88 +5,88 @@
 <resources>
     <string name="app_name">LTE Cleaner</string>
     <string name="lte_cleaner">LTE Cleaner!</string>
-    <string name="no_files_found">No files found</string>
-    <string name="delete_empty_folders">Delete empty folders</string>
-    <string name="aggressive_filter">Enable aggressive filter</string>
-    <string name="Save">Save</string>
-    <string name="filter">Filter</string>
+    <string name="no_files_found">Ingen filer er fundet</string>
+    <string name="delete_empty_folders">Slet tomme foldere</string>
+    <string name="aggressive_filter">Aktivér aggressivt filter</string>
+    <string name="Save">Gem</string>
+    <string name="filter">Filtrér</string>
     <string name="whitelist">Whitelist</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="add_to_whitelist">Add to whitelist</string>
-    <string name="add">Add</string>
-    <string name="cancel">Cancel</string>
-    <string name="enter_file_name">Enter file/folder name to whitelist</string>
-    <string name="make_suggestion">Make Suggestion</string>
-    <string name="select_task">Select a task</string>
-    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
-    <string name="clean">Clean</string>
-    <string name="analyze">Analyze</string>
-    <string name="enable_generic_filter">Enable generic filter</string>
-    <string name="one_click_clean">One click clean</string>
+    <string name="add_to_whitelist">Tilføj til hvidliste</string>
+    <string name="add">Tilføj</string>
+    <string name="cancel">Annullér</string>
+    <string name="enter_file_name">Angiv navn på fil / folder til hvidliste</string>
+    <string name="make_suggestion">Forslag til forslag</string>
+    <string name="select_task">Vælg en opgave</string>
+    <string name="do_you_want_to">Vil du slette (Ryd) alle de filer, der er fundet, eller kun blive vist (Analysér) dem?</string>
+    <string name="clean">Rens</string>
+    <string name="analyze">Analysér</string>
+    <string name="enable_generic_filter">Aktivér generisk filter</string>
+    <string name="one_click_clean">En klik er ren</string>
     <string name="freed">Freed: </string>
-    <string name="found">Found: </string>
-    <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Empty whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
-    <string name="reset">Clear</string>
-    <string name="delete_apk_files">Delete .apk files</string>
-    <string name="lte_threading">LTE Threading (Faster)</string>
-    <string name="default_whitelist">Default Whitelist</string>
-    <string name="add_defaults">Add Recommended Whitelists</string>
-    <string name="nothing_found">Nothing found</string>
+    <string name="found">Fundet: </string>
+    <string name="auto_whitelist">Auto-hvidliste</string>
+    <string name="reset_whitelist">Tom hvidliste?</string>
+    <string name="are_you_reset_whitelist">Er du sikker på, at du vil rydde hvidlisten?</string>
+    <string name="reset">Ryd</string>
+    <string name="delete_apk_files">Slet .apk-filer</string>
+    <string name="lte_threading">LTE Threading (hurtigere)</string>
+    <string name="default_whitelist">Standardhvidliste</string>
+    <string name="add_defaults">Anbefalede Whitelister</string>
+    <string name="nothing_found">Intet fundet</string>
     <string name="status_idle">Status: Idle</string>
     <string name="progress_0">0%</string>
-    <string name="status_running">Status: Running</string>
-    <string name="privacy_sum">View the privacy policy (external link)</string>
-    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
-    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
-    <string name="apk_sum">Installer files for android</string>
-    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
-    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
-    <string name="prompt_string">Please add file access permissions</string>
-    <string name="settings_string">Settings</string>
+    <string name="status_running">Status: Udførelse</string>
+    <string name="privacy_sum">Vis fortrolighedspolitikken (eksternt link)</string>
+    <string name="whitelist_sum">Viser de stier, der skal udelades fra scanninger</string>
+    <string name="suggestion_sum">Åbn et problem på GitHub fra appen. Der kræves ingen konto</string>
+    <string name="generic_sum">.tmp, .log, Logs, logge</string>
+    <string name="aggressive_sum">Der er for meget at liste her</string>
+    <string name="apk_sum">Installer-filer til android</string>
+    <string name="oneclick_sum">Ingen dialogmenuen, når du klikker på Ryd</string>
+    <string name="autowhite_sum">Registrér foldere, der skal beskyttes automatisk</string>
+    <string name="prompt_string">Tilføj adgangstilladelser til fil</string>
+    <string name="settings_string">Indstillinger</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_summary">Files left over from uninstalled apps</string>
-    <string name="corpse_title">Delete corpse files</string>
-    <string name="donate">Donate</string>
-    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
+    <string name="title_activity_prompt">PromptAktivitet</string>
+    <string name="corpse_summary">Filer, der er udelod fra installerede apps</string>
+    <string name="corpse_title">Slet lig-filer</string>
+    <string name="donate">Donér</string>
+    <string name="donate_sum">Køb mig en kop kaffe! Eller vælg, hvor meget der skal doneres ved hjælp af PayPal, så jeg kan fortsætte med at støtte denne app.</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
     </string-array>
     <string-array name="generic_filter_folders">
-        <item>Logs</item>
+        <item>Logfiler</item>
         <item>logs</item>
-        <item>temp</item>
-        <item>Temporary</item>
-        <item>temporary</item>
+        <item>vikar</item>
+        <item>Midlertidig</item>
+        <item>midlertidig</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="aggressive_filter_folders">
-        <item>supersonicads</item>
+        <item>supersonicader</item>
         <item>Cache</item>
-        <item>Analytics</item>
-        <item>thumbnails?</item>
+        <item>Analyse</item>
+        <item>Tommelfingernegle?</item>
         <item>mobvista</item>
         <item>UnityAdsVideoCache</item>
-        <item>albumthumbs?</item>
+        <item>albummelfingere?</item>
         <item>LOST.DIR</item>
-        <item>.Trash</item>
-        <item>desktop.ini</item>
-        <item>leakcanary</item>
+        <item>.Papirkurv</item>
+        <item>Desktop.ini</item>
+        <item>lækkanarie</item>
         <item>.DS_Store</item>
-        <item>.spotlight-V100</item>
-        <item>fseventsd</item>
+        <item>.spotlyt-V100</item>
+        <item>f7 tsd</item>
         <item>Bugreport</item>
         <item>bugreports</item>
-        <item>.Trash</item>
+        <item>.Papirkurv</item>
         <item>cache</item>
     </string-array>
     <string-array name="aggressive_filter_files">
         <item>.exo</item>
-        <item>thumbs?.db</item>
+        <item>tommelfingre? .db</item>
     </string-array>
 </resources>
