@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Hunter J Drum
+  -->
+<resources>
+    <string name="app_name">LTE Cleaner</string>
+    <string name="lte_cleaner">LTE Cleaner!</string>
+    <string name="no_files_found">Nie znaleziono plików</string>
+    <string name="delete_empty_folders">Usuń puste foldery</string>
+    <string name="aggressive_filter">Włącz agresywny filtr</string>
+    <string name="Save">Zapisz</string>
+    <string name="filter">Filtr</string>
+    <string name="whitelist">Biała lista</string>
+    <string name="privacy_policy">Strategia ochrony prywatności</string>
+    <string name="add_to_whitelist">Dodaj do białej listy</string>
+    <string name="add">Dodaj</string>
+    <string name="cancel">Anuluj</string>
+    <string name="enter_file_name">Wprowadź nazwę pliku/folderu do białej listy</string>
+    <string name="make_suggestion">Ustaw sugestię</string>
+    <string name="select_task">Wybierz zadanie</string>
+    <string name="do_you_want_to">Czy chcesz usunąć (wyczyścić) wszystkie znalezione pliki lub wyświetlić je tylko (analizuj)?</string>
+    <string name="clean">Czysty</string>
+    <string name="analyze">Analizuj</string>
+    <string name="enable_generic_filter">Włącz filtr ogólny</string>
+    <string name="one_click_clean">Jedno kliknięcie czyste</string>
+    <string name="freed">Zwolnione: </string>
+    <string name="found">Znaleziono: </string>
+    <string name="auto_whitelist">Automatyczna lista nazw dozwolonych</string>
+    <string name="reset_whitelist">Czy jest pusta biała lista?</string>
+    <string name="are_you_reset_whitelist">Czy na pewno wyczyścić białą listę?</string>
+    <string name="reset">Wyczyść</string>
+    <string name="delete_apk_files">Usuń pliki .apk</string>
+    <string name="lte_threading">Lektura LTE Threading (Faster)</string>
+    <string name="default_whitelist">Domyślna lista nazw dozwolonych</string>
+    <string name="add_defaults">Dodaj rekomendowane listy nazw dozwolonych</string>
+    <string name="nothing_found">Nic nie znaleziono</string>
+    <string name="status_idle">Status: bezczynny</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">Status: Uruchomiony</string>
+    <string name="privacy_sum">Wyświetl strategię ochrony prywatności (łącze zewnętrzne)</string>
+    <string name="whitelist_sum">Pokazuje ścieżki do wykluczenia ze skanowania</string>
+    <string name="suggestion_sum">Otwórz problem na GitHub z aplikacji. Konto nie jest potrzebne</string>
+    <string name="generic_sum">.tmp, .log, Dzienniki, dzienniki</string>
+    <string name="aggressive_sum">Zbyt wiele do wyświetlenia tutaj</string>
+    <string name="apk_sum">Pliki instalatora dla androida</string>
+    <string name="oneclick_sum">Nie ma menu okna dialogowego po kliknięciu opcji Wyczyść</string>
+    <string name="autowhite_sum">Wykryj foldery, które powinny być automatycznie chronione</string>
+    <string name="prompt_string">Dodaj uprawnienia dostępu do pliku</string>
+    <string name="settings_string">Ustawienia</string>
+    <string name="hello_blank_fragment">Pusty fragment</string>
+    <string name="title_activity_prompt">Działanie promptActivity</string>
+    <string name="corpse_summary">Pliki zostały usunięte z zdeinstalowanych aplikacji</string>
+    <string name="corpse_title">Usuń pliki korpusu</string>
+    <string name="donate">Donate</string>
+    <string name="donate_sum">Kup mi kawę! Lub wybrać, jak wiele do darowizny za pomocą PayPal, więc mogę utrzymać obsługę tej aplikacji</string>
+    <string-array name="generic_filter_files">
+        <item>.tmp</item>
+        <item>.log</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>Dzienniki</item>
+        <item>dzienniki</item>
+        <item>temp</item>
+        <item>Tymczasowe</item>
+        <item>tymczasowa</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="aggressive_filter_folders">
+        <item>supersonicady</item>
+        <item>Pamięć podręczna</item>
+        <item>Analiza</item>
+        <item>miniatury?</item>
+        <item>mobvista</item>
+        <item>UnityAdsVideoCache</item>
+        <item>albumthumbs?</item>
+        <item>LOST.DIR</item>
+        <item>.Kosz</item>
+        <item>desktop.ini</item>
+        <item>wyciek</item>
+        <item>.DS_Store</item>
+        <item>.spotlight-V100</item>
+        <item>fseventsd</item>
+        <item>Bugreport</item>
+        <item>bugreports</item>
+        <item>.Kosz</item>
+        <item>pamięć podręczna</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>thumbs? .db</item>
+    </string-array>
+</resources>

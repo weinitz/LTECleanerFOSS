@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Hunter J Drum
+  -->
+<resources>
+    <string name="app_name">Очистка LTE</string>
+    <string name="lte_cleaner">Lte Cleaner!</string>
+    <string name="no_files_found">Файлы не найдены</string>
+    <string name="delete_empty_folders">Удалить пустые папки</string>
+    <string name="aggressive_filter">Включить агрессивный фильтр</string>
+    <string name="Save">Сохранить</string>
+    <string name="filter">Фильтр</string>
+    <string name="whitelist">Белый список</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="add_to_whitelist">Добавить в белый список</string>
+    <string name="add">Добавить</string>
+    <string name="cancel">Отмена</string>
+    <string name="enter_file_name">Введите имя файла/папки в белый список</string>
+    <string name="make_suggestion">Сделать предложение</string>
+    <string name="select_task">Выберите задачу</string>
+    <string name="do_you_want_to">Хотите удалить (очистить) все найденные файлы или только показать (проанализировать) их?</string>
+    <string name="clean">Чистый</string>
+    <string name="analyze">Анализ</string>
+    <string name="enable_generic_filter">Включить универсальный фильтр</string>
+    <string name="one_click_clean">Один щелчок по очистке</string>
+    <string name="freed">Освобождено: </string>
+    <string name="found">Найдено: </string>
+    <string name="auto_whitelist">Автоматический белый список</string>
+    <string name="reset_whitelist">Пустой белый список?</string>
+    <string name="are_you_reset_whitelist">Вы действительно хотите очистить белый список?</string>
+    <string name="reset">Очистить</string>
+    <string name="delete_apk_files">Удалить файлы .apk</string>
+    <string name="lte_threading">LTE Threading (Faster)</string>
+    <string name="default_whitelist">Белый список по умолчанию</string>
+    <string name="add_defaults">Добавить рекомендованных белых</string>
+    <string name="nothing_found">Ничего не найдено</string>
+    <string name="status_idle">Состояние: Idle</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">Состояние: Выполняется</string>
+    <string name="privacy_sum">Просмотр политики конфиденциальности (внешняя ссылка)</string>
+    <string name="whitelist_sum">Показывает пути для исключения из сканирования</string>
+    <string name="suggestion_sum">Откройте неполадку в GitHub из приложения. Не требуется учетная запись</string>
+    <string name="generic_sum">.tmp, .log, протоколы, протоколы</string>
+    <string name="aggressive_sum">Слишком много, чтобы показать здесь</string>
+    <string name="apk_sum">Файлы программы установки для android</string>
+    <string name="oneclick_sum">Нет диалогового меню при нажатии кнопки Очистить</string>
+    <string name="autowhite_sum">Обнаружение папок, которые должны быть защищены автоматически</string>
+    <string name="prompt_string">Добавьте права доступа к файлу</string>
+    <string name="settings_string">Параметры</string>
+    <string name="hello_blank_fragment">Фрагмент Hello</string>
+    <string name="title_activity_prompt">Операция приглашения</string>
+    <string name="corpse_summary">Файлы, оставиданные после деинсталляции приложений</string>
+    <string name="corpse_title">Удалить файлы трупа</string>
+    <string name="donate">Пожертвовать</string>
+    <string name="donate_sum">Купи мне кофе! Или выбрать, как много пожертвовать с помощью PayPal, чтобы я мог поддерживать это приложение</string>
+    <string-array name="generic_filter_files">
+        <item>Tmp</item>
+        <item>.log</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>Журналы</item>
+        <item>журналы</item>
+        <item>temp</item>
+        <item>Временный</item>
+        <item>временная</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="aggressive_filter_folders">
+        <item>сверхзвучные</item>
+        <item>Кэш</item>
+        <item>Аналитика</item>
+        <item>Миниизображения?</item>
+        <item>Мобвиста</item>
+        <item>UnityAdsVideoCache</item>
+        <item>Альбумтушки?</item>
+        <item>LOST.DIR</item>
+        <item>.Корзина</item>
+        <item>desktop.ini</item>
+        <item>Герметичность</item>
+        <item>.DS_Store</item>
+        <item>.spotlightV100</item>
+        <item>f70sd</item>
+        <item>Bugreport</item>
+        <item>Отчеты</item>
+        <item>.Корзина</item>
+        <item>кэш</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>большие пальцы? .db</item>
+    </string-array>
+</resources>

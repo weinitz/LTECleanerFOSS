@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Hunter J Drum
+  -->
+<resources>
+    <string name="app_name">エボリューション</string>
+    <string name="lte_cleaner">エボリューション・クリーナー</string>
+    <string name="no_files_found">ファイルが見つからない</string>
+    <string name="delete_empty_folders">空フォルダーの削除</string>
+    <string name="aggressive_filter">攻撃フィルターの有効</string>
+    <string name="Save">セーブ</string>
+    <string name="filter">フィルター</string>
+    <string name="whitelist">ホワイトリスト</string>
+    <string name="privacy_policy">プライバシー・ポリシー</string>
+    <string name="add_to_whitelist">ホワイトリストに追加</string>
+    <string name="add">追加</string>
+    <string name="cancel">キャンセル</string>
+    <string name="enter_file_name">ファイル /フォルダー名をホワイトリストに入力してください</string>
+    <string name="make_suggestion">提案の作成</string>
+    <string name="select_task">タスクの選択</string>
+    <string name="do_you_want_to">検出されたすべてのファイルを削除 (クリーン) しますか、または表示 (分析) のみを行いますか ?</string>
+    <string name="clean">クリーン</string>
+    <string name="analyze">分析</string>
+    <string name="enable_generic_filter">汎用フィルターの使用</string>
+    <string name="one_click_clean">ワンクリック・クリーン</string>
+    <string name="freed">解放: </string>
+    <string name="found">見つかりました : </string>
+    <string name="auto_whitelist">自動ホワイトリスト</string>
+    <string name="reset_whitelist">ホワイトリスト?</string>
+    <string name="are_you_reset_whitelist">ホワイトリストを消去しますか ?</string>
+    <string name="reset">Clear - クリア</string>
+    <string name="delete_apk_files">.apk ファイルの削除</string>
+    <string name="lte_threading">LTE スレッディング (高速)</string>
+    <string name="default_whitelist">デフォルトのホワイトリスト</string>
+    <string name="add_defaults">推奨されるホワイトリストの追加</string>
+    <string name="nothing_found">見つからない</string>
+    <string name="status_idle">状況: アイドル</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">状況: 実行中</string>
+    <string name="privacy_sum">プライバシー・ポリシーの表示 (外部リンク)</string>
+    <string name="whitelist_sum">スキャンから除外するパスを表示します。</string>
+    <string name="suggestion_sum">アプリケーションから GitHub に関する問題を開きます。 アカウントは不要です。</string>
+    <string name="generic_sum">.tmp、 .log、ログ、ログ</string>
+    <string name="aggressive_sum">リストには多すぎる</string>
+    <string name="apk_sum">android のインストーラー・ファイル</string>
+    <string name="oneclick_sum">「クリーン」をクリックしてもダイアログ・</string>
+    <string name="autowhite_sum">自動的に保護する必要があるフォルダーを検出する</string>
+    <string name="prompt_string">ファイル・アクセス許可を追加して</string>
+    <string name="settings_string">設定</string>
+    <string name="hello_blank_fragment">Hello ブランク・フラグメント</string>
+    <string name="title_activity_prompt">プロンプト・アクティビティー</string>
+    <string name="corpse_summary">アンインストールされたアプリケーションから残されたファイル</string>
+    <string name="corpse_title">corpse ファイルの削除</string>
+    <string name="donate">ドナーテ</string>
+    <string name="donate_sum">コーヒーを買ってくれ ! または、 PayPal を使用した寄付の程度を選択して、このアプリをサポートすることができます。</string>
+    <string-array name="generic_filter_files">
+        <item>.tmp</item>
+        <item>.log</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>ログ</item>
+        <item>ログ</item>
+        <item>一時</item>
+        <item>一時</item>
+        <item>一時的な</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="aggressive_filter_folders">
+        <item>スーペルソニカ</item>
+        <item>キャッシュ</item>
+        <item>アナリティクス</item>
+        <item>つまみ爪?</item>
+        <item>暴徒</item>
+        <item>非 ityAdsVideoCache</item>
+        <item>アルブムサンブ?</item>
+        <item>LOST.DIR</item>
+        <item>. ごみ箱</item>
+        <item>desktop.ini</item>
+        <item>リーカナリー</item>
+        <item>.DS_Store</item>
+        <item>.スポットライト V100</item>
+        <item>f7 tsd</item>
+        <item>バグ・レポート</item>
+        <item>ブグレーポート</item>
+        <item>. ごみ箱</item>
+        <item>キャッシュ</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>エキスポ</item>
+        <item>親指?.db</item>
+    </string-array>
+</resources>

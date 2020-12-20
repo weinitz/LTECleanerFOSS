@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Hunter J Drum
+  -->
+<resources>
+    <string name="app_name">LTE 세척기</string>
+    <string name="lte_cleaner">LTE 청소부!</string>
+    <string name="no_files_found">파일이 없음</string>
+    <string name="delete_empty_folders">빈 폴더 삭제하기</string>
+    <string name="aggressive_filter">공격적 필터 사용</string>
+    <string name="Save">저장</string>
+    <string name="filter">필터</string>
+    <string name="whitelist">화이트리스트</string>
+    <string name="privacy_policy">개인정보 보호정책</string>
+    <string name="add_to_whitelist">화이트리스트에 추가</string>
+    <string name="add">추가</string>
+    <string name="cancel">취소</string>
+    <string name="enter_file_name">화이트리스트에 파일/폴더 이름을 입력하십시오.</string>
+    <string name="make_suggestion">제안 작성</string>
+    <string name="select_task">작업 선택하기</string>
+    <string name="do_you_want_to">찾은 모든 파일을 삭제 (정리) 하거나 표시 (분석) 하시겠습니까?</string>
+    <string name="clean">깨끗한</string>
+    <string name="analyze">분석하기</string>
+    <string name="enable_generic_filter">일반 필터 사용</string>
+    <string name="one_click_clean">한 번 클릭하기</string>
+    <string name="freed">프라이드: </string>
+    <string name="found">실측치: </string>
+    <string name="auto_whitelist">자동 화이트리스트</string>
+    <string name="reset_whitelist">비어 있는 화이트리스트?</string>
+    <string name="are_you_reset_whitelist">화이트리스트를 지우시겠습니까?</string>
+    <string name="reset">지우기</string>
+    <string name="delete_apk_files">.apk 파일 삭제하기</string>
+    <string name="lte_threading">LTE 스레딩 (Faster)</string>
+    <string name="default_whitelist">기본 화이트리스트</string>
+    <string name="add_defaults">권장 화이트리스트 추가</string>
+    <string name="nothing_found">찾은 것이</string>
+    <string name="status_idle">상태: 유휴</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">상태: 실행 중</string>
+    <string name="privacy_sum">개인정보 보호 정책 보기 (외부 링크)</string>
+    <string name="whitelist_sum">스캔에서 제외할 경로를 표시합니다.</string>
+    <string name="suggestion_sum">앱에서 GitHub 에서 문제를 연다. 필요한 계정이 없음</string>
+    <string name="generic_sum">.tmp, .log, 로그, 로그</string>
+    <string name="aggressive_sum">여기에 나열하기에 너무 많음</string>
+    <string name="apk_sum">안드로이드용 설치 프로그램 파일</string>
+    <string name="oneclick_sum">정리를 클릭할 때 대화 상자 메뉴가 없음</string>
+    <string name="autowhite_sum">자동으로 보호해야 하는 폴더 발견</string>
+    <string name="prompt_string">파일 액세스 권한을 추가하십시오.</string>
+    <string name="settings_string">설정</string>
+    <string name="hello_blank_fragment">공백 단편</string>
+    <string name="title_activity_prompt">프롬프트 액티비티</string>
+    <string name="corpse_summary">설치 제거된 앱에서 남겨진 파일</string>
+    <string name="corpse_title">시체 파일 삭제하기</string>
+    <string name="donate">기부하다</string>
+    <string name="donate_sum">커피를 사세요! 아니면 이 앱을 계속 지원할 수 있도록 페이팔을 사용하여 기부할 금액을 선택하십시오.</string>
+    <string-array name="generic_filter_files">
+        <item>.tmp</item>
+        <item>.log</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>로그</item>
+        <item>통나무</item>
+        <item>임시</item>
+        <item>임시</item>
+        <item>임시</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="aggressive_filter_folders">
+        <item>초음속 초음속</item>
+        <item>캐시</item>
+        <item>분석</item>
+        <item>손톱니?</item>
+        <item>군중</item>
+        <item>UnityAdsVideoCache</item>
+        <item>알부민스?</item>
+        <item>LOST.DIR</item>
+        <item>.휴지통</item>
+        <item>데스크톱.ini</item>
+        <item>새는 것</item>
+        <item>.DS_Store</item>
+        <item>.각광받는 V100</item>
+        <item>광의의</item>
+        <item>Bug리포트</item>
+        <item>부글부글</item>
+        <item>.휴지통</item>
+        <item>캐시</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>엄지손가락? .db</item>
+    </string-array>
+</resources>

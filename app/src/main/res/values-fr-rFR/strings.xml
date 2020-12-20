@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Hunter J Drum
+  -->
+<resources>
+    <string name="app_name">Nettoyeur LTE</string>
+    <string name="lte_cleaner">LTE Cleaner !</string>
+    <string name="no_files_found">Aucun fichier trouvé</string>
+    <string name="delete_empty_folders">Supprimer les dossiers vides</string>
+    <string name="aggressive_filter">Activer le filtre agressif</string>
+    <string name="Save">Sauvegarder</string>
+    <string name="filter">Filtrer</string>
+    <string name="whitelist">Liste blanche</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="add_to_whitelist">Ajouter à la liste blanche</string>
+    <string name="add">Ajouter</string>
+    <string name="cancel">Annuler</string>
+    <string name="enter_file_name">Entrez le nom du fichier / dossier à la liste blanche</string>
+    <string name="make_suggestion">Faire des suggestions</string>
+    <string name="select_task">Sélectionner une tâche</string>
+    <string name="do_you_want_to">Voulez-vous supprimer (Nettoyer) tous les fichiers trouvés ou afficher uniquement (Analyser) les fichiers?</string>
+    <string name="clean">Nettoyer</string>
+    <string name="analyze">Analyser</string>
+    <string name="enable_generic_filter">Activer le filtre générique</string>
+    <string name="one_click_clean">Un clic sur le nettoyage</string>
+    <string name="freed">Freed: </string>
+    <string name="found">Trouvé: </string>
+    <string name="auto_whitelist">Liste blanche automatique</string>
+    <string name="reset_whitelist">Liste blanche vide?</string>
+    <string name="are_you_reset_whitelist">Etes-vous sûr de vouloir effacer la liste blanche?</string>
+    <string name="reset">Effacer</string>
+    <string name="delete_apk_files">Supprimer les fichiers .apk</string>
+    <string name="lte_threading">Threading LTE (Faster)</string>
+    <string name="default_whitelist">Liste blanche par défaut</string>
+    <string name="add_defaults">Ajouter les listes de Whitelists recommandées</string>
+    <string name="nothing_found">Rien trouvé</string>
+    <string name="status_idle">Etat: Inactif</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">Etat: En cours d\'exécution</string>
+    <string name="privacy_sum">Afficher la règle de confidentialité (lien externe)</string>
+    <string name="whitelist_sum">Affiche les chemins d\'exclusion des analyses</string>
+    <string name="suggestion_sum">Ouvrez une question sur GitHub à partir de l\'application. Aucun compte requis</string>
+    <string name="generic_sum">.tmp, .log, journaux, journaux</string>
+    <string name="aggressive_sum">Trop de listes ici</string>
+    <string name="apk_sum">Fichiers du programme d\'installation pour android</string>
+    <string name="oneclick_sum">Aucun menu ne s\'affiche lorsque vous cliquez sur Nettoyer</string>
+    <string name="autowhite_sum">Détecter les dossiers qui doivent être protégés automatiquement</string>
+    <string name="prompt_string">Veuillez ajouter des droits d\'accès aux fichiers</string>
+    <string name="settings_string">Paramètres</string>
+    <string name="hello_blank_fragment">Fragment vierge Hello</string>
+    <string name="title_activity_prompt">Activité PromptActivité</string>
+    <string name="corpse_summary">Fichiers laissés par les applications non installées</string>
+    <string name="corpse_title">Supprimer les fichiers de dépouille</string>
+    <string name="donate">Donate</string>
+    <string name="donate_sum">Achète-moi un café ! Ou choisissez le montant à donner à l\'aide de PayPal afin que je puisse continuer à soutenir cette application</string>
+    <string-array name="generic_filter_files">
+        <item>.tmp</item>
+        <item>.log</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>Journaux</item>
+        <item>Journaux</item>
+        <item>Temp</item>
+        <item>Temporaire</item>
+        <item>Temporaire</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="aggressive_filter_folders">
+        <item>Supersoniques</item>
+        <item>Cache</item>
+        <item>Analyse</item>
+        <item>Des miniatures?</item>
+        <item>Mobvista</item>
+        <item>UnityAdsVideoCache</item>
+        <item>Albumthumbs?</item>
+        <item>RÉP_INSTALL</item>
+        <item>.Trash</item>
+        <item>Desktop.ini</item>
+        <item>Fuites</item>
+        <item>.DS_Store</item>
+        <item>.spotlight V100</item>
+        <item>Fdix-sept</item>
+        <item>Rapport de suivi</item>
+        <item>Ports de port</item>
+        <item>.Trash</item>
+        <item>Cache</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>Pouces? .db</item>
+    </string-array>
+</resources>
