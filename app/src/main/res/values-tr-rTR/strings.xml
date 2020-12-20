@@ -3,90 +3,90 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
+    <string name="app_name">LTE Temizleyici</string>
     <string name="lte_cleaner">LTE Cleaner!</string>
-    <string name="no_files_found">No files found</string>
-    <string name="delete_empty_folders">Delete empty folders</string>
-    <string name="aggressive_filter">Enable aggressive filter</string>
-    <string name="Save">Save</string>
-    <string name="filter">Filter</string>
-    <string name="whitelist">Whitelist</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="add_to_whitelist">Add to whitelist</string>
-    <string name="add">Add</string>
-    <string name="cancel">Cancel</string>
-    <string name="enter_file_name">Enter file/folder name to whitelist</string>
-    <string name="make_suggestion">Make Suggestion</string>
-    <string name="select_task">Select a task</string>
-    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
-    <string name="clean">Clean</string>
-    <string name="analyze">Analyze</string>
-    <string name="enable_generic_filter">Enable generic filter</string>
-    <string name="one_click_clean">One click clean</string>
-    <string name="freed">Freed: </string>
-    <string name="found">Found: </string>
-    <string name="auto_whitelist">Auto Whitelist</string>
-    <string name="reset_whitelist">Empty whitelist?</string>
-    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
-    <string name="reset">Clear</string>
-    <string name="delete_apk_files">Delete .apk files</string>
-    <string name="lte_threading">LTE Threading (Faster)</string>
-    <string name="default_whitelist">Default Whitelist</string>
-    <string name="add_defaults">Add Recommended Whitelists</string>
-    <string name="nothing_found">Nothing found</string>
-    <string name="status_idle">Status: Idle</string>
-    <string name="progress_0">0%</string>
-    <string name="status_running">Status: Running</string>
-    <string name="privacy_sum">View the privacy policy (external link)</string>
-    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
-    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
-    <string name="apk_sum">Installer files for android</string>
-    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
-    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
-    <string name="prompt_string">Please add file access permissions</string>
-    <string name="settings_string">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_summary">Files left over from uninstalled apps</string>
-    <string name="corpse_title">Delete corpse files</string>
-    <string name="donate">Donate</string>
-    <string name="donate_sum">Buy me a Coffee! Or choose how much to donate using PayPal so I can keep supporting this app</string>
+    <string name="no_files_found">Dosya bulunamadı</string>
+    <string name="delete_empty_folders">Boş klasörleri sil</string>
+    <string name="aggressive_filter">Agresif süzgeci etkinleştir</string>
+    <string name="Save">Kaydet</string>
+    <string name="filter">Süzgeç Uygula</string>
+    <string name="whitelist">Beyaz Liste</string>
+    <string name="privacy_policy">Gizlilik İlkesi</string>
+    <string name="add_to_whitelist">Beyaz listeye ekle</string>
+    <string name="add">Ekle</string>
+    <string name="cancel">İptal</string>
+    <string name="enter_file_name">Dosya/klasör adını beyaz listeye girin</string>
+    <string name="make_suggestion">Öneri yap</string>
+    <string name="select_task">Bir görev seçin</string>
+    <string name="do_you_want_to">Bulunan tüm dosyaları silmek (Temizle) ya da yalnızca görüntülemek (Çözümle) silmek istiyor musunuz?</string>
+    <string name="clean">Temizle</string>
+    <string name="analyze">Çözümle</string>
+    <string name="enable_generic_filter">Soysal süzgeci etkinleştir</string>
+    <string name="one_click_clean">Bir tık tık</string>
+    <string name="freed">Serbest bırakıldı: </string>
+    <string name="found">Bulunan: </string>
+    <string name="auto_whitelist">Otomatik Beyaz Liste</string>
+    <string name="reset_whitelist">Boş beyaz liste mi?</string>
+    <string name="are_you_reset_whitelist">Beyaz listeyi temizlemek istediğinizden emin misiniz?</string>
+    <string name="reset">Temizle</string>
+    <string name="delete_apk_files">.apk dosyalarını sil</string>
+    <string name="lte_threading">LTE Threading (Daha Hızlı)</string>
+    <string name="default_whitelist">Varsayılan Beyaz Liste</string>
+    <string name="add_defaults">Önerilen Whitelists Ekle</string>
+    <string name="nothing_found">Hiçbir şey bulunamadı</string>
+    <string name="status_idle">Durum: Boşta</string>
+    <string name="progress_0">%0</string>
+    <string name="status_running">Durum: Çalışıyor</string>
+    <string name="privacy_sum">Gizlilik ilkesini görüntüle (dış bağlantı)</string>
+    <string name="whitelist_sum">Taramalardan dışlanacak yolları gösterir</string>
+    <string name="suggestion_sum">Uygulamadaki GitHub \'da bir sorunu açın. Hesap gerekli değil</string>
+    <string name="generic_sum">.tmp, .log, Günlükler, günlükler</string>
+    <string name="aggressive_sum">Burada listelemek için çok fazla</string>
+    <string name="apk_sum">android için kuruluş programı dosyaları</string>
+    <string name="oneclick_sum">Temizle düğmesini tıklattığınızda iletişim kutusu menüsü yok</string>
+    <string name="autowhite_sum">Otomatik olarak korunması gereken klasörleri sapta</string>
+    <string name="prompt_string">Lütfen dosya erişimi izinlerini ekleyin</string>
+    <string name="settings_string">Ayarlar</string>
+    <string name="hello_blank_fragment">Merhaba boş parça</string>
+    <string name="title_activity_prompt">Etkinlik PromptEtkinliği</string>
+    <string name="corpse_summary">Kaldırılan uygulamalardan kalan dosyalar</string>
+    <string name="corpse_title">Ceset dosyalarını sil</string>
+    <string name="donate">Bağışta</string>
+    <string name="donate_sum">Bana bir kahve ısmarla! Veya PayPal kullanarak bu uygulamayı desteklemeye devam edebilmem için ne kadar bağışta bulunacağımı seçin</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
     </string-array>
     <string-array name="generic_filter_folders">
-        <item>Logs</item>
-        <item>logs</item>
-        <item>temp</item>
-        <item>Temporary</item>
-        <item>temporary</item>
+        <item>Günlükler</item>
+        <item>günlükler</item>
+        <item>geçici</item>
+        <item>Geçici</item>
+        <item>geçici</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="aggressive_filter_folders">
-        <item>supersonicads</item>
-        <item>Cache</item>
-        <item>Analytics</item>
-        <item>thumbnails?</item>
+        <item>supersonicas</item>
+        <item>Önbellek</item>
+        <item>Analitik</item>
+        <item>küçük resimler?</item>
         <item>mobvista</item>
         <item>UnityAdsVideoCache</item>
-        <item>albumthumbs?</item>
-        <item>LOST.DIR</item>
-        <item>.Trash</item>
+        <item>Baş parmak mı?</item>
+        <item>KAYDıR.DIR</item>
+        <item>.Çöp Kutusu</item>
         <item>desktop.ini</item>
-        <item>leakcanary</item>
-        <item>.DS_Store</item>
-        <item>.spotlight-V100</item>
+        <item>kurşunkanarya</item>
+        <item>.DS_Mağaza</item>
+        <item>.SpotışıkV100</item>
         <item>fseventsd</item>
         <item>Bugreport</item>
         <item>bugreports</item>
-        <item>.Trash</item>
-        <item>cache</item>
+        <item>.Çöp Kutusu</item>
+        <item>önbellek</item>
     </string-array>
     <string-array name="aggressive_filter_files">
         <item>.exo</item>
-        <item>thumbs?.db</item>
+        <item>başparmak? .db</item>
     </string-array>
 </resources>
