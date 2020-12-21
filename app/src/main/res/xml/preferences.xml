@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Settings" android:key="settings">
+
+<!--
+  ~ Copyright 2020 Hunter J Drum
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="Settings"
+    android:key="settings"
+    app:iconSpaceReserved="false">
+
+    <Preference android:title="@string/donate"
+        android:key="donate"
+        app:iconSpaceReserved="false"
+        android:summary="@string/donate_sum">
+        <intent android:action="android.intent.action.VIEW"
+            android:data="https://www.paypal.me/theredspy15" />
+    </Preference>
 
     <Preference android:title="@string/privacy_policy"
         android:key="privacyPolicy"
+        app:iconSpaceReserved="false"
         android:summary="@string/privacy_sum">
         <intent android:action="android.intent.action.VIEW"
             android:data="https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html" />
@@ -10,6 +28,7 @@
 
     <Preference android:title="@string/whitelist"
         android:key="whitelist"
+        app:iconSpaceReserved="false"
         android:summary="@string/whitelist_sum">
         <intent
             android:action="android.intent.action.VIEW"
@@ -19,6 +38,7 @@
 
     <Preference android:title="@string/make_suggestion"
         android:key="suggestion"
+        app:iconSpaceReserved="false"
         android:summary="@string/suggestion_sum">
         <intent
             android:action="android.intent.action.VIEW"
@@ -26,8 +46,9 @@
             android:targetClass="com.package.name.ActivityName" />
     </Preference>
 
-    <PreferenceCategory android:title="Filters">
+    <PreferenceCategory android:title="Filters" app:iconSpaceReserved="false">
         <CheckBoxPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:textColor="#FFF"
             android:key="generic"
@@ -35,6 +56,7 @@
             android:summary="@string/generic_sum"
             android:title="@string/enable_generic_filter" />
         <CheckBoxPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:textColor="#FFF"
             android:key="aggressive"
@@ -42,12 +64,22 @@
             android:summary="@string/aggressive_sum"
             android:title="@string/aggressive_filter" />
         <CheckBoxPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:textColor="#FFF"
             android:key="empty"
             android:persistent="true"
             android:title="@string/delete_empty_folders" />
         <CheckBoxPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"
+            android:textColor="#FFF"
+            android:key="corpse"
+            android:persistent="true"
+            android:summary="@string/corpse_summary"
+            android:title="@string/corpse_title" />
+        <CheckBoxPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:textColor="#FFF"
             android:key="apk"
@@ -55,13 +87,7 @@
             android:summary="@string/apk_sum"
             android:title="@string/delete_apk_files" />
         <CheckBoxPreference
-            android:defaultValue="false"
-            android:textColor="#FFF"
-            android:key="one_click"
-            android:persistent="true"
-            android:summary="@string/oneclick_sum"
-            android:title="@string/one_click_clean" />
-        <CheckBoxPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:textColor="#FFF"
             android:key="auto_white"
@@ -69,4 +95,16 @@
             android:summary="@string/autowhite_sum"
             android:title="@string/auto_whitelist" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="Miscellaneous" app:iconSpaceReserved="false">
+        <CheckBoxPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"
+            android:textColor="#FFF"
+            android:key="one_click"
+            android:persistent="true"
+            android:summary="@string/oneclick_sum"
+            android:title="@string/one_click_clean" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

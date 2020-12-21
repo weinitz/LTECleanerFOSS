@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Hunter J Drum
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="theredspy15.ltecleanerfoss">
@@ -18,16 +22,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".PromptActivity"
+            android:name="theredspy15.ltecleanerfoss.PromptActivity"
             android:label="@string/title_activity_prompt"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".WhitelistActivity"
-            android:parentActivityName=".SettingsActivity"
+            android:name="theredspy15.ltecleanerfoss.WhitelistActivity"
+            android:parentActivityName="theredspy15.ltecleanerfoss.SettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SettingsTheme" />
         <activity
-            android:name=".MainActivity"
+            android:name="theredspy15.ltecleanerfoss.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,8 +40,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
-            android:parentActivityName=".MainActivity"
+            android:name="theredspy15.ltecleanerfoss.SettingsActivity"
+            android:parentActivityName="theredspy15.ltecleanerfoss.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SettingsTheme" />
     </application>

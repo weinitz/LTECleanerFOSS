@@ -1,3 +1,7 @@
+/*
+ * Copyright 2020 Hunter J Drum
+ */
+
 package theredspy15.ltecleanerfoss;
 
 import android.content.Intent;

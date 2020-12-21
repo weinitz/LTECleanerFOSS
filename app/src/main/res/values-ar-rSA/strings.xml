@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Hunter J Drum
+  -->
+<resources>
+    <string name="app_name">Cleaner Cleaner</string>
+    <string name="lte_cleaner">Cleaner Cleaner !</string>
+    <string name="no_files_found">لم يتم ايجاد ملفات</string>
+    <string name="delete_empty_folders">حذف حافظات خالية</string>
+    <string name="aggressive_filter">اتاحة مرشح البيانات العدواني</string>
+    <string name="Save">حفظ</string>
+    <string name="filter">مرشح البيانات</string>
+    <string name="whitelist">ويتلي</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="add_to_whitelist">اضافة الى مبيض</string>
+    <string name="add">اضافة</string>
+    <string name="cancel">الغاء</string>
+    <string name="enter_file_name">أدخل اسم الملف / الحافظة للبيض</string>
+    <string name="make_suggestion">جعل الاقتراح</string>
+    <string name="select_task">تحديد مهمة</string>
+    <string name="do_you_want_to">هل ترغب في حذف (تنظيف) كل الملفات التي تم ايجادها ، أو قم بعرض (تحليل) هذه الملفات فقط ؟</string>
+    <string name="clean">تنظيف</string>
+    <string name="analyze">تحليل</string>
+    <string name="enable_generic_filter">اتاحة مرشح بيانات عام</string>
+    <string name="one_click_clean">واحدة نقرة نظيفة</string>
+    <string name="freed">تم اخلائه : </string>
+    <string name="found">تم ايجاد : </string>
+    <string name="auto_whitelist">ويتلي آلي</string>
+    <string name="reset_whitelist">أبيض فارغ ؟</string>
+    <string name="are_you_reset_whitelist">هل أنت متأكد من أنك تريد أن توضح \"بيeliيست\" ؟</string>
+    <string name="reset">محو</string>
+    <string name="delete_apk_files">حذف ملفات .apk</string>
+    <string name="lte_threading">LTE Threading (أسرع)</string>
+    <string name="default_whitelist">ويتلي الافتراضي</string>
+    <string name="add_defaults">اضافة Witeels الموصى بها</string>
+    <string name="nothing_found">لم يتم ايجاد شيء</string>
+    <string name="status_idle">الحالة : غير فعال</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">الحالة : تشغيل</string>
+    <string name="privacy_sum">مشاهدة سياسة السرية (وصلة خارجية)</string>
+    <string name="whitelist_sum">يعرض المسارات التي سيتم استبعادها من عمليات المسح</string>
+    <string name="suggestion_sum">قم بفتح مشكلة في GitHub من التطبيق. لا حاجة للحساب</string>
+    <string name="generic_sum">.tmp, .log, Logs, logs</string>
+    <string name="aggressive_sum">يوجد الكثير ليتم عرضه هنا</string>
+    <string name="apk_sum">ملفات برنامج التركيب للروبوت</string>
+    <string name="oneclick_sum">لا توجد قائمة حوار عند الضغط على الاختيار اعادة تنظيم</string>
+    <string name="autowhite_sum">اكتشاف الحافظات التي يجب حمايتها آليا</string>
+    <string name="prompt_string">برجاء اضافة تصاريح التوصل للملفات</string>
+    <string name="settings_string">المحددات</string>
+    <string name="hello_blank_fragment">مرحبا مقطع فارغ</string>
+    <string name="title_activity_prompt">رسالة حث</string>
+    <string name="corpse_summary">الملفات التي تم تركها من التطبيقات التي لم يتم تركيبها</string>
+    <string name="corpse_title">حذف ملفات الجثث</string>
+    <string name="donate">التبرع</string>
+    <string name="donate_sum">إشتري لي قهوة أو اختيار مقدار التبرع باستخدام PayPal بحيث يمكنني الاستمرار في دعم هذا التطبيق</string>
+    <string-array name="generic_filter_files">
+        <item>.tmp</item>
+        <item>gol.</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>السجلات</item>
+        <item>سجلات</item>
+        <item>مؤقت</item>
+        <item>مؤقت</item>
+        <item>مؤقت</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="aggressive_filter_folders">
+        <item>supersons</item>
+        <item>الذاكرة الوسيطة</item>
+        <item>تحليلات</item>
+        <item>الأظافر ؟</item>
+        <item>mيغني musta</item>
+        <item>UnityAdmeVideCache</item>
+        <item>sumbthumbs ؟</item>
+        <item>LOST.DIR</item>
+        <item>hTrash</item>
+        <item>desktop.ini</item>
+        <item>التسرب</item>
+        <item>.DS_Store</item>
+        <item>.V100.</item>
+        <item>vseventsd</item>
+        <item>تقرير Bugreport</item>
+        <item>عمليات bugالتقارير</item>
+        <item>hTrash</item>
+        <item>ذاكرة وسيطة</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>thumbs ؟ .db</item>
+    </string-array>
+</resources>
